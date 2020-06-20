@@ -25,7 +25,7 @@ function registrarUsuario(req, res) {
       usuario.save((err, usuarioNuevo) => {
         if (err) {
           res.status(500).send({
-            message: "Error al registrar usuario,  validaciones no exitosas",
+            message: "Error al registrar usuario, validaciones no exitosas",
           });
         } else if (!usuarioNuevo) {
           res.status(200).send({
@@ -41,6 +41,22 @@ function registrarUsuario(req, res) {
   });
 }
 
+// Funcion para realizar un login de usuario
+function loginUsuario(req, res) {
+  const { correo, contrasena } = req.body;
+  Usuario.findOne({ correo: correo }, (err, usuarioRegistrado) => {
+    if (err) res.status(500).send({ mensaje: "Error al realizar login" });
+    else if (!usuarioRegistrado)
+      res.status(200).send({ mensaje: "Usuario inexistente" });
+    else if (usuarioRegistrado.contrasena === contrasena)
+      res
+        .status(200)
+        .send({ mensaje: "Usuario logueado", usuario: usuarioRegistrado });
+    else res.status(200).send({ mensaje: "Contraseña invalida" });
+  });
+}
+
 module.exports = {
   registrarUsuario,
+  loginUsuario,
 };
