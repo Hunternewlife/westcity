@@ -31,12 +31,12 @@ const UsuarioSchema = new Schema({
   suscripcion: {
     type: String,
     required: true,
-    enum: ["sheriff", "pistolero"];
+    enum: ["sheriff", "pistolero"],
   },
   estado: {
     type: String,
     default: "activo",
-    enum: ["activo", "inactivo"]
+    enum: ["activo", "inactivo"],
   },
   imagen: {
     type: String,
@@ -45,7 +45,7 @@ const UsuarioSchema = new Schema({
   rol: {
     type: String,
     default: "usuario",
-    enum: ["usuario", "admin"]
+    enum: ["usuario", "admin"],
   },
 });
 
