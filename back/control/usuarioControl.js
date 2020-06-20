@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Funcion generica para crear un nuevo documento de usuario
-function crearUsuario(req, res) {
+function registrarUsuario(req, res) {
   // Utilizar `object destructuring` para mantener el codigo conciso
   const usuario = new Usuario({ ...req.body });
 
@@ -22,3 +22,7 @@ function crearUsuario(req, res) {
     }
   });
 }
+
+module.exports = {
+  registrarUsuario,
+};
