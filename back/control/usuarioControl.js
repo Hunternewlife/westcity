@@ -11,12 +11,12 @@ function registrarUsuario(req, res) {
 
   usuario.save((err, usuarioNuevo) => {
     if (err) {
-      res.status(500).send({ message: "Error en el servidor" });
+      res.status(500).send({ message: "Error al registrar usuario" });
     } else if (!usuarioNuevo) {
       res.status(200).send({ message: "No fue posible registrar el usuario" });
     } else {
       res.status(200).send({
-        message: "Usuario creado",
+        message: "Usuario registrado",
         usuario: usuarioNuevo,
       });
     }
