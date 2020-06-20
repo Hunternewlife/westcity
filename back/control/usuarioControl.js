@@ -56,7 +56,43 @@ function loginUsuario(req, res) {
   });
 }
 
+// Funcion generica para actualizar un usuario
+function actualizarUsuario(req, res) {
+  // Validacion de correo
+  const { correo } = req.body;
+  const _id = req.params.id;
+
+  Usuario.findOne({ correo: correo.toLowerCase() }, (err, usuarioRegistrado) => {
+    if (err) res.status(500).send({ mensaje: "Error al actualizar usuario" });
+    // Solo el usuario a actualizar deberia tener el mismo correo
+    else if (usuarioRegistrado && usuarioRegistrado.id != _id)
+      res.status(200).send({ mensaje: "Error, el correo ya esta registrado" });
+    else {
+      // Igualmente, ejecutar las validaciones
+      const opts = { runValidators: true };
+      Usuario.findByIdAndUpdate(
+        _id,
+        { ...req.body },
+        opts,
+        (err, usuarioActualizar) => {
+          if (err)
+            res.status(500).send({ mensaje: "Error al actualizar el usuario" });
+          else if (!usuarioActualizar)
+            res.status(200).send({ mensaje: "No se ha encontrado el usuario" });
+          else
+            res.status(200).send({
+              mensaje: "Operacion de actualizacion exitosa",
+              // Aqui el usuario retornado no es el usuario actualizado
+              // usuario: usuarioActualizar,
+            });
+        }
+      );
+    }
+  });
+}
+
 module.exports = {
   registrarUsuario,
   loginUsuario,
+  actualizarUsuario,
 };
