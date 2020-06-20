@@ -6,7 +6,7 @@ const port = 3000;
 
 mongoose.connect(
   "mongodb://localhost:27017/westcity",
-  { useNewUrlParser: true },
+  { useNewUrlParser: true, useUnifiedTopology: true },
   (err, res) => {
     if (err) {
       console.log(`Error de conexion a base de datos ${err}!`);
