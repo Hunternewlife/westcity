@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 // Middleware para rutas de usuario
-app.use("/api", usuarioRutas);
+app.use("/api/usuario", usuarioRutas);
 
 // Fin de middlewares
 
