@@ -1,10 +1,10 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-const cors = require('cors');
+const cors = require("cors");
 
 // Rutas de la aplicacion
-const usuarioRutas = require('./rutas/usuarioRutas');
+const usuarioRutas = require("./rutas/usuarioRutas");
 
 // Fin de rutas
 
@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 // Middleware para rutas de usuario
-app.use('/api', usuarioRutas);
+app.use("/api", usuarioRutas);
 
 // Fin de middlewares
 
