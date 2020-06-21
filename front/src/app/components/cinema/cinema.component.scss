@@ -2,6 +2,38 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: oswald;
 }
 
-
+.banner{
+    height: 100vh;
+    width: 100vw;
+    
+    
+}
+.slide1{
+    background-image: url(../../../assets/images/fondos/wall1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titulo{
+    color: #fffd62;
+    font-size: 110px;
+    font-family: durango;
+    letter-spacing: 5px;
+    position: relative;
+    top: 250px;
+}
+.leyenda{
+    color: #f4f6ff;
+    font-family: durango;
+    letter-spacing: 5px;
+    font-size: 18px;
+    position: relative;
+    top: 140px;
+}
