@@ -26,5 +26,8 @@ api.put("/subir-img/:id", UsuarioControl.subirImg);
 // Ruta para obtener imagen de usuario
 api.get("/obtener-img/:nombreImg", UsuarioControl.mostrarImg);
 
+// Ruta para obtener todos los usuarios
+api.get("/obtener-usuarios", UsuarioControl.obtenerUsuarios);
+
 // Exportar el modulo
 module.exports = api;
