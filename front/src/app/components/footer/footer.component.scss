@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.recomendaciones{
+    background-image: url(../../../assets/images/fondos/mountain.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 262px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 45px;
+    color: #8c000c;
+    font-weight: bold;
+}
+.recomendaciones span{
+    color: #dadada;
+    cursor: pointer;
+}
+.general{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../assets/images/fondos/guns.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.container{
+    width: 60%;
+    display: flex;   
+    flex-direction: column; 
+}
+.top{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.item{
+    display: flex;    
+    align-items: center;
+    flex-direction: column;
+}
+.titulo{
+    color: #8c000c;
+    font-family: durango;
+    letter-spacing: 4px;
+    font-size: 30px;
+}
+.lista{
+    font-family: oswald;
+    font-weight: 500;
+}
+.bot{
+    margin: 20px 0px;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    font-size: 16px;
+}
+@media screen and (max-width:978px){
+   .container{
+       width: 80%;
+   }
+}
+@media screen and (max-width:768px){
+    .recomendaciones{
+        font-size: 30px;
+    }
+    .container{
+        width: 100%;
+    }
+}
+@media screen and (max-width:595px){
+    .bot{
+        font-size: 10px;
+    }
+    .titulo{
+        font-size: 20px;
+        letter-spacing: 3px;
+    }
+    .item{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width:494px){
+    .recomendaciones{
+        font-size: 19px;
+    }
+}

@@ -74,7 +74,7 @@ nav{
     align-items: center;
     min-height: 8vh;
     background-color: #111111;
-    width: 20vw;
+    width: 23vw;
      top: 7vh;
      right: 0;
      clip-path: polygon(0 0, 100% 0, 100% 100%, 23% 100%);
@@ -115,6 +115,7 @@ nav{
     }
     .session{
         top: 7vh;
+        width: 33vw;
     }
     .sessionlinks{
         font-size: 16px;
@@ -124,7 +125,6 @@ nav{
 @media screen and (max-width:768px){
     .nav{
         overflow-x: hidden; 
-       
     }
     .navlinks{
         position: absolute;
