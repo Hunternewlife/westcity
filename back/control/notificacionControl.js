@@ -1,6 +1,21 @@
 const Notificacion = require('../modelo/notificacionCorreo');
 const nodemailer = require("nodemailer");
 const path = require('path');
+/* 
+    Se recibira una peticion que vendrá de la siguiente forma
+    {
+	"titulo" : "",
+	"tipo" :"",
+    "contenido" : [{"correoRcpt":""},{"subject":""},{"content":""}]
+
+    en donde, titulo, será el asunto del correo, 
+              tipo, será el tipo de mensaje a enviar,
+              contenido, este será un arreglo que en su primer posición traerá el correo del destinatario en el parametro 'correoRcpt'
+                         en la segunda posición tendrá el titulo del cuerpo del mensaje, y en su tercera posición traera un arreglo con el contenido 
+                         del mensaje, la información de esta posición cambiará de acuerdo al tipo de mensaje que se quiere enviar    
+  
+}
+*/
 
 function generarNotificacion(req,res){
     let hbs = require('nodemailer-express-handlebars');
@@ -8,8 +23,8 @@ function generarNotificacion(req,res){
         viewEngine : {
             extname: '.hbs', // handlebars extension
             defaultLayout: '',
-            layoutsDir: path.join(__dirname,'../views/templates/') , // location of handlebars templates
-            partialsDir: path.join(__dirname,'../views/templates/'), // location of your subtemplates aka. header, footer etc
+            layoutsDir: path.join(__dirname,'../views/templates/') , 
+            partialsDir: path.join(__dirname,'../views/templates/'), 
         },
         viewPath: path.join(__dirname,'../views/templates/'),
         extName: '.hbs'
@@ -36,9 +51,13 @@ function generarNotificacion(req,res){
             // Configuracion Mensaje
             mailOptions.from = 'westcitymovies@gmail.com';
             mailOptions.to = `${notificacion.contenido[0].correoRcpt}`;
-            mailOptions.subject = `${notificacion.contenido[1].subject}`;
-            mailOptions.text= `${notificacion.contenido[2].content}`
+            mailOptions.subject = `${notificacion.titulo}`;
             mailOptions.template= 'registro';
+            mailOptions.context = {
+                titulo :notificacion.contenido[1].subject,
+                usuario: notificacion.contenido[2].content
+
+            }
             console.log(mailOptions)
             //Enviar mensaje
             transporter.sendMail(mailOptions, (err, info)=>{
@@ -51,15 +70,52 @@ function generarNotificacion(req,res){
 
             
             break;
-    
+        case 'tiquetes':
+            // Configuracion Mensaje
+            mailOptions.from = 'westcitymovies@gmail.com';
+            mailOptions.to = `${notificacion.contenido[0].correoRcpt}`;
+            mailOptions.subject = `${notificacion.titulo}`;
+            mailOptions.template= 'tiquetes';
+            mailOptions.context = {
+                //titulo :notificacion.contenido[1].subject
+
+            }
+            console.log(mailOptions)
+            //Enviar mensaje
+            transporter.sendMail(mailOptions, (err, info)=>{
+                if(err){
+                    console.log('Error', err);
+                }else{
+                    console.log('Mensaje Enviado');
+                }
+            })
+
+            break;
+        case 'comidas':
+            // Configuracion Mensaje
+            mailOptions.from = 'westcitymovies@gmail.com';
+            mailOptions.to = `${notificacion.contenido[0].correoRcpt}`;
+            mailOptions.subject = `${notificacion.titulo}`;
+            mailOptions.template= 'compraComida';
+            mailOptions.context = {
+                //titulo :notificacion.contenido[1].subject
+
+            }
+            console.log(mailOptions)
+            //Enviar mensaje
+            transporter.sendMail(mailOptions, (err, info)=>{
+                if(err){
+                    console.log('Error', err);
+                }else{
+                    console.log('Mensaje Enviado');
+                }
+            })
+
+            break
         default:
             break;
     }
-    
 
-
-    //logica para enviar por correo el mensaje realizado 
-   
 }
 
 
