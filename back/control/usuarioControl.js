@@ -91,7 +91,7 @@ function actualizarUsuario(req, res) {
               res.status(200).send({
                 mensaje: "Operacion de actualizacion exitosa",
                 // Aqui el usuario retornado no es el usuario actualizado
-                // usuario: usuarioActualizar,
+                usuario: usuarioActualizar,
               });
           }
         );
@@ -129,16 +129,21 @@ function subirImg(req, res) {
       // Ruta destino
       destDir = path.resolve("./archivos/usuario");
 
+      // Crear folder (si no existe) funcion sincrona para evitar errores
+      const destDirCreado = fs.mkdirSync(destDir, { recursive: true });
+
       // Eliminar archivo actual (si existe)
       fs.unlink(`${destDir}/${usuarioRegistrado.imagen}`, () => {});
 
       // Mover el nuevo archivo
       let nombreArchivo = `${Date.now()}-${imagen.name}`;
       imagen.mv(`${destDir}/${nombreArchivo}`, (err) => {
-        if (err)
+        if (err) {
+          console.log(err);
           return res
             .status(500)
             .send({ mensaje: "No se ha podido guardar el archivo" });
+        }
         // Actualizar el usuario con nuevo nombre de imagen
         usuarioRegistrado.imagen = nombreArchivo;
         usuarioRegistrado.save((err, usuarioActualizado) => {
@@ -147,15 +152,25 @@ function subirImg(req, res) {
               .status(500)
               .send({ mensaje: "No se ha podido actualizar el usuario" });
 
-          res
-            .status(200)
-            .send({
-              mensaje: "Imagen subida correctamente",
-              usuario: usuarioActualizado,
-            });
+          res.status(200).send({
+            mensaje: "Imagen subida correctamente",
+            usuario: usuarioActualizado,
+          });
         });
       });
     }
+  });
+}
+
+// Funcion generica para retornar la imagen de un usuario
+function mostrarImg(req, res) {
+  const { nombreImg } = req.params;
+  const rutaArchivo = path.resolve(`./archivos/usuario/${nombreImg}`);
+  res.sendFile(rutaArchivo, (err) => {
+    if (err)
+      return res
+        .status(500)
+        .send({ mensaje: "Error al retornar archivo de imagen" });
   });
 }
 
@@ -164,4 +179,5 @@ module.exports = {
   loginUsuario,
   actualizarUsuario,
   subirImg,
+  mostrarImg,
 };
