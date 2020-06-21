@@ -2,7 +2,7 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 8vh;
+    max-height: 8vh;
     background-color: #111111;
      font-family: oswald;
      position: fixed;
@@ -74,7 +74,7 @@ nav{
     min-height: 8vh;
     background-color: #111111;
     width: 20vw;
-     top: 8vh;
+     top: 7vh;
      right: 0;
      clip-path: polygon(0 0, 100% 0, 100% 100%, 23% 100%);
 }
@@ -113,7 +113,7 @@ nav{
         font-size: 16px;
     }
     .session{
-        top: 9vh;
+        top: 7vh;
     }
     .sessionlinks{
         font-size: 16px;
@@ -127,8 +127,8 @@ nav{
     .navlinks{
         position: absolute;
         right: 0px;
-        height: 92vh;
-        top: 7vh;
+        height: 94vh;
+        top: 6vh;
         width: 100%;
         background-color: #111111;
         display: flex;
