@@ -23,5 +23,8 @@ api.put("/actualizar/:id", UsuarioControl.actualizarUsuario);
 // Ruta para subir imagen de usuario
 api.put("/subir-img/:id", UsuarioControl.subirImg);
 
+// Ruta para obtener imagen de usuario
+api.get("/obtener-img/:nombreImg", UsuarioControl.mostrarImg);
+
 // Exportar el modulo
 module.exports = api;
