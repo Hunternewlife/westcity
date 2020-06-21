@@ -1,8 +1,19 @@
 const Notificacion = require('../modelo/notificacionCorreo');
 const nodemailer = require("nodemailer");
+const path = require('path');
 
 function generarNotificacion(req,res){
     let hbs = require('nodemailer-express-handlebars');
+    let options = {
+        viewEngine : {
+            extname: '.hbs', // handlebars extension
+            defaultLayout: '',
+            layoutsDir: path.join(__dirname,'../views/templates/') , // location of handlebars templates
+            partialsDir: path.join(__dirname,'../views/templates/'), // location of your subtemplates aka. header, footer etc
+        },
+        viewPath: path.join(__dirname,'../views/templates/'),
+        extName: '.hbs'
+        };
 
     let transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -11,10 +22,7 @@ function generarNotificacion(req,res){
             pass: 'West123city'
         }
     });
-    transporter.use('compile',hbs({
-        viewEngine: 'express-handlebars',
-        viewPath: '../views/templates/'
-    }));
+    transporter.use('compile', hbs(options));
 
     const mailOptions={}
     let notificacion = new Notificacion();
@@ -31,6 +39,7 @@ function generarNotificacion(req,res){
             mailOptions.subject = `${notificacion.contenido[1].subject}`;
             mailOptions.text= `${notificacion.contenido[2].content}`
             mailOptions.template= 'registro';
+            console.log(mailOptions)
             //Enviar mensaje
             transporter.sendMail(mailOptions, (err, info)=>{
                 if(err){
@@ -50,10 +59,7 @@ function generarNotificacion(req,res){
 
 
     //logica para enviar por correo el mensaje realizado 
-    
-
-    console.log('not', notificacion);
-    console.log('not cont', notificacion.contenido);
+   
 }
 
 
