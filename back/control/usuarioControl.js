@@ -62,31 +62,99 @@ function actualizarUsuario(req, res) {
   const { correo } = req.body;
   const _id = req.params.id;
 
-  Usuario.findOne({ correo: correo.toLowerCase() }, (err, usuarioRegistrado) => {
-    if (err) res.status(500).send({ mensaje: "Error al actualizar usuario" });
-    // Solo el usuario a actualizar deberia tener el mismo correo
-    else if (usuarioRegistrado && usuarioRegistrado.id != _id)
-      res.status(200).send({ mensaje: "Error, el correo ya esta registrado" });
+  Usuario.findOne(
+    { correo: correo.toLowerCase() },
+    (err, usuarioRegistrado) => {
+      if (err) res.status(500).send({ mensaje: "Error al actualizar usuario" });
+      // Solo el usuario a actualizar deberia tener el mismo correo
+      else if (usuarioRegistrado && usuarioRegistrado.id != _id)
+        res
+          .status(200)
+          .send({ mensaje: "Error, el correo ya esta registrado" });
+      else {
+        // Igualmente, ejecutar las validaciones
+        const opts = { runValidators: true };
+        Usuario.findByIdAndUpdate(
+          _id,
+          { ...req.body },
+          opts,
+          (err, usuarioActualizar) => {
+            if (err)
+              res
+                .status(500)
+                .send({ mensaje: "Error al actualizar el usuario" });
+            else if (!usuarioActualizar)
+              res
+                .status(200)
+                .send({ mensaje: "No se ha encontrado el usuario" });
+            else
+              res.status(200).send({
+                mensaje: "Operacion de actualizacion exitosa",
+                // Aqui el usuario retornado no es el usuario actualizado
+                // usuario: usuarioActualizar,
+              });
+          }
+        );
+      }
+    }
+  );
+}
+
+// Funcion generica para subir la imagen de un usuario
+function subirImg(req, res) {
+  const _id = req.params.id;
+  // Validaciones
+  if (!req.files || Object.keys(req.files).length === 0)
+    return res.status(200).send({ mensaje: "No ha enviado archivo de imagen" });
+
+  Usuario.findById(_id, (err, usuarioRegistrado) => {
+    if (err)
+      res.status(500).send({ mensaje: "Error al intentar subir la imagen" });
+    else if (!usuarioRegistrado)
+      res
+        .status(200)
+        .send({ mensaje: "No se puede subir la imagen (usuario inexistente)" });
     else {
-      // Igualmente, ejecutar las validaciones
-      const opts = { runValidators: true };
-      Usuario.findByIdAndUpdate(
-        _id,
-        { ...req.body },
-        opts,
-        (err, usuarioActualizar) => {
+      // Objeto con informacion del archivo subido, (el nombre del input)
+      // en frontend tiene que ser `imagen`
+      const { imagen } = req.files;
+
+      // Aceptar solo jpg y png
+      const imgType = imagen.mimetype.split("/")[1];
+      if (imgType !== "png" && imgType !== "jpeg")
+        return res
+          .status(200)
+          .send({ mensaje: "Tipo de archivo no soportado" });
+
+      // Ruta destino
+      destDir = path.resolve("./archivos/usuario");
+
+      // Eliminar archivo actual (si existe)
+      fs.unlink(`${destDir}/${usuarioRegistrado.imagen}`, () => {});
+
+      // Mover el nuevo archivo
+      let nombreArchivo = `${Date.now()}-${imagen.name}`;
+      imagen.mv(`${destDir}/${nombreArchivo}`, (err) => {
+        if (err)
+          return res
+            .status(500)
+            .send({ mensaje: "No se ha podido guardar el archivo" });
+        // Actualizar el usuario con nuevo nombre de imagen
+        usuarioRegistrado.imagen = nombreArchivo;
+        usuarioRegistrado.save((err, usuarioActualizado) => {
           if (err)
-            res.status(500).send({ mensaje: "Error al actualizar el usuario" });
-          else if (!usuarioActualizar)
-            res.status(200).send({ mensaje: "No se ha encontrado el usuario" });
-          else
-            res.status(200).send({
-              mensaje: "Operacion de actualizacion exitosa",
-              // Aqui el usuario retornado no es el usuario actualizado
-              // usuario: usuarioActualizar,
+            return res
+              .status(500)
+              .send({ mensaje: "No se ha podido actualizar el usuario" });
+
+          res
+            .status(200)
+            .send({
+              mensaje: "Imagen subida correctamente",
+              usuario: usuarioActualizado,
             });
-        }
-      );
+        });
+      });
     }
   });
 }
@@ -95,4 +163,5 @@ module.exports = {
   registrarUsuario,
   loginUsuario,
   actualizarUsuario,
+  subirImg,
 };
