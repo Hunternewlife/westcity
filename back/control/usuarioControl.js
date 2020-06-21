@@ -174,10 +174,28 @@ function mostrarImg(req, res) {
   });
 }
 
+// Funcion generica para obtener todos los usuarios
+function obtenerUsuarios(req, res) {
+  Usuario.find({}, (err, usuarios) => {
+    if (err)
+      return res
+        .status(500)
+        .send({ mensaje: "No se han podido retornar los usuarios" });
+    if (!usuarios)
+      return res.status(200).send({ mensaje: "No se han encontrado usuarios" });
+
+    return res.status(200).send({
+      mensaje: "Consulta de usuarios exitosa",
+      usuarios: usuarios,
+    });
+  });
+}
+
 module.exports = {
   registrarUsuario,
   loginUsuario,
   actualizarUsuario,
   subirImg,
   mostrarImg,
+  obtenerUsuarios,
 };
