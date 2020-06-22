@@ -174,10 +174,55 @@ function mostrarImg(req, res) {
   });
 }
 
+// Funcion generica para obtener todos los usuarios
+function obtenerUsuarios(req, res) {
+  Usuario.find({}, (err, usuarios) => {
+    if (err)
+      return res
+        .status(500)
+        .send({ mensaje: "No se han podido retornar los usuarios" });
+    if (!usuarios)
+      return res.status(200).send({ mensaje: "No se han encontrado usuarios" });
+
+    return res.status(200).send({
+      mensaje: "Consulta de usuarios exitosa",
+      usuarios: usuarios,
+    });
+  });
+}
+
+// Funcion generica para eliminar un usuario
+function borrarUsuario(req, res) {
+  const { id } = req.params;
+  Usuario.findByIdAndDelete(id, (err, usuarioEliminado) => {
+    if (err)
+      return res
+        .status(500)
+        .send({ mensaje: "Error al intentar borrar el usuario" });
+    if (!usuarioEliminado)
+      return res
+        .status(200)
+        .send({ mensaje: "No se ha encontrado el usuario a eliminar" });
+
+    // Limpiar su archivo de imagen
+    const { imagen } = usuarioEliminado;
+    const rutaImagen = path.resolve(`./archivos/usuario/${imagen}`);
+    // Podria generar excepcion si el archivo no existe, no hay necesidad
+    // de gestionar esa excepcion
+    fs.unlink(path.resolve(rutaImagen), (err) => {});
+    return res.status(200).send({
+      mensaje: "Usuario eliminado correctamente",
+      usuario: usuarioEliminado,
+    });
+  });
+}
+
 module.exports = {
   registrarUsuario,
   loginUsuario,
   actualizarUsuario,
   subirImg,
   mostrarImg,
+  obtenerUsuarios,
+  borrarUsuario,
 };
