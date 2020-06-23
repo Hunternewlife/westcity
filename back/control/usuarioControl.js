@@ -7,7 +7,8 @@ const path = require("path");
 // Funcion generica para crear un nuevo documento de usuario
 function registrarUsuario(req, res) {
   // Utilizar `object destructuring` para mantener el codigo conciso
-  const usuario = new Usuario({ ...req.body });
+  const { _id, ...nuevoUsuario } = req.body;
+  const usuario = new Usuario(nuevoUsuario);
 
   // Es importante que el correo se encuentre normalizado para facilitar
   // validacion del mismo
