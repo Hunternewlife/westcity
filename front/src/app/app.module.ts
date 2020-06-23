@@ -21,6 +21,11 @@ import { ChatComponent } from './components/chat/chat.component';
 import { UsuariosService } from "./services/usuarios.service";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { EmailNotificationService } from './services/email-notification.service';
+import { CarteleraComponent } from './components/cartelera/cartelera.component';
+import { PeliculasComponent } from './components/peliculas/peliculas.component';
+import { ConfiteriaComponent } from './components/confiteria/confiteria.component';
+import { BoleteriaComponent } from './components/boleteria/boleteria.component';
+import { MembresiaComponent } from './components/membresia/membresia.component';
 
 
 @NgModule({
@@ -32,7 +37,12 @@ import { EmailNotificationService } from './services/email-notification.service'
     LoginComponent,
     RegistroComponent,
     PerfilComponent,
-    ChatComponent
+    ChatComponent,
+    CarteleraComponent,
+    PeliculasComponent,
+    ConfiteriaComponent,
+    BoleteriaComponent,
+    MembresiaComponent
   ],
   imports: [
     BrowserModule,
