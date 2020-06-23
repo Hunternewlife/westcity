@@ -12,4 +12,8 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  irAEmpresa() {
+    window.open("../../../assets/empresa/index.html", "_blank");
+  }
+
 }
