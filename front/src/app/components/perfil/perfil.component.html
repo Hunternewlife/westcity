@@ -13,12 +13,12 @@
     </div>
     <div class="formularios">
         <div class="minicontainer">
-            <div class="border">                
+            <div class="border">
                 <form action="" class="edit" *ngIf="mostrarEditar" #formularioActualizarUsuario="ngForm" (ngSubmit)="updateUsuario()">
                     <div class="left">
                         <div class="title"> EDITAR PERFIL </div>
                         <label> Nombre </label>
-                        <blockquote><input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioLogeado.nombre"></blockquote>                        
+                        <blockquote><input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioLogeado.nombre"></blockquote>
                         <label> Apellido </label>
                         <blockquote><input type="text" name="apellido" #apellido="ngModel" [(ngModel)]="usuarioLogeado.apellido"></blockquote>
                         <label> Documento </label>
@@ -34,14 +34,14 @@
                         <input type="submit" value="Aceptar" class="submit">
                     </div>
                 </form>
-                <form class="pass" *ngIf="!mostrarEditar" #formularioActualizarContrasena="ngForm" (ngSubmit)="updateUsuario()">   
-                    <div class="title"> Actualizar password </div>      
+                <form class="pass" *ngIf="!mostrarEditar" #formularioActualizarContrasena="ngForm" (ngSubmit)="updatePwd()">
+                    <div class="title"> Actualizar password </div>
                     <label > Antigua contrasena </label>
-                    <blockquote><input type="password" name="contrasenaAntigua"></blockquote>
+                    <blockquote><input type="password" name="oldPwd" #oldPwd="ngModel" [(ngModel)]="pwds.oldPwd" /></blockquote>
                     <label> Contrasena nueva  </label>
-                    <blockquote><input type="password" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioLogeado.nombre"></blockquote>
-                    <input type="submit" value="Aceptar" class="submit"> 
-                </form>  
+                    <blockquote><input type="password" name="newPwd" #newPwd="ngModel" [(ngModel)]="pwds.newPwd" /></blockquote>
+                    <input type="submit" value="Aceptar" class="submit">
+                </form>
             </div>
         </div>
     </div>
