@@ -1,24 +1,27 @@
-const express = require("express");
+// Archivo para lógica de express (Manejo de rutas, exportación del módulo y manejo de middlewares)
+
+const express = require('express');
 const app = express();
+// Declaración de cors
+const cors = require('cors');
 
-const cors = require("cors");
+// Declaración de rutas a ejecutar por express
+const notificacionRutas = require('./rutas/notificacionRutas');
+//const peliculaRutas = require('./rutas/peliculaRutas');
+const usuarioRutas = require('./rutas/usuarioRutas');
 
-// Rutas de la aplicacion
-const usuarioRutas = require("./rutas/usuarioRutas");
-
-// Fin de rutas
-
-// Middlewares
-
-// Para que se pueda reconocer el cuerpo de la peticion como JSON
+// -- Inicio Middlewares --
 app.use(express.json());
-
-// CORS
 app.use(cors());
 
-// Middleware para rutas de usuario
-app.use("/api/usuario", usuarioRutas);
+// Consumo de las rutas
+app.use('/api', usuarioRutas);
+//app.use('/api', peliculaRutas);
+app.use('/api', notificacionRutas);
 
-// Fin de middlewares
+// -- Fin Middlewares --
+
+// Exportación módulo
+
 
 module.exports = app;
