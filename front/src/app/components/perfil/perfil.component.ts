@@ -11,19 +11,7 @@ export class PerfilComponent implements OnInit {
   
   mostrarEditar = true;
   usuario = [];
-  usuarioEditar:Usuario = {
-    _id:"5ef21d93cccf32d3f8aefdbc",
-    "nombre": "carlos",
-    "apellido": "rueda",
-    "documento": 1075659780,
-    "contrasena": "123",
-    "correo": "dasdas",
-    "tarjeta": 41354,
-    "suscripcion": "sheriff",
-    "estado": "activo",
-    "imagen": "dasdas",
-    "rol": "usuario"
-  };
+  usuarioLogeado = this.usuariosService.obtenerUsuario();
 
   constructor(
     private usuariosService:UsuariosService 
@@ -42,15 +30,18 @@ export class PerfilComponent implements OnInit {
     this.mostrarEditar = false;
   }
   updateUsuario(){
-    this.usuariosService.modificarUsuario(this.usuarioEditar).subscribe(
+    this.usuariosService.modificarUsuario(this.usuarioLogeado).subscribe(
       (response:any) => {
-        this.usuarioEditar = response.usuario;
-        if(!this.usuarioEditar){
-          alert(`${this.usuarioEditar.nombre} no se ha podido actualizar`)
+        this.usuarioLogeado = response.usuario;
+        if(!this.usuarioLogeado){
+          alert(`${this.usuarioLogeado.nombre} no se ha podido actualizar`)
         } else {
-          alert(`${this.usuarioEditar.nombre} se ha actualizado`);
+          alert(`${this.usuarioLogeado.nombre} se ha actualizado`);
+          localStorage.setItem('sesion',JSON.stringify(this.usuarioLogeado));
         }
       }
     );
   }
+
+  
 }
