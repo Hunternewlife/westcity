@@ -12,10 +12,10 @@ function registrarUsuario(req, res) {
   // Es importante que el correo se encuentre normalizado para facilitar
   // validacion del mismo
   usuario.correo = usuario.correo && usuario.correo.toLowerCase();
-
+  
   // Antes de almacenar verificar que el correo no se encuentra registrado
   Usuario.findOne({ correo: usuario.correo }, (err, usuarioExistente) => {
-    if (err) res.status(500).send({ message: "Error al registrar usuario" });
+    if (err) console.log(usuario, err), res.status(500).send({ message: "Error al registrar usuario" })
     else if (usuarioExistente)
       res.status(200).send({
         message: "No fue posible registrar el usuario, correo existente",
@@ -24,6 +24,7 @@ function registrarUsuario(req, res) {
     else
       usuario.save((err, usuarioNuevo) => {
         if (err) {
+          console.log(err)
           res.status(500).send({
             message: "Error al registrar usuario, validaciones no exitosas",
           });

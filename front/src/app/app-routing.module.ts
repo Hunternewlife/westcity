@@ -4,10 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Importar los componentes 
 import { CinemaComponent } from './components/cinema/cinema.component';
+import { LoginComponent } from "./components/login/login.component";
+import { RegistroComponent } from "./components/registro/registro.component";
 
 // Relacionar rutas con componentes
 const routes: Routes = [
-  { path: '', component: CinemaComponent}
+  { path: '', component: CinemaComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'registro', component: RegistroComponent},  
+  
 ];
 
 
