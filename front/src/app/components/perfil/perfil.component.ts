@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuariosService } from '../../services/usuarios.service';
+import { Usuario } from '../../modelo/usuario';
 
 @Component({
   selector: 'app-perfil',
@@ -7,29 +9,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
   
+  mostrarEditar = true;
+  usuario = [];
+  usuarioEditar:Usuario = {
+    _id:"5ef21d93cccf32d3f8aefdbc",
+    "nombre": "carlos",
+    "apellido": "rueda",
+    "documento": 1075659780,
+    "contrasena": "123",
+    "correo": "dasdas",
+    "tarjeta": 41354,
+    "suscripcion": "sheriff",
+    "estado": "activo",
+    "imagen": "dasdas",
+    "rol": "usuario"
+  };
 
-  constructor() { 
+  constructor(
+    private usuariosService:UsuariosService 
+  ) { 
     
   }
 
   ngOnInit(): void {
-    this.showcase();
-  
+    
   }
-  
-  showcase = ()=>{
-    const btnedit = document.querySelector('.btnedit');
-    const edit = document.querySelector('.edit');
-    const btnpass = document.querySelector('.btnpass');
-    const pass = document.querySelector('.pass');
-    btnedit.addEventListener('click', ()=>{
-      edit.classList.toggle('show');
-      pass.classList.toggle('show');
-    });
-    btnpass.addEventListener('click', ()=>{
-      pass.classList.toggle('show');
-      edit.classList.toggle('show');
-    });
+
+  showEditar(){
+    this.mostrarEditar = true;
   }
- 
+  showContrasena(){
+    this.mostrarEditar = false;
+  }
+  updateUsuario(){
+    this.usuariosService.modificarUsuario(this.usuarioEditar).subscribe(
+      (response:any) => {
+        this.usuarioEditar = response.usuario;
+        if(!this.usuarioEditar){
+          alert(`${this.usuarioEditar.nombre} no se ha podido actualizar`)
+        } else {
+          alert(`${this.usuarioEditar.nombre} se ha actualizado`);
+        }
+      }
+    );
+  }
 }

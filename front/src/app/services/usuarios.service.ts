@@ -10,8 +10,8 @@ import { observable } from "rxjs";
 export class UsuariosService {
 
   url = 'http://localhost:3000/api/';
-
   public identidad
+
 
   constructor(
     private _http: HttpClient
@@ -42,6 +42,29 @@ export class UsuariosService {
       options
     ).pipe(map(res => res));
   }
+
+// servicio para modificar usuario
+  modificarUsuario(usuarioModificado) {
+    let { _id } = usuarioModificado;
+    let reqBody = JSON.stringify(usuarioModificado);
+    let reqOptions = {
+      headers: new HttpHeaders({ 'content-type': 'application/json' })
+    }
+    return this._http.put(
+      this.url + `actualizar/${_id}`,
+      reqBody,
+      reqOptions
+    ).pipe(map(res => res));
+  }
+
+  // servicio para subir (o modificar) imagen de usuario
+  subirImagenUsuario(_id, archivoImagen: File) {
+    let formData = new FormData();
+    formData.append('imagen', archivoImagen);
+    return this._http.put(
+      this.url + `subir-img/${_id}`,
+      formData
+    ).pipe(map(res=>res));
 
   obtenerUsuario(){
     let usuarioAutorizado = JSON.parse(localStorage.getItem('sesion'));
