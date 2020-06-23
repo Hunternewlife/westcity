@@ -1,9 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// Servicios
-import { EmailNotificationService } from './services/email-notification.service'
-
 // Componentes
 //importar modulos
 import { AppRoutingModule } from './app-routing.module';
@@ -18,12 +15,13 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 
-import { AppRoutingModule } from './app-routing.module';
 import { ChatComponent } from './components/chat/chat.component';
 
 //importar servicios
 import { UsuariosService } from "./services/usuarios.service";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { EmailNotificationService } from './services/email-notification.service';
+
 
 @NgModule({
   declarations: [
@@ -43,9 +41,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormsModule
   ],
   providers: [
-    EmailNotificationService
+    EmailNotificationService,
+    UsuariosService
   ],
-  providers: [UsuariosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
