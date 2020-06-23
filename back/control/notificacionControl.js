@@ -45,6 +45,7 @@ function generarNotificacion(req,res){
     notificacion.titulo = req.body.titulo;
     notificacion.tipo = req.body.tipo;
     notificacion.contenido = req.body.contenido;
+    console.log(notificacion)
     // logica para realizar el mensaje que se enviará por correo
     switch (notificacion.tipo) {
         case 'registro':
@@ -62,9 +63,14 @@ function generarNotificacion(req,res){
             //Enviar mensaje
             transporter.sendMail(mailOptions, (err, info)=>{
                 if(err){
+                    res.status(200).send({
+                        message: 'Error al enviar correo'
+                    })
                     console.log('Error', err);
                 }else{
-                    console.log('Mensaje Enviado');
+                    res.status(200).send({
+                        message: 'Envio de correo satisfactorio'
+                    })
                 }
             })
 
