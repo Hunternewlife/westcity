@@ -9,7 +9,6 @@ import { EmailNotificationService } from './services/email-notification.service'
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from "@angular/forms";
 
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -18,7 +17,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 
-import { AppRoutingModule } from './app-routing.module';
 import { ChatComponent } from './components/chat/chat.component';
 
 //importar servicios
@@ -43,9 +41,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormsModule
   ],
   providers: [
-    EmailNotificationService
+    EmailNotificationService,
+    UsuariosService
   ],
-  providers: [UsuariosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

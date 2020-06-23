@@ -115,7 +115,7 @@
     color: #8c000c;
     letter-spacing: 4px;
 }
-.left > blockquote input, .right > blockquote input{
+.left > blockquote input, .right > blockquote input, .pass >blockquote input{
     background-color: transparent;
     border: none;
     border-bottom: 2px solid black;
@@ -132,11 +132,16 @@
 .pass{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    margin: 10%;
 }
-.show{
-    display: none;
+.formPass{
+    width: 50%;
 }
+.pass blockquote input{
+    margin-bottom: 3vh;
+}
+
 @media screen and (max-width:1324px){
     .left, .right{
         margin-left: 5px;

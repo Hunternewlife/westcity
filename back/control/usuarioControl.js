@@ -74,7 +74,7 @@ function actualizarUsuario(req, res) {
           .send({ mensaje: "Error, el correo ya esta registrado" });
       else {
         // Igualmente, ejecutar las validaciones
-        const opts = { runValidators: true };
+        const opts = { runValidators: true, new:true };
         Usuario.findByIdAndUpdate(
           _id,
           { ...req.body },

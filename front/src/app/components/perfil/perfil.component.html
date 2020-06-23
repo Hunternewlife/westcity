@@ -7,40 +7,40 @@
             </div>
             <div class="name"> David </div>
         </div>
-        <div class="block one"> <a class="btnedit"> Editar Perfil </a> </div>
-        <div class="block"> <a class="btnpass"> Cambiar Contrasena </a> </div>
+        <div class="block one"> <a class="btnedit" (click)="showEditar()"> Editar Perfil </a> </div>
+        <div class="block"> <a class="btnpass" (click)="showContrasena()"> Cambiar Contrasena </a> </div>
         <div class="block"> <a> Membresia </a> </div> <!-- link to membership -->
     </div>
     <div class="formularios">
         <div class="minicontainer">
             <div class="border">                
-                <form action="" class="edit">
+                <form action="" class="edit" *ngIf="mostrarEditar" #formularioActualizarUsuario="ngForm" (ngSubmit)="updateUsuario()">
                     <div class="left">
                         <div class="title"> EDITAR PERFIL </div>
                         <label> Nombre </label>
-                        <blockquote><input type="text"></blockquote>
+                        <blockquote><input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioEditar.nombre"></blockquote>                        
                         <label> Apellido </label>
-                        <blockquote><input type="text"></blockquote>
+                        <blockquote><input type="text" name="apellido" #apellido="ngModel" [(ngModel)]="usuarioEditar.apellido"></blockquote>
                         <label> Documento </label>
-                        <blockquote><input type="test"></blockquote>
+                        <blockquote><input type="test" name="documento" #documento="ngModel" [(ngModel)]="usuarioEditar.documento"></blockquote>
                     </div>
                     <div class="right">
                         <label> Correo </label>
-                        <blockquote><input type="text"></blockquote>
-                        <label> Edad </label>
-                        <blockquote><input type="text"></blockquote>
+                        <blockquote><input type="text" name="correo" #correo="ngModel" [(ngModel)]="usuarioEditar.correo"></blockquote>
+                        <label> Tarjeta </label>
+                        <blockquote><input type="text" name="tarjeta" #tarjeta="ngModel" [(ngModel)]="usuarioEditar.tarjeta"></blockquote>
                         <label> Avatar </label>
-                        <blockquote><input type="file"></blockquote>
+                        <blockquote><input type="file" name="imagen"></blockquote>
                         <input type="submit" value="Aceptar" class="submit">
                     </div>
                 </form>
-                <form class="pass show">
-                    <label> Edad </label>
-                    <blockquote><input type="text"></blockquote>
-                    <label> Avatar </label>
-                    <blockquote><input type="file"></blockquote>
+                <form class="pass" *ngIf="!mostrarEditar" #formularioActualizarContrasena="ngForm" (ngSubmit)="updateUsuario()">   
+                    <div class="title"> Actualizar password </div>      
+                    <label > Antigua contrasena </label>
+                    <blockquote><input type="password" name="contrasenaAntigua"></blockquote>
+                    <label> Contrasena nueva  </label>
+                    <blockquote><input type="password" name="nombre" #nombre="ngModel" [(ngModel)]="usuarioEditar.nombre"></blockquote>
                     <input type="submit" value="Aceptar" class="submit"> 
-                
                 </form>  
             </div>
         </div>
