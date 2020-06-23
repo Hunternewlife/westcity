@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Servicios
+import { EmailNotificationService } from './services/email-notification.service'
+
+// Componentes
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -9,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +23,16 @@ import { AppRoutingModule } from './app-routing.module';
     CinemaComponent,
     LoginComponent,
     RegistroComponent,
-    PerfilComponent
+    PerfilComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    EmailNotificationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
