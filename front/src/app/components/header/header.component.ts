@@ -48,7 +48,7 @@ export class HeaderComponent implements OnInit {
     perfil.forEach(element => {
       if(this.usuariosService.isLogged()){
         element.innerHTML = usuarioLogeado.nombre;
-        login2.innerHTML = '';
+        login2.classList.toggle('noshow');
       } 
     }); 
 
