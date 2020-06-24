@@ -4,7 +4,7 @@
     </span>
   </div>
   
-  <div *ngIf="carrito.length>0;else carritovaciotmpl">
+  <div *ngIf="showCarrito[1].length>0;else carritovaciotmpl">
     <table class="margin-top-20">
       <thead>
         <tr>
@@ -14,9 +14,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of carrito">
+        <tr *ngFor="let item of showCarrito[1]; index as i">
           <td  class="has-text-centered">
-            <span>1</span>
+            <span>{{showCarrito[0][i]}}</span>
           </td>
           <td>{{item.nombre}}</td>
           <td>{{item.precio}}€</td>
@@ -39,4 +39,7 @@
     </div>
   </ng-template>
 
-  <button (click)="agregarCarrito({'_id': '1','nombre': 'Hamburguesa','descripcion': 'Deliciosa hamburguesa de bisonte con salsa BBQ.','precio': 10000,'tipo': 'confiteria'})">Agregar</button>
+  <button (click)="agregarCarrito({'_id': '1','nombre': 'Hamburguesa','descripcion': 'Deliciosa hamburguesa de bisonte con salsa BBQ.','precio': 10000,'tipo': 'confiteria'})">Hamburguesa</button>
+  <button (click)="agregarCarrito({'_id': '2','nombre': 'Perros','descripcion': 'Deliciosa hamburguesa de bisonte con salsa BBQ.','precio': 15000,'tipo': 'confiteria'})">Perro</button>
+  <button (click)="agregarCarrito({'_id': '3','nombre': 'Pizza','descripcion': 'Deliciosa hamburguesa de bisonte con salsa BBQ.','precio': 20000,'tipo': 'confiteria'})">Pizza</button>
+  <button (click)="PagarCarrito()">Pagar</button>
