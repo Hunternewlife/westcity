@@ -66,10 +66,10 @@ export class UsuariosService {
       this.url + `subir-img/${_id}`,
       formData
     ).pipe(map(res=>res));
-
+ 
+  }
   
-
-}
+  
 
 obtenerUsuario(){
   let usuarioAutorizado = JSON.parse(localStorage.getItem('sesion'));

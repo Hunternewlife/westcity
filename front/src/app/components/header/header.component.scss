@@ -29,6 +29,7 @@ nav{
     letter-spacing: 15px;
     color: #fffd62;
     height: 90%;
+    cursor: pointer;
 }
 .leyenda{
     font-size: 7px;
@@ -82,7 +83,7 @@ nav{
 
 .sessionlinks{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
 }
 .sessionlinks li{
@@ -177,4 +178,7 @@ nav{
 }
 .toggle .line3{
     transform: rotate(45deg) translate(-5px,-6px);
+}
+.noshow{
+    display: none;
 }
