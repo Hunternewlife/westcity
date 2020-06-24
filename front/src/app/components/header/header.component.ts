@@ -26,6 +26,10 @@ export class HeaderComponent implements OnInit {
     const nav = document.querySelector('.navlinks');
     const navlinks = document.querySelectorAll('.navlinks li');
     const perfil = document.querySelectorAll('.perfil');
+    const login2 = document.querySelector('.login2');
+    const nombre2 = document.querySelector('.nombre2');
+  
+
     // toggle bar
     burger.addEventListener('click', ()=>{
       nav.classList.toggle('navactive');  
@@ -35,19 +39,17 @@ export class HeaderComponent implements OnInit {
     });
     //animate links
      navlinks.forEach((link, index) =>{
-     /*  link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`;
+      /* link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`;
       console.log(index/7);  */
     }); 
     
 
     let usuarioLogeado = this.usuariosService.obtenerUsuario();
     perfil.forEach(element => {
-      if(this.usuariosService.isLogged() === 'true'){
-        this.logeo = true;
+      if(this.usuariosService.isLogged()){
         element.innerHTML = usuarioLogeado.nombre;
-      } else {
-        this.logeo = false;
-      }
+        login2.classList.toggle('noshow');
+      } 
     }); 
 
     }

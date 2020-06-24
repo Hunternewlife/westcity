@@ -1,7 +1,7 @@
 <nav>
     <div class="logo">
         <div class="items">
-            <div class="titulo">West City</div>
+            <div class="titulo" routerLink="/"> West City</div>
             <div class="leyenda">Best west movies at westcity.com</div>
         </div>
     </div>
@@ -11,8 +11,8 @@
         <li> <a href=""> Confiteria </a> </li>
         <li> <a href=""> Boleteria </a> </li>
         <li> <a href=""> Membresia </a> </li>
-        <li class="fakelink perfil" *ngIf="logged === 'false'"> <a routerLink="/login"> Login/Registro </a> </li>
-        <li class="fakelink perfil" *ngIf="logged === 'true'"> <a routerLink="/perfil"> Login/Registro </a> </li>
+        <!-- <li class="fakelink perfil"> <a routerLink="/login" class="nombre2 especial"> Login </a> </li>
+        <li class="fakelink "> <a routerLink="/perfil" class="login2">  </a> </li> -->
     </ul>
     <div class="burger">
         <div class="line1"></div>
@@ -22,7 +22,7 @@
 </nav>
 <div class="session figura">
     <ul class="sessionlinks"> 
-        <li> <a routerLink="/login" class="perfil"  *ngIf="!logeo"> Login/Registro </a> </li> 
-        <li *ngIf="logeo"><a routerLink="/login" class="perfil">  </a> </li> 
+        <li> <a routerLink="/perfil" class="perfil nombre2" > </a> </li> 
+        <li> <a routerLink="/login" class="login2"> Login </a> </li> 
     </ul>
 </div>
