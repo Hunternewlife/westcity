@@ -27,7 +27,7 @@ export class RegistroComponent implements OnInit {
     private _router : Router,
     private emailNotificationService: EmailNotificationService
   ) { 
-    this.usuarioRegistro = new Usuario('', '', '', null , '', '', null, 'pistolero', 'activo',null, 'usuario')
+    this.usuarioRegistro = new Usuario('', '', '', null , '', '', 0, 'pistolero', 'activo',null, 'usuario')
   }
 
   ngOnInit(): void {

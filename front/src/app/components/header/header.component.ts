@@ -1,5 +1,4 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../services/usuarios.service';
 
 
@@ -46,11 +45,6 @@ export class HeaderComponent implements OnInit {
        //link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`;
       console.log(index/7); 
     }); 
-  }
-      /* link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`;
-      console.log(index/7);  */
-    }); 
-    
 
     let usuarioLogeado = this.usuariosService.obtenerUsuario();
     perfil.forEach(element => {
@@ -59,9 +53,15 @@ export class HeaderComponent implements OnInit {
         login2.classList.toggle('noshow');
       } 
     }); 
-
-    }
+  }
+      /* link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`;
+      console.log(index/7);  */
 }
+
+    
+
+    
+
 
 
 
