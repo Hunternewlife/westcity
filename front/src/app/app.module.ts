@@ -25,6 +25,7 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { ConfiteriaComponent } from './components/confiteria/confiteria.component';
 import { BoleteriaComponent } from './components/boleteria/boleteria.component';
 import { MembresiaComponent } from './components/membresia/membresia.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { MembresiaComponent } from './components/membresia/membresia.component';
     PeliculasComponent,
     ConfiteriaComponent,
     BoleteriaComponent,
-    MembresiaComponent
+    MembresiaComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

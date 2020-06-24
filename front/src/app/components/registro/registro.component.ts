@@ -26,8 +26,8 @@ export class RegistroComponent implements OnInit {
     private usuariosService : UsuariosService,
     private _router : Router,
     private emailNotificationService: EmailNotificationService
-  ) { 
-    this.usuarioRegistro = new Usuario('', '', '', null , '', '', null, 'pistolero', 'activo',null, 'usuario')
+  ) {
+    this.usuarioRegistro = new Usuario('', '', '', null , '', '', 0, 'pistolero', 'activo',null, 'usuario')
   }
 
   ngOnInit(): void {
@@ -41,7 +41,7 @@ export class RegistroComponent implements OnInit {
           console.log(response)
           let usuario = response.usuario;
           this.usuarioRegistro = usuario;
-          
+
           if (!this.usuarioRegistro._id) {
             alert(response);
           }else{
@@ -52,20 +52,20 @@ export class RegistroComponent implements OnInit {
                switch (response.message) {
                   case 'Envio de correo satisfactorio':
                     console.log('Correo enviado')
-                   
+
                     break;
 
                   case 'Error al enviar correo':
                     console.log('Correo No enviado')
-                    
+
                     break;
-               
+
                  default:
                    break;
                }
              }
 
-              
+
             )
 
             //this.usuarioRegistro = new Usuario('', '','', null, '', '', null, '', '',null, '');
@@ -77,12 +77,12 @@ export class RegistroComponent implements OnInit {
             case 'No fue posible registrar el usuario, correo existente':
               alert('Este correo ya se ha ingresado')
               break;
-          
+
             default:
               break;
           }
         }
-       
+
       },
       error => {
         var errorMensaje = <any> error;
