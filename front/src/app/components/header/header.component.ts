@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.navSlide();
@@ -28,10 +28,11 @@ export class HeaderComponent implements OnInit {
       
     });
     //animate links
-     /* navlinks.forEach((link, index) =>{
-       link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`;
+     navlinks.forEach((link, index) =>{
+       this.renderer.setStyle(link,'animation',`navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`)
+       //link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`;
       console.log(index/7); 
-    });  */
+    }); 
   }
 }
 
