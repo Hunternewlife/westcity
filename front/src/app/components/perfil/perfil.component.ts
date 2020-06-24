@@ -8,19 +8,22 @@ import { Usuario } from '../../modelo/usuario';
   styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent implements OnInit {
-  
+
   mostrarEditar = true;
   usuario = [];
   usuarioLogeado = this.usuariosService.obtenerUsuario();
 
+  // En este objeto almaceno estado relacionado con cambio de contraseña
+  pwds;
+
   constructor(
-    private usuariosService:UsuariosService 
-  ) { 
-    
+    private usuariosService:UsuariosService
+  ) {
+    this.pwds = { oldPwd: "", newPwd: ""};
   }
 
   ngOnInit(): void {
-    
+
   }
 
   showEditar(){
@@ -43,5 +46,23 @@ export class PerfilComponent implements OnInit {
     );
   }
 
-  
+  // Metodo para la actualizacion de la contraseña
+  updatePwd() {
+    // Validaciones
+    if (this.pwds.oldPwd !== this.usuarioLogeado.contrasena) {
+      alert("Error. Ingrese correctamente su antigua contraseña");
+    } else if (this.pwds.newPwd === "") {
+      alert("Error. Nueva contraseña vacía");
+    } else {
+      // Modificar la contraseña del usuario actual
+      this.usuarioLogeado.contrasena = this.pwds.newPwd;
+      this.updateUsuario();
+    }
+
+    // Limpiar estado relacionado con cambio de contraseña
+    this.pwds.oldPwd = "";
+    this.pwds.newPwd = "";
+  }
+
+
 }
