@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { CarritoService } from '../../services/carrito.service';
-import { UsuariosService } from '../../services/usuarios.service'
+import { UsuariosService } from '../../services/usuarios.service';
+import { EmailNotificationService } from '../../services/email-notification.service'
 
 import { Producto } from '../../modelo/producto'
 
@@ -12,12 +13,14 @@ import { Producto } from '../../modelo/producto'
   styleUrls: ['./carrito.component.scss']
 })
 export class CarritoComponent implements OnInit {
+  public identidad;
+  public msgCompra : Array<any> = [];
   public showCarrito : Array<any> =[]
   public carrito: Array<Producto> = [];
   public subscription: Subscription;
   public total: number;
 
-  constructor(private carritoService: CarritoService) {
+  constructor(private carritoService: CarritoService, private usuariosService : UsuariosService, private emailNotificationService: EmailNotificationService  ) {
     this.showCarrito = [[],[]]
    }
 
@@ -52,7 +55,8 @@ export class CarritoComponent implements OnInit {
   }
   }
   PagarCarrito(){
-
+    this.msgCompra=[this.identidad,this.showCarrito,this.carrito.length]
+    this.emailNotificationService.elaborarMensaje('Compra exitosa West City','compra',this.msgCompra)
   }
 
   agregarCarrito(producto){
