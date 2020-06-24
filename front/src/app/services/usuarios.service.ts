@@ -29,7 +29,8 @@ export class UsuariosService {
       params,
       options
     ).pipe(map(res => res));
-  };
+  }
+
   logIn(usuarioLogueado){
     let params = JSON.stringify(usuarioLogueado);
     let options = {
@@ -65,33 +66,36 @@ export class UsuariosService {
       this.url + `subir-img/${_id}`,
       formData
     ).pipe(map(res=>res));
+ 
   }
   
-  obtenerUsuario(){
-    let usuarioAutorizado = JSON.parse(localStorage.getItem('sesion'));
+  
 
-    if (usuarioAutorizado != 'undefined') {
-      this.identidad = usuarioAutorizado;
-    }else{
-      this.identidad = null;
-    }
-    return this.identidad;
+obtenerUsuario(){
+  let usuarioAutorizado = JSON.parse(localStorage.getItem('sesion'));
+
+  if (usuarioAutorizado != 'undefined') {
+    this.identidad = usuarioAutorizado;
+  }else{
+    this.identidad = null;
   }
+  return this.identidad;
+}
 
-  isLogged(){
+isLogged(){
+  if(localStorage.getItem('logged')){
     return JSON.parse(localStorage.getItem('logged')).logged;
+  }
+ 
 }
 
-  cerrarSesion(){
-    localStorage.removeItem('sesion');
-    localStorage.setItem('logged',JSON.stringify({logged:false}));
-  }
-
-  getRol(){
-    
-    return JSON.parse(localStorage.getItem('sesion')).rol;
-  }
-
+cerrarSesion(){
+  localStorage.removeItem('sesion');
+  localStorage.setItem('logged',JSON.stringify({logged:false}));
 }
 
-
+getRol(){
+  
+  return JSON.parse(localStorage.getItem('sesion')).rol;
+}
+}
