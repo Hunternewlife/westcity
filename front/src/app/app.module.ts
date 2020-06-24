@@ -26,6 +26,7 @@ import { ConfiteriaComponent } from './components/confiteria/confiteria.componen
 import { BoleteriaComponent } from './components/boleteria/boleteria.component';
 import { MembresiaComponent } from './components/membresia/membresia.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { CarritoService} from './services/carrito.service';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { CarritoComponent } from './components/carrito/carrito.component';
   ],
   providers: [
     EmailNotificationService,
-    UsuariosService
+    UsuariosService,
+    CarritoService
   ],
   bootstrap: [AppComponent]
 })
