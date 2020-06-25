@@ -17,4 +17,7 @@ api.post("/agregar-pelicula", PeliculaControl.agregarPelicula);
 // Ruta para obtener todas las peliculas
 api.get("/obtener-peliculas", PeliculaControl.obtenerPeliculas);
 
+// Ruta para actualizar pelicula
+api.put("/actualizar-pelicula/:id", PeliculaControl.actualizarPelicula);
+
 module.exports = api;
