@@ -4,12 +4,8 @@ const UsuarioControl = require("../control/usuarioControl");
 // Modulos requeridos para la funcion de subir o mostrar imagen
 const path = require("path");
 const fs = require("fs");
-const fileUpload = require("express-fileupload");
 
 const api = express.Router();
-
-// Utilizar middleware para subir archivos
-api.use(fileUpload());
 
 // Ruta para registrar usuario
 api.post("/registro", UsuarioControl.registrarUsuario);
