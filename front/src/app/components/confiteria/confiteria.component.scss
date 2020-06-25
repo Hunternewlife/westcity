@@ -90,8 +90,8 @@
     padding: 0;
     display: flex;
     height: 100%;
-    width: 400%;
-    animation: cambio 20s infinite ease-in;
+    width: 700%;
+    animation: cambio 35s infinite ease-in;
 }
 .slider li{
     list-style: none;
@@ -120,23 +120,38 @@
 .slider4{
     background-image: url(../../../assets/images/fondos/slider4.jpg);
 }
+.slider5{
+    background-image: url(../../../assets/images/fondos/comboJohn-min.png);
+}
+.slider6{
+    background-image: url(../../../assets/images/fondos/comboJesse-min.png);
+}
+.slider7{
+    background-image: url(../../../assets/images/fondos/comboWestern-min.png);
+}
 
 @keyframes cambio{
     0% { margin-left: 0;}
-    20% { margin-left: 0;}
+    12% { margin-left: 0;}
 
-    25% { margin-left: -100%;}
-    45% { margin-left: -100%;}
+    15% { margin-left: -100%;}
+    27% { margin-left: -100%;}
 
-    50% { margin-left: -200%;}
-    70% { margin-left: -200%;}
+    29% { margin-left: -200%;}
+    41% { margin-left: -200%;}
 
-    75% { margin-left: -300%;}
-    100% { margin-left: -300%;}
+    44% { margin-left: -300%;}
+    56% { margin-left: -300%;}
+
+    58% { margin-left: -400%;}
+    70% { margin-left: -400%;}
+
+    73% { margin-left: -500%;}
+    85% { margin-left: -500%;}
+
+    88% { margin-left: -600%;}
+    100% { margin-left: -600%;}
 }
-
-
-
 
 
 @media screen and (max-width:1281px){
@@ -185,4 +200,14 @@
     .slider4{
         background-image: url(../../../assets/images/fondos/rslider4.jpg);
     }
+    .slider5{
+        background-image: url(../../../assets/images/fondos/comboJohnRes-min.png);
+    }
+    .slider6{
+        background-image: url(../../../assets/images/fondos/comboJesseRes-min.png);
+    }
+    .slider7{
+        background-image: url(../../../assets/images/fondos/comboWesternRes-min.png);
+    }
+  
 }

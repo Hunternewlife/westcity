@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPeliculasComponent implements OnInit {
 
-  filterArtista = '';
+  filterPeliculas = '';
+  peliculas;
   
   constructor() { }
 

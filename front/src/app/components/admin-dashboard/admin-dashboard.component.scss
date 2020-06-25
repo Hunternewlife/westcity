@@ -67,9 +67,6 @@
     width: 91%;
     display: flex;
     justify-content: space-between;
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-areas: none; */
     margin: 20px 40px;
 }
 .divisor{
@@ -79,6 +76,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 7fr;
     color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 .rouch{
     background-color: #E91E63;

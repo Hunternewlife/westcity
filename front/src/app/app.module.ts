@@ -35,6 +35,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminUsuariosComponent } from './components/admin-usuarios/admin-usuarios.component';
 import { AdminPeliculasComponent } from './components/admin-peliculas/admin-peliculas.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AdminPeliculasComponent } from './components/admin-peliculas/admin-peli
     AdminComponent,
     AdminDashboardComponent,
     AdminUsuariosComponent,
-    AdminPeliculasComponent
+    AdminPeliculasComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
