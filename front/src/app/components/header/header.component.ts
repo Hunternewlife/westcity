@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
       burger.classList.toggle('toggle');
     });
     //animate links
+
     navlinks.forEach((link, index) => {
       this.renderer.setStyle(
         link,
@@ -57,3 +58,4 @@ export class HeaderComponent implements OnInit {
     });
   };
 }
+

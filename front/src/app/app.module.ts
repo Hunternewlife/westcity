@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 // Componentes
 //importar modulos
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,8 +16,11 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 
 import { ChatComponent } from './components/chat/chat.component';
 
+// Servicio de productos
+import { ProductosService } from './services/productos.service';
+
 //importar servicios
-import { UsuariosService } from "./services/usuarios.service";
+import { UsuariosService } from './services/usuarios.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { EmailNotificationService } from './services/email-notification.service';
 import { CarteleraComponent } from './components/cartelera/cartelera.component';
@@ -27,7 +30,7 @@ import { BoleteriaComponent } from './components/boleteria/boleteria.component';
 import { MembresiaComponent } from './components/membresia/membresia.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { CarritoService} from './services/carrito.service';
-
+import { ConfiteriaComprasComponent } from './components/confiteria-compras/confiteria-compras.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { CarritoService} from './services/carrito.service';
     ConfiteriaComponent,
     BoleteriaComponent,
     MembresiaComponent,
-    CarritoComponent
+    CarritoComponent,
+    ConfiteriaComprasComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,8 @@ import { CarritoService} from './services/carrito.service';
     UsuariosService,
     CarritoService
   ],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [EmailNotificationService, UsuariosService, ProductosService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
