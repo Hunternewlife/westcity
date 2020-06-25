@@ -10,7 +10,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { CarteleraComponent } from './components/cartelera/cartelera.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { ConfiteriaComponent } from './components/confiteria/confiteria.component';
-import { BoleteriaComponent } from './components/boleteria/boleteria.component'
+import { BoleteriaComponent } from './components/boleteria/boleteria.component';
+import { ConfiteriaComprasComponent } from "./components/confiteria-compras/confiteria-compras.component";
 
 
 // Relacionar rutas con componentes
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'cartelera', component: CarteleraComponent },
   { path: 'peliculas', component: PeliculasComponent },
   { path: 'confiteria', component: ConfiteriaComponent },
-  { path: 'boleteria', component: BoleteriaComponent }
+  { path: 'boleteria', component: BoleteriaComponent },
+  { path: 'compras', component: ConfiteriaComprasComponent }
 ];
 
 
