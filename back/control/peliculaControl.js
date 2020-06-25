@@ -94,6 +94,45 @@ function borrarPelicula(req, res) {
   });
 }
 
+function subirPoster(req, res) {
+  const { id } = req.params;
+  if (!req.files || Object.keys(req.files).length === 0)
+    return res
+      .status(200)
+      .send({ mensaje: "Error. No ha enviado archivo de imagen" });
+
+  if (!req.files.imagen)
+    return res.status(200).send({
+      mensaje:
+        "Error. Recuerde utilizar `imagen` como el nombre del campo de archivo",
+    });
+
+  Pelicula.findById(id, {}, (err, peliculaRegistrada) => {
+    if (err)
+      return res
+        .status(500)
+        .send({ mensaje: "Error. No se ha podido subir el poster!" });
+
+    if (!peliculaRegistrada)
+      return res
+        .status(200)
+        .send({ mensaje: "Error. No hay una pelicula que coincida!" });
+
+    const rutaDest = path.resolve("./archivos/pelicula");
+    // Crear directorio de archivos (si no existe)
+    if (!fs.existsSync(rutaDest)) {
+      const opts = { recursive: true };
+      fs.mkdirSync(rutaDest, opts)
+    }
+
+    // Eliminar archivo actual (si existe)
+    if (!fs.existsSync(`${rutaDest}/${peliculaRegistrada.rutaPoster}`)) {
+      fs.unlinkSync(`${rutaDest}/${peliculaRegistrada.rutaPoster}`)
+    }
+
+  });
+}
+
 module.exports = {
   agregarPelicula,
   obtenerPeliculas,
