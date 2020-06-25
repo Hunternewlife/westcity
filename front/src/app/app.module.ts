@@ -61,7 +61,8 @@ import { BoleteriaCompraComponent } from './components/boleteria-compra/boleteri
   providers: [
     EmailNotificationService,
     UsuariosService,
-    CarritoService
+    CarritoService,
+    ProductosService
   ],
   bootstrap: [AppComponent],
 })
