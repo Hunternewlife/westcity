@@ -29,6 +29,7 @@ import { ConfiteriaComponent } from './components/confiteria/confiteria.componen
 import { BoleteriaComponent } from './components/boleteria/boleteria.component';
 import { MembresiaComponent } from './components/membresia/membresia.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { CarritoService} from './services/carrito.service';
 import { ConfiteriaComprasComponent } from './components/confiteria-compras/confiteria-compras.component';
 
 @NgModule({
@@ -47,7 +48,18 @@ import { ConfiteriaComprasComponent } from './components/confiteria-compras/conf
     BoleteriaComponent,
     MembresiaComponent,
     CarritoComponent,
-    ConfiteriaComprasComponent,
+    ConfiteriaComprasComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
+  ],
+  providers: [
+    EmailNotificationService,
+    UsuariosService,
+    CarritoService
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [EmailNotificationService, UsuariosService, ProductosService],
