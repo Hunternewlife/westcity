@@ -1,10 +1,10 @@
 const express = require('express'),
-      notificacionCOntrol= require('../control/notificacionControl');
+      notificacionControl= require('../control/notificacionControl');
       api = express();
 
 // Enlace de ruta con control
 
-api.post('/notificacion-email', notificacionCOntrol.generarNotificacion);
+api.post('/notificacion-email', notificacionControl.generarNotificacion);
 
 
 

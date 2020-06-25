@@ -1,0 +1,85 @@
+.reg-container{
+    background-image: url('../../../assets/images/fondos/red-dead-redemption-red-dead-redemption-2-rockstar-games-dik.jpg');
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #352b1d;
+}
+.form-container{
+    background-color: #e6c897;
+    width: 50%;
+    margin: auto;
+    padding: 2%;
+    box-shadow: 5px 5px 5px 5px black;
+}
+.formulario{
+    padding: 4%;
+    box-sizing: border-box;
+    border: solid 3px #352b1d;
+    column-count: 2;
+}
+.formulario legend{
+    padding: 0 3%;
+    font-family: durango;
+    font-size: 2.5vw;
+}
+.formulario label{
+    font-family: oswald;
+    padding: 4%;
+    display: block;
+    font-size: large;
+    font-weight: bolder;
+}
+.formulario input{
+    background: none;
+    border: none;
+    border-bottom: 2px solid #352b1d;
+    width: 80%;
+    margin-bottom: 3%;
+}
+#submit{
+    border: #352b1d 2px solid;
+    padding: 2%;
+    font-family: oswald;
+    margin-top: 10%;
+    font-size: large;
+    font-weight: bolder;
+    color: #352b1d;
+}
+.link{
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: oswald;
+}
+@media (max-width: 700px){
+    .reg-container{
+        min-height: 105vh;
+        margin-top: 5%;
+    }
+    .form-container{
+        min-width: 270px;
+    }
+   .formulario{ 
+       column-count: 1;
+       display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .formulario legend{
+        font-size: xx-large;
+        min-width: 70%;
+    }
+    .formulario label{
+        min-width: 80%;
+    }
+    .link{
+        top: 102%;
+    }
+}

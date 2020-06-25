@@ -1,25 +1,22 @@
-// Archivo con la lógica de la conexión a la BD
 
-const mongoose = require('mongoose');
-const app = require('./app');
+const mongoose = require("mongoose");
+
+const app = require("./app");
+
 const port = 3000;
 
+mongoose.connect(
+  "mongodb://localhost:27017/westcity",
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  (err, res) => {
+    if (err) {
+      console.log(`Error de conexion a base de datos ${err}!`);
+    } else {
+      console.log("Conexion a base de datos realizada!");
 
-// URL Base de Datos
-
-const DB = 'mongodb://localhost:27017/westCityApp';
-
-
-// Conexión a y Servidor
-
-mongoose.connect(DB, {useUnifiedTopology:true, useNewUrlParser:true},(err, res)=>{
-    if(err){
-        console.log(`El error es ${err}`);
-    }else{
-        console.log(`Conexión Exitosa`);
-        // app.set('port', process.env.PORT || 3000); -> configuracion de puerto del hosting
-        app.listen(port, ()=>{
-            console.log(`Puerto: ${port}`)
-        });
+      app.listen(port, () => {
+        console.log(`Servidor escuchando en el puerto ${port}!`);
+      });
     }
-});
+  }
+);

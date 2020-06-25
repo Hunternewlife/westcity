@@ -1,0 +1,249 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: oswald;
+}
+
+.banner{
+    height: 100vh;
+    width: 99.1vw;
+}
+.slide1{
+    background-image: url(../../../assets/images/fondos/wall1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.slide2{
+    background-image: url(../../../assets/images/fondos/wall2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: none;
+}
+.slide3{
+    background-image: url(../../../assets/images/fondos/wall3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titulo{
+    color: #fffd62;
+    font-size: 110px;
+    font-family: durango;
+    letter-spacing: 5px;
+    position: relative;
+    top: 250px;
+}
+.leyenda{
+    color: #f4f6ff;
+    font-family: durango;
+    letter-spacing: 5px;
+    font-size: 18px;
+    position: relative;
+    top: 140px;
+}
+.imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img{
+    width: 369px;
+    height: 620px;
+    background-image: url(../../../assets/images/fondos/pelicula.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.recomendacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor{
+    width: 50%;
+    height: 500px;
+    font-family: oswald;
+}
+.subtitulo{
+    color: #fffd62;
+    font-size: 30px;
+}
+.titulo2{
+    font-family: durango;
+    color: #fffd62;
+    font-size: 60px;
+    position: relative;
+    bottom: 30px;
+    letter-spacing: 5px;
+}
+.bottitulo{
+    color: #fffd62;
+    font-size: 25px;
+    position: relative;
+    bottom: 25px;
+}
+.parrafo{
+    font-size: 28px;
+    color: #cf7500;
+}
+.botones{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.btn{
+    width: 150px;
+    height: 52px;
+    border-radius: 8px;
+    background-color: #dadada;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn:hover{
+    background-color: #cf7500;
+}
+.btn a{
+    color: #8c000c;
+    text-decoration: none;
+}
+.confiteria{
+    width: 50%;
+    height: 65%;
+    color: #fffd62;
+    font-size: 30px;
+}
+
+.titulo3{
+    position: relative;
+    right: 50px;
+}
+.comidalogo{
+    font-family: durango;
+    font-size: 40px;
+    position: relative;
+    bottom: 30px;
+    letter-spacing: 5px;
+}
+.lista{
+    padding-left: 50px;
+    position: relative;
+    bottom: 30px;
+    color: #f4f6ff;
+}
+.lista :first-child{
+    position: relative;
+    right: 25px;
+}
+
+@media screen and (max-width:1841px){
+    .img{
+        width: 253px;
+        height: 426px;
+    }
+    .subtitulo{
+        font-size: 20px;
+    }
+    .titulo2{
+        font-size: 31px;
+    }
+    .bottitulo{
+        font-size: 19px;
+    }
+    .parrafo{
+        font-size: 21px;
+    }
+    .btn{
+        width: 100px;
+        height: 39px;
+        font-size: 26px;
+    }
+  
+}
+@media screen and (max-width:1100px){
+    .contenedor{
+        width: 70%;
+    }
+    .titulo{
+        font-size: 90px;
+        top: 200px;
+    }
+    .leyenda{
+        font-size: 16px;
+        top: 110px;
+    }
+    .titulo2{
+        letter-spacing: 4px;
+        bottom: 10px;
+    }    
+}
+
+@media screen and (max-width:768px){
+    .titulo{
+        font-size: 50px;
+        top: 200px;
+    }
+    .leyenda{
+        font-size: 8px;
+        top: 155px;
+    }
+    .slide2{
+        grid-template-columns: 2.5fr 1fr;
+    }
+    .img{
+        width: 133px;
+        height: 224px;
+    }
+}
+@media screen and (max-width:572px){
+    .confiteria{
+        width: 60%;
+    }
+    .titulo3{
+        font-size: 20px;
+    }
+    .lista{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width:516px){
+    .slide2{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    .titulo2{
+        font-size: 20px;
+    }
+    .parrafo{
+        font-size: 16px;
+    }
+    .img{
+        display: none;
+    }
+    .contenedor{
+        width: 80%;
+    }
+}
+@media screen and (max-width:398px){
+    .comidalogo{
+        font-size: 30px;
+    }
+}
