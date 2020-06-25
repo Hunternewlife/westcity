@@ -45,6 +45,7 @@ function generarNotificacion(req,res){
     notificacion.titulo = req.body.titulo;
     notificacion.tipo = req.body.tipo;
     notificacion.contenido = req.body.contenido;
+    console.log(notificacion)
     // logica para realizar el mensaje que se enviará por correo
     switch (notificacion.tipo) {
         case 'registro':
@@ -62,15 +63,20 @@ function generarNotificacion(req,res){
             //Enviar mensaje
             transporter.sendMail(mailOptions, (err, info)=>{
                 if(err){
+                    res.status(200).send({
+                        message: 'Error al enviar correo'
+                    })
                     console.log('Error', err);
                 }else{
-                    console.log('Mensaje Enviado');
+                    res.status(200).send({
+                        message: 'Envio de correo satisfactorio'
+                    })
                 }
             })
 
             
             break;
-        case 'tiquetes':
+        case 'compra':
             // Configuracion Mensaje
             mailOptions.from = 'westcitymovies@gmail.com';
             mailOptions.to = `${notificacion.contenido[0].correoRcpt}`;
@@ -91,27 +97,7 @@ function generarNotificacion(req,res){
             })
 
             break;
-        case 'comidas':
-            // Configuracion Mensaje
-            mailOptions.from = 'westcitymovies@gmail.com';
-            mailOptions.to = `${notificacion.contenido[0].correoRcpt}`;
-            mailOptions.subject = `${notificacion.titulo}`;
-            mailOptions.template= 'compraComida';
-            mailOptions.context = {
-                //titulo :notificacion.contenido[1].subject
-
-            }
-            console.log(mailOptions)
-            //Enviar mensaje
-            transporter.sendMail(mailOptions, (err, info)=>{
-                if(err){
-                    console.log('Error', err);
-                }else{
-                    console.log('Mensaje Enviado');
-                }
-            })
-
-            break
+        
         default:
             break;
     }

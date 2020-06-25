@@ -1,0 +1,190 @@
+.container{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../../../assets/images/fondos/desert.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: none;
+}
+.opciones{
+    background-color: #222222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 5px 0px 5px #222222;
+}
+.foto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    top: 90px;
+}
+.fotoperfil{
+    background-image: url(../../../assets/images/fondos/octo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 200px;
+    height: 200px;
+}
+.name{
+    font-family: durango;
+    letter-spacing: 5px;
+    color: #fffd62;
+    font-size: 2em;
+    padding-bottom: 25px;
+}
+.one{
+    border-top: 1px #f4f6ff solid;
+}
+.block{
+    font-family: oswald;
+    font-size: 1.2em;
+    width: 100%;
+    height: 120px;
+    cursor: pointer;
+    border-bottom: 1px #f4f6ff solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.block a{
+    color: #f4f6ff;
+    text-decoration: none;
+}
+.block a:hover{
+    color: #fffd62;
+}
+.formularios{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.minicontainer{
+    background-color: #f4f6ff99;
+    width: 60vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.border{
+    width: 90%;
+    height: 85%;
+    border: 2px black solid;
+}
+.edit{
+    display: none;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: none;
+}
+.left, .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 50px 0px;
+    margin-left: 5vw;
+    font-family: oswald;
+    font-weight: 600;
+    font-size: 18px;
+}
+.left{
+    position: relative;
+    bottom: 30px;
+}
+.title{
+    font-family: durango;
+    font-size: 30px;
+    color: #8c000c;
+    letter-spacing: 4px;
+}
+.left > blockquote input, .right > blockquote input, .pass >blockquote input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    width: 30vh;
+}
+.submit{
+    width: 30vh;
+    height: 38px;
+    font-family: oswald;
+    font-size: 1.2em;
+    background-color: #f4f6ff80;
+    box-shadow: 3px 3px 3px;
+}
+.pass{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10%;
+}
+.formPass{
+    width: 50%;
+}
+.pass blockquote input{
+    margin-bottom: 3vh;
+}
+
+@media screen and (max-width:1324px){
+    .left, .right{
+        margin-left: 5px;
+    }
+}
+@media screen and (max-width:1100px){
+    .left > blockquote input, .right > blockquote input{
+        width: 20vh;
+    }
+    .submit{
+        width: 20vh;
+    }
+}
+@media screen and (max-width:768px){
+    .minicontainer{
+       width: 90%;      
+    }
+    .opciones{
+        display: none;
+    }
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    .left > blockquote input, .right > blockquote input{
+        width: 170px;
+    }
+    .submit{
+        width: 170px;
+    }
+    .title{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width:435px){
+    .left > blockquote input, .right > blockquote input{
+        width: 100px;
+    }
+    .submit{
+        width: 100px;
+    }
+    .title{
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+}
