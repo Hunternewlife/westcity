@@ -14,4 +14,7 @@ api.use(fileUpload());
 // Ruta para agregar pelicula
 api.post("/agregar-pelicula", PeliculaControl.agregarPelicula);
 
+// Ruta para obtener todas las peliculas
+api.get("/obtener-peliculas", PeliculaControl.obtenerPeliculas);
+
 module.exports = api;
