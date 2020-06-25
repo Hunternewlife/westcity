@@ -1,82 +1,38 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<div class="container-fluid oswald">
-    <div class="py-4 container-fluid">
-        <button type="button" class="btn btn-danger m-1">Inicio</button>
-        <button type="button" class="btn btn-danger m-1">Acerca de</button>
-        <div style="float: right;">
-            <img src="" alt="">
-            <span class="card-text">$0.0</span>
+<app-header></app-header>
+<div class="container">
+    <div class="left">
+        <div class="miniconatiner">
+            <div class="leyenda"> Que el hambre no te mate </div>
+            <div class="leyenda"> Pide tu domicilio aca </div>
+            <div class="btn"> Ordenar </div>
+            <div class="leyenda red"> Descuentos de membersia </div>
+            <div class="membresias">               
+                <div>
+                    <div class="pistolero"></div>
+                    <div class="leyenda">25 %</div>
+                </div>
+                <div>
+                    <div class="sheriff"></div>
+                    <div class="leyenda"> 50% </div>
+                </div>
+             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg border border-light">
-            <h2 class="durango py-2">Novedades</h2>
-            <div class="card">
-                <div class="card-header bg-dark text-white">
-                    Pelicula 1
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Horarios</h5>
-                <p class="card-text">2:00 pm</p>
-                <p class="card-text">Cantidad</p>
-                <select name="" id="">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-                <br>
-                <br>
-                <a href="#" class="btn btn-danger">agregar al carrito</a>
-                <p class="card-text float-right">Precio: $0.00</p>
-                </div>
-            </div>
+    <div class="right">
+        <div class="slider">
+            <ul>
+                <li><div class="sliderImg slider1"></div></li>
+                <li><div class="sliderImg slider2"></div></li>
+                <li><div class="sliderImg slider3"></div></li>
+                <li><div class="sliderImg slider4"></div></li>
+                
+            </ul>
+
+
         </div>
-        <div class="col-lg border border-light">
-            <h2 class="durango py-2">Catalogo</h2>
-            <div class="card">
-                <div class="card-header bg-dark text-white">
-                    Pelicula 2
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Horarios</h5>
-                <p class="card-text">2:00 pm</p>
-                <p class="card-text">Cantidad</p>
-                <select name="" id="">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-                <br>
-                <br>
-                <a href="#" class="btn btn-danger">agregar al carrito</a>
-                <p class="card-text float-right">Precio: $0.00</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 border border-light">
-            <h2 class="durango py-2">Carrito</h2>
-            <p class="card-text">x productos</p>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Cant.</th>
-                    <th scope="col">producto</th>
-                    <th scope="col">Precio</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Pelicula 1</td>
-                    <td>$ 0.00</td>
-                    <td><button class="btn text-danger">X</button></td>
-                  </tr>
-                  <tr>
-            </table>
-            <a href="#" class="btn btn-danger">Comprar</a>
-            <p class="card-text float-right py-2">Total: $0.00</p>
+        <div class="membership hide">    
+            <div class="btn hide"> Ordenar </div>
         </div>
     </div>
 </div>
+
