@@ -95,6 +95,7 @@ function borrarPelicula(req, res) {
 }
 
 function subirPoster(req, res) {
+  console.log(req);
   const { id } = req.params;
   if (!req.files || Object.keys(req.files).length === 0)
     return res
@@ -118,18 +119,51 @@ function subirPoster(req, res) {
         .status(200)
         .send({ mensaje: "Error. No hay una pelicula que coincida!" });
 
+    const ext = req.files.imagen.mimetype.split("/")[1];
+    if (ext !== "png" && ext !== "jpeg")
+      return res
+        .status(200)
+        .send({ mensaje: "Error. Tipo de archivo no soportado" });
+
     const rutaDest = path.resolve("./archivos/pelicula");
     // Crear directorio de archivos (si no existe)
     if (!fs.existsSync(rutaDest)) {
       const opts = { recursive: true };
-      fs.mkdirSync(rutaDest, opts)
+      fs.mkdirSync(rutaDest, opts);
     }
 
-    // Eliminar archivo actual (si existe)
-    if (!fs.existsSync(`${rutaDest}/${peliculaRegistrada.rutaPoster}`)) {
-      fs.unlinkSync(`${rutaDest}/${peliculaRegistrada.rutaPoster}`)
-    }
+    // Crear un nombre que dificilmente coincida con otro archivo
+    nuevoPoster = `${Date.now()}-${req.files.imagen.name}`;
 
+    // Mover a la carpeta de archivos
+    req.files.imagen.mv(`${rutaDest}/${nuevoPoster}`, (err) => {
+      if (err)
+        return res.status(500).send({
+          mensaje: "Error. No se ha podido guardar el archivo de imagen!",
+        });
+        
+      // Eliminar archivo actual (si existe)
+      if (fs.existsSync(`${rutaDest}/${peliculaRegistrada.rutaPoster}`)) {
+        fs.unlinkSync(`${rutaDest}/${peliculaRegistrada.rutaPoster}`);
+      }
+
+      // Actualizar ruta al poster
+      peliculaRegistrada.rutaPoster = nuevoPoster;
+      peliculaRegistrada
+        .save()
+        .then((peliculaActualizada) => {
+          return res.status(200).send({
+            mensaje: "Se ha subido el archivo de imagen correctamente",
+            pelicula: peliculaActualizada,
+          });
+        })
+        .catch((err) => {
+          return res.status(200).send({
+            mensaje:
+              "Error. No se ha podido actualizar el poster de la pelicula",
+          });
+        });
+    });
   });
 }
 
@@ -138,4 +172,5 @@ module.exports = {
   obtenerPeliculas,
   actualizarPelicula,
   borrarPelicula,
+  subirPoster,
 };
