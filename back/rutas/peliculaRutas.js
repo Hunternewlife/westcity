@@ -20,4 +20,7 @@ api.get("/obtener-peliculas", PeliculaControl.obtenerPeliculas);
 // Ruta para actualizar pelicula
 api.put("/actualizar-pelicula/:id", PeliculaControl.actualizarPelicula);
 
+// Ruta para eliminar pelicula
+api.delete("/borrar-pelicula/:_id", PeliculaControl.borrarPelicula);
+
 module.exports = api;
