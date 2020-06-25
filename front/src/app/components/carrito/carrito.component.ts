@@ -22,6 +22,7 @@ export class CarritoComponent implements OnInit {
 
   constructor(private carritoService: CarritoService, private usuariosService : UsuariosService, private emailNotificationService: EmailNotificationService  ) {
     this.showCarrito = [[],[]]
+    this.identidad = this.usuariosService.obtenerUsuario();
    }
 
   ngOnInit(): void {
@@ -54,9 +55,14 @@ export class CarritoComponent implements OnInit {
       
   }
   }
+
+  unidadesBtnCarrito(item, index){
+    this.carritoService.agregarCarrito(item)
+  }
   PagarCarrito(){
-    this.msgCompra=[this.identidad,this.showCarrito,this.carrito.length]
-    this.emailNotificationService.elaborarMensaje('Compra exitosa West City','compra',this.msgCompra)
+    this.msgCompra=[this.identidad,this.showCarrito,this.carrito.length];
+    console.log(this.msgCompra)
+    //this.emailNotificationService.elaborarMensaje('Compra exitosa West City','compra',this.msgCompra)
   }
 
   agregarCarrito(producto){
