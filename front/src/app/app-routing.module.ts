@@ -13,6 +13,9 @@ import { ConfiteriaComponent } from './components/confiteria/confiteria.componen
 import { BoleteriaComponent } from './components/boleteria/boleteria.component';
 import { ConfiteriaComprasComponent } from "./components/confiteria-compras/confiteria-compras.component";
 import { AdminComponent } from './components/admin/admin.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminPeliculasComponent } from './components/admin-peliculas/admin-peliculas.component';
+import { AdminUsuariosComponent } from './components/admin-usuarios/admin-usuarios.component';
 
 
 // Relacionar rutas con componentes
@@ -26,7 +29,22 @@ const routes: Routes = [
   { path: 'confiteria', component: ConfiteriaComponent },
   { path: 'boleteria', component: BoleteriaComponent },
   { path: 'compras', component: ConfiteriaComprasComponent },
-  { path: 'admin', component: AdminComponent }
+  { path: 'admin', component: AdminComponent,
+    data: {rol: 'admin'},
+    children:  [
+      {
+        path: 'dashboard',
+        component: AdminDashboardComponent
+      },
+      {
+        path: 'crudPeliculas',
+        component: AdminPeliculasComponent
+      },
+      {
+        path: 'crudUsuarios',
+        component: AdminUsuariosComponent
+      }
+  ] },
 ];
 
 @NgModule({

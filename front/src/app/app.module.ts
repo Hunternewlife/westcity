@@ -32,6 +32,9 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { CarritoService} from './services/carrito.service';
 import { ConfiteriaComprasComponent } from './components/confiteria-compras/confiteria-compras.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminUsuariosComponent } from './components/admin-usuarios/admin-usuarios.component';
+import { AdminPeliculasComponent } from './components/admin-peliculas/admin-peliculas.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { AdminComponent } from './components/admin/admin.component';
     MembresiaComponent,
     CarritoComponent,
     ConfiteriaComprasComponent,
-    AdminComponent
+    AdminComponent,
+    AdminDashboardComponent,
+    AdminUsuariosComponent,
+    AdminPeliculasComponent
   ],
   imports: [
     BrowserModule,
