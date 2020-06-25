@@ -12,6 +12,7 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { ConfiteriaComponent } from './components/confiteria/confiteria.component';
 import { BoleteriaComponent } from './components/boleteria/boleteria.component';
 import { ConfiteriaComprasComponent } from "./components/confiteria-compras/confiteria-compras.component";
+import { AdminComponent } from './components/admin/admin.component';
 
 
 // Relacionar rutas con componentes
@@ -24,9 +25,9 @@ const routes: Routes = [
   { path: 'peliculas', component: PeliculasComponent },
   { path: 'confiteria', component: ConfiteriaComponent },
   { path: 'boleteria', component: BoleteriaComponent },
-  { path: 'compras', component: ConfiteriaComprasComponent }
+  { path: 'compras', component: ConfiteriaComprasComponent },
+  { path: 'admin', component: AdminComponent }
 ];
-
 
 @NgModule({
   declarations: [],

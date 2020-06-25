@@ -31,6 +31,7 @@ import { MembresiaComponent } from './components/membresia/membresia.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { CarritoService} from './services/carrito.service';
 import { ConfiteriaComprasComponent } from './components/confiteria-compras/confiteria-compras.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ConfiteriaComprasComponent } from './components/confiteria-compras/conf
     BoleteriaComponent,
     MembresiaComponent,
     CarritoComponent,
-    ConfiteriaComprasComponent
+    ConfiteriaComprasComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -59,10 +61,9 @@ import { ConfiteriaComprasComponent } from './components/confiteria-compras/conf
   providers: [
     EmailNotificationService,
     UsuariosService,
-    CarritoService
+    CarritoService,
+    ProductosService
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [EmailNotificationService, UsuariosService, ProductosService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,42 @@
+.sidenav {
+    display: none;
+    height: 100%; 
+    width: 100px; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    right: 0;
+    overflow-x: hidden; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
+  
+  .sidenav:hover{
+      background-color: black;
+      color: white;
+      width: 100px;
+      box-shadow: 0px 0px 0px 1px black;
+  }
+  
+  .sidenav:hover > a{
+    color: white;
+  }
+
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    color: black;
+  }
+  
+
+  .sidenav a:hover {
+    color: rgb(111, 161, 218);
+    
+    background-color: #00000010;
+  }
+  
