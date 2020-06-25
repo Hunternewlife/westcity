@@ -95,7 +95,6 @@ function borrarPelicula(req, res) {
 }
 
 function subirPoster(req, res) {
-  console.log(req);
   const { id } = req.params;
   if (!req.files || Object.keys(req.files).length === 0)
     return res
