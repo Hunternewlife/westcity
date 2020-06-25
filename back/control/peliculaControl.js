@@ -141,7 +141,7 @@ function subirPoster(req, res) {
         return res.status(500).send({
           mensaje: "Error. No se ha podido guardar el archivo de imagen!",
         });
-        
+
       // Eliminar archivo actual (si existe)
       if (fs.existsSync(`${rutaDest}/${peliculaRegistrada.rutaPoster}`)) {
         fs.unlinkSync(`${rutaDest}/${peliculaRegistrada.rutaPoster}`);
@@ -167,10 +167,22 @@ function subirPoster(req, res) {
   });
 }
 
+function mostrarPoster(req, res) {
+  const { nombrePoster } = req.params;
+  const rutaArchivo = path.resolve(`./archivos/pelicula/${nombrePoster}`);
+  res.sendFile(rutaArchivo, (err) => {
+    if (err)
+      return res
+        .status(500)
+        .send({ mensaje: "Error al retornar archivo de imagen" });
+  });
+}
+
 module.exports = {
   agregarPelicula,
   obtenerPeliculas,
   actualizarPelicula,
   borrarPelicula,
   subirPoster,
+  mostrarPoster,
 };
