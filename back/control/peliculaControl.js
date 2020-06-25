@@ -74,8 +74,29 @@ function actualizarPelicula(req, res) {
   );
 }
 
+function borrarPelicula(req, res) {
+  const { _id } = req.params;
+  const opts = { useFindAndModify: false };
+
+  Pelicula.findOneAndDelete({ _id: _id }, opts, (err, peliculaBorrada) => {
+    if (err)
+      return res
+        .status(500)
+        .send({ mensaje: "Error. No se ha podido eliminar la pelicula!" });
+    if (!peliculaBorrada)
+      return res.status(200).send({
+        mensaje: "Error. No se ha encontrado una pelicula que coincida!",
+      });
+    return res.status(200).send({
+      mensaje: "Pelicula borrada correctamente!",
+      pelicula: peliculaBorrada,
+    });
+  });
+}
+
 module.exports = {
   agregarPelicula,
   obtenerPeliculas,
   actualizarPelicula,
+  borrarPelicula,
 };
