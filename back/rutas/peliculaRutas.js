@@ -22,4 +22,7 @@ api.delete("/borrar-pelicula/:_id", PeliculaControl.borrarPelicula);
 // Ruta para subir poster de una pelicula
 api.put("/subir-poster/:id", PeliculaControl.subirPoster);
 
+// Ruta para obtener poster de una pelicula
+api.get("/mostrar-poster/:nombrePoster", PeliculaControl.mostrarPoster);
+
 module.exports = api;
