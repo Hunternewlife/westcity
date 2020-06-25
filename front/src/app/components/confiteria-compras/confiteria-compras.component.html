@@ -26,7 +26,9 @@
             {{ combo.descripcion }}
           </p>
           <p class="card-text">Precio: ${{ combo.precio }}</p>
-          <button class="btn btn-danger" (click)="agregarACarrito(combo)">Agregar al carrito</button>
+          <button class="btn btn-danger" (click)="agregarACarrito(combo)">
+            Agregar al carrito
+          </button>
         </div>
       </div>
     </div>
@@ -36,18 +38,19 @@
         <div class="card-header bg-dark text-white">
           {{ item.nombre }}
         </div>
-        
         <div class="card-body">
           <p class="card-text">
             {{ item.descripcion }}
           </p>
           <p class="card-text">Precio: ${{ item.precio }}</p>
-          <button class="btn btn-danger" (click)="agregarACarrito(item)">Agregar al carrito</button>
-
+          <button class="btn btn-danger" (click)="agregarACarrito(item)">
+            Agregar al carrito
+          </button>
         </div>
       </div>
     </div>
     <div class="col-lg-3 border border-light">     
+
       <app-carrito></app-carrito>
     </div>
     
