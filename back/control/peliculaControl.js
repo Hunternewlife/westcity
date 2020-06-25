@@ -28,6 +28,22 @@ function agregarPelicula(req, res) {
     });
 }
 
+function obtenerPeliculas(req, res) {
+  Pelicula.find({})
+    .then((peliculas) => {
+      return res.status(200).send({
+        mensaje: "Todas las peliculas retornadas!",
+        peliculas: peliculas,
+      });
+    })
+    .catch((err) => {
+      return res
+        .status(500)
+        .send({ mensaje: "Error. No se han podido retornar las peliculas!" });
+    });
+}
+
 module.exports = {
   agregarPelicula,
+  obtenerPeliculas,
 };
