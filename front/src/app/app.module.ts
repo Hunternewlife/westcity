@@ -59,10 +59,9 @@ import { ConfiteriaComprasComponent } from './components/confiteria-compras/conf
   providers: [
     EmailNotificationService,
     UsuariosService,
-    CarritoService
+    CarritoService,
+    ProductosService
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [EmailNotificationService, UsuariosService, ProductosService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
