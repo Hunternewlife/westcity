@@ -20,7 +20,11 @@ export class AdminPeliculasComponent implements OnInit {
   constructor(private peliculasService: PeliculasService) {}
 
   ngOnInit(): void {
-    // Consumir servicio de obtencion de peliculas
+    this.obtenerPeliculas();
+  }
+
+  // Auxiliar para cargar las peliculas utilizando el servicio
+  obtenerPeliculas() {
     this.peliculasService.obtenerPeliculas().subscribe(
       (response: any) => {
         this.peliculas = response.peliculas;
