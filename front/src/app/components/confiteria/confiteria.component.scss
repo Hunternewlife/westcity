@@ -1,0 +1,213 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../../assets/images/fondos/wallconfit.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: none;
+}
+.left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vw;
+}
+.leyenda{
+    font-family: oswald;
+    font-size: 30px;
+    color: #e7e65a;
+    font-weight: 500;
+}
+.red{
+    color: #8c000c;
+}
+.btn{
+    width: 150px;
+    height: 52px;
+    border-radius: 8px;
+    background-color: #dadada;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 45px 25px;
+    color: #8c000c;
+    font-size: 30px;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: #8c000c;
+    color: #dadada;
+}
+.membresias{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: none ;
+}
+.membresias :first-child, .membresias :last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pistolero, .sheriff{
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0px 10px;
+}
+.pistolero{
+    background-image: url(../../../assets/images/fondos/pistolero.png);
+}
+.sheriff{
+    background-image: url(../../../assets/images/fondos/sheriff.png);
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.membership{
+    display: flex;
+    align-items: center;
+}
+.hide{
+   display: none;
+}
+.slider{
+    width: 80%;
+    height: 60vh;
+    background-color: #8c000c30;
+    overflow: hidden;
+}
+.slider ul {
+    padding: 0;
+    display: flex;
+    height: 100%;
+    width: 700%;
+    animation: cambio 35s infinite ease-in;
+}
+.slider li{
+    list-style: none;
+    width: 100%;
+}
+.slider img{
+    width: 100%;
+    height: 100%;
+}
+.sliderImg{
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.slider1{
+    background-image: url(../../../assets/images/fondos/slider1.jpg);
+}
+.slider2{
+    background-image: url(../../../assets/images/fondos/slider2.jpg);
+}
+.slider3{
+    background-image: url(../../../assets/images/fondos/slider3.jpg);
+}
+.slider4{
+    background-image: url(../../../assets/images/fondos/slider4.jpg);
+}
+.slider5{
+    background-image: url(../../../assets/images/fondos/comboJohn-min.png);
+}
+.slider6{
+    background-image: url(../../../assets/images/fondos/comboJesse-min.png);
+}
+.slider7{
+    background-image: url(../../../assets/images/fondos/comboWestern-min.png);
+}
+
+@keyframes cambio{
+    0% { margin-left: 0;}
+    12% { margin-left: 0;}
+
+    15% { margin-left: -100%;}
+    27% { margin-left: -100%;}
+
+    29% { margin-left: -200%;}
+    41% { margin-left: -200%;}
+
+    44% { margin-left: -300%;}
+    56% { margin-left: -300%;}
+
+    58% { margin-left: -400%;}
+    70% { margin-left: -400%;}
+
+    73% { margin-left: -500%;}
+    85% { margin-left: -500%;}
+
+    88% { margin-left: -600%;}
+    100% { margin-left: -600%;}
+}
+
+
+@media screen and (max-width:1281px){
+    .container{
+        grid-template-columns: 1.5fr 3fr;
+    }
+    .leyenda{
+        font-size: 25px;
+        width: 100%;
+    }
+    .slider{
+        width: 100%;
+    }
+}
+@media screen and (max-width:900px){
+    .container{
+        grid-template-columns: 1fr;
+    }
+    .left{
+        display: none;
+    }
+    .leyenda{
+        font-size: 25px;
+        width: 100%;
+    }
+    .hide{
+        display: flex;
+     }
+     .carrusel{
+         width: 90vw;
+     }    
+}
+@media screen and (max-width:653px){
+    .slider{
+        height: 100%;
+    }
+    .slider1{
+        background-image: url(../../../assets/images/fondos/rslider1.jpg);
+    }
+    .slider2{
+        background-image: url(../../../assets/images/fondos/rslider2.jpg);
+    }
+    .slider3{
+        background-image: url(../../../assets/images/fondos/rslider2.jpg);
+    }
+    .slider4{
+        background-image: url(../../../assets/images/fondos/rslider4.jpg);
+    }
+    .slider5{
+        background-image: url(../../../assets/images/fondos/comboJohnRes-min.png);
+    }
+    .slider6{
+        background-image: url(../../../assets/images/fondos/comboJesseRes-min.png);
+    }
+    .slider7{
+        background-image: url(../../../assets/images/fondos/comboWesternRes-min.png);
+    }
+  
+}

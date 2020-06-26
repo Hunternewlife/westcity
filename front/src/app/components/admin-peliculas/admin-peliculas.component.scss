@@ -1,0 +1,68 @@
+.contenedor{
+    margin: 30px;
+    font-family: sans-serif;
+}
+.titulo{
+    text-align: center;
+    font-size: 36px;
+}
+.bot{
+    /* display: grid;
+    grid-template-columns: 1.2fr 4fr; */
+}
+.icon{
+    width: 120px;
+    position: relative;
+    display: inline-block; 
+}
+.icon i {
+    cursor: pointer;
+    font-size: 20px;
+}
+.icon span{
+    position: absolute;
+    width: 230px;
+    background-color: black;
+    color: white;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+    opacity: 0;
+    transition: 0.6s opacity;
+    left: 26px;
+    z-index: 1;
+}
+.icon span:before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -5px;
+    background: black;
+    z-index: -1;
+    left: 10%;
+    transform: translateX(-50%) rotate(45deg);
+}
+.icon:hover > span{
+    opacity: 1;
+}
+.tableFixHead { 
+    overflow-y: auto;  
+    min-height: 30vh;
+    max-height: 45vh; 
+    overflow: auto;
+}
+.tableFixHead thead tr th { 
+    position: sticky;
+    top: -1px;
+    background-color: black;
+    z-index: 1;
+ }
+ .formulario{
+     margin-top: 20px;
+ }
+ .btns .fas{
+     margin: 0px 3px;
+ }

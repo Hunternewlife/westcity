@@ -24,11 +24,10 @@ export class EmailNotificationService {
             notificacionCorreo.contenido = [{correoRcpt:`${parametros.correo}`},{subject:"Confirmación de Registro en West City"},{content: parametros}];
             //
         break;
-      case 'tiquetes':
-
-        break;
-
-      case 'comidas': 
+      case 'compra':
+            notificacionCorreo.titulo=titulo;
+            notificacionCorreo.tipo=tipo;
+            notificacionCorreo.contenido = [{correoRcpt:`${parametros[0].correo}`},{subject:"Confirmación de Compra en West City"},{content: parametros[1]}];
 
         break;
     

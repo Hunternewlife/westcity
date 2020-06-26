@@ -1,0 +1,62 @@
+  body{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas: none;
+  }
+  .izquierda{
+      background-color: #fff;
+      height: 100vh;
+      font-family: sans-serif;
+      border-right: solid 1px #252525;
+  }
+  .admin{
+    background-color: #252525;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: durango;
+    letter-spacing: 3px;
+    font-size: 40px;
+    color: #fbfbe2;
+  }
+  .navTitulo, .copyright{
+      background-color: #dadada69;
+      height: 3vh;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+  }
+  .text{
+      margin-left: 10px;
+  }
+  .links{
+      height: 82vh;
+  }
+  .link{
+      display: flex;
+      align-items: center;
+      height: 7vh;
+      font-size: 1.2em;
+      color: #092532;
+  }
+  .icono{
+      margin-left: 15px;
+  }
+  .link a{
+      margin-left: 10px;
+      color: #092532;
+      text-decoration: none;
+  }
+  .link a:hover{
+      color: #c70039;
+  }
+  .copyright span{
+      color: #c70039;
+      margin-left: 10px;
+  }
+  .derecha{
+    background-color: #dadada;
+    overflow: hidden;
+  }
+  
