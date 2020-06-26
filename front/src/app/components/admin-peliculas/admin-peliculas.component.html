@@ -1,201 +1,134 @@
 <div class="contenedor">
-    <div class="titulo"> Panel de Peliculas </div>
-    <div class="form-group">
-        <input type="text" name="filterPeliculas" class="form-control" placeholder="Buscar por nombre..." [(ngModel)]="filterPeliculas">
-    </div>
-    <div class="tableFixHead">
+  <div class="titulo">Panel de Peliculas</div>
+  <div class="form-group">
+    <input
+      type="text"
+      name="filterPeliculas"
+      class="form-control"
+      placeholder="Buscar por nombre..."
+      [(ngModel)]="filterPeliculas"
+    />
+  </div>
+  <div class="tableFixHead">
     <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Titulo</th>
-                <th scope="col">Sinopsis</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">LinkPelicula</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Poster</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-                <!-- <tr *ngFor="let artista of artistas | filter:filterPeliculas">  esta linea es para cuando recibamos las peliculas-->
-               <tr>
-                <th> Django </th>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque qui praesentium dolorem, vero dicta fugit laborum amet vitae error voluptates veniam maxime vel quo tenetur. Facilis ipsam expedita nihil, neque maiores alias magnam reiciendis obcaecati soluta pariatur placeat consectetur accusantium, vero cumque architecto veniam quis qui! Voluptatibus doloribus magnam enim?</span> </td>
-                <td> Accion</td>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quidem?</span> </td>
-                <td> Activo</td>
-                <td class="icon"><i class="far fa-star"></i> <span><img src="../../../assets/images/fondos/Django_Unchained_movie_poster-1491435.jpg!d.jpg" alt="" width="230px"></span> </td>
-                <td class="btns"> 
-                    <button type="button" class="btn btn-secondary"><i class="fas fa-microphone-slash"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <th> Django </th>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque qui praesentium dolorem, vero dicta fugit laborum amet vitae error voluptates veniam maxime vel quo tenetur. Facilis ipsam expedita nihil, neque maiores alias magnam reiciendis obcaecati soluta pariatur placeat consectetur accusantium, vero cumque architecto veniam quis qui! Voluptatibus doloribus magnam enim?</span> </td>
-                <td> Accion</td>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quidem?</span> </td>
-                <td> Activo</td>
-                <td class="icon"><i class="far fa-star"></i> <span><img src="../../../assets/images/fondos/Django_Unchained_movie_poster-1491435.jpg!d.jpg" alt="" width="230px"></span> </td>
-                <td class="btns"> 
-                    <button type="button" class="btn btn-secondary"><i class="fas fa-microphone-slash"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <th> Django </th>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque qui praesentium dolorem, vero dicta fugit laborum amet vitae error voluptates veniam maxime vel quo tenetur. Facilis ipsam expedita nihil, neque maiores alias magnam reiciendis obcaecati soluta pariatur placeat consectetur accusantium, vero cumque architecto veniam quis qui! Voluptatibus doloribus magnam enim?</span> </td>
-                <td> Accion</td>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quidem?</span> </td>
-                <td> Activo</td>
-                <td class="icon"><i class="far fa-star"></i> <span><img src="../../../assets/images/fondos/Django_Unchained_movie_poster-1491435.jpg!d.jpg" alt="" width="230px"></span> </td>
-                <td class="btns"> 
-                    <button type="button" class="btn btn-secondary"><i class="fas fa-microphone-slash"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <th> Django </th>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque qui praesentium dolorem, vero dicta fugit laborum amet vitae error voluptates veniam maxime vel quo tenetur. Facilis ipsam expedita nihil, neque maiores alias magnam reiciendis obcaecati soluta pariatur placeat consectetur accusantium, vero cumque architecto veniam quis qui! Voluptatibus doloribus magnam enim?</span> </td>
-                <td> Accion</td>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quidem?</span> </td>
-                <td> Activo</td>
-                <td class="icon"><i class="far fa-star"></i> <span><img src="../../../assets/images/fondos/Django_Unchained_movie_poster-1491435.jpg!d.jpg" alt="" width="230px"></span> </td>
-                <td class="btns"> 
-                    <button type="button" class="btn btn-secondary"><i class="fas fa-microphone-slash"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <th> Django </th>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque qui praesentium dolorem, vero dicta fugit laborum amet vitae error voluptates veniam maxime vel quo tenetur. Facilis ipsam expedita nihil, neque maiores alias magnam reiciendis obcaecati soluta pariatur placeat consectetur accusantium, vero cumque architecto veniam quis qui! Voluptatibus doloribus magnam enim?</span> </td>
-                <td> Accion</td>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quidem?</span> </td>
-                <td> Activo</td>
-                <td class="icon"><i class="far fa-star"></i> <span><img src="../../../assets/images/fondos/Django_Unchained_movie_poster-1491435.jpg!d.jpg" alt="" width="230px"></span> </td>
-                <td class="btns"> 
-                    <button type="button" class="btn btn-secondary"><i class="fas fa-microphone-slash"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <th> Django </th>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque qui praesentium dolorem, vero dicta fugit laborum amet vitae error voluptates veniam maxime vel quo tenetur. Facilis ipsam expedita nihil, neque maiores alias magnam reiciendis obcaecati soluta pariatur placeat consectetur accusantium, vero cumque architecto veniam quis qui! Voluptatibus doloribus magnam enim?</span> </td>
-                <td> Accion</td>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quidem?</span> </td>
-                <td> Activo</td>
-                <td class="icon"><i class="far fa-star"></i> <span><img src="../../../assets/images/fondos/Django_Unchained_movie_poster-1491435.jpg!d.jpg" alt="" width="230px"></span> </td>
-                <td class="btns"> 
-                    <button type="button" class="btn btn-secondary"><i class="fas fa-microphone-slash"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <th> Django </th>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque qui praesentium dolorem, vero dicta fugit laborum amet vitae error voluptates veniam maxime vel quo tenetur. Facilis ipsam expedita nihil, neque maiores alias magnam reiciendis obcaecati soluta pariatur placeat consectetur accusantium, vero cumque architecto veniam quis qui! Voluptatibus doloribus magnam enim?</span> </td>
-                <td> Accion</td>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quidem?</span> </td>
-                <td> Activo</td>
-                <td class="icon"><i class="far fa-star"></i> <span><img src="../../../assets/images/fondos/Django_Unchained_movie_poster-1491435.jpg!d.jpg" alt="" width="230px"></span> </td>
-                <td class="btns"> 
-                    <button type="button" class="btn btn-secondary"><i class="fas fa-microphone-slash"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <th> Django </th>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque qui praesentium dolorem, vero dicta fugit laborum amet vitae error voluptates veniam maxime vel quo tenetur. Facilis ipsam expedita nihil, neque maiores alias magnam reiciendis obcaecati soluta pariatur placeat consectetur accusantium, vero cumque architecto veniam quis qui! Voluptatibus doloribus magnam enim?</span> </td>
-                <td> Accion</td>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quidem?</span> </td>
-                <td> Activo</td>
-                <td class="icon"><i class="far fa-star"></i> <span><img src="../../../assets/images/fondos/Django_Unchained_movie_poster-1491435.jpg!d.jpg" alt="" width="230px"></span> </td>
-                <td class="btns"> 
-                    <button type="button" class="btn btn-secondary"><i class="fas fa-microphone-slash"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <th> Django </th>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque qui praesentium dolorem, vero dicta fugit laborum amet vitae error voluptates veniam maxime vel quo tenetur. Facilis ipsam expedita nihil, neque maiores alias magnam reiciendis obcaecati soluta pariatur placeat consectetur accusantium, vero cumque architecto veniam quis qui! Voluptatibus doloribus magnam enim?</span> </td>
-                <td> Accion</td>
-                <td class="icon"> <i class="far fa-star"></i> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, quidem?</span> </td>
-                <td> Activo</td>
-                <td class="icon"><i class="far fa-star"></i> <span><img src="../../../assets/images/fondos/Django_Unchained_movie_poster-1491435.jpg!d.jpg" alt="" width="230px"></span> </td>
-                <td class="btns"> 
-                    <button type="button" class="btn btn-secondary"><i class="fas fa-microphone-slash"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i></button>
-                </td>
-              </tr>
-             
-            </tbody>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Sinopsis</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">LinkPelicula</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Poster</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pelicula of peliculas">
+          <th>{{ pelicula.nombre }}</th>
+          <td class="icon">
+            <i class="far fa-star"></i> <span>{{ pelicula.sinopsis }}</span>
+          </td>
+          <td>{{ pelicula.genero }}</td>
+          <td class="icon">
+            <i class="far fa-star"></i>
+            <span>{{ pelicula.enlacePelicula }}</span>
+          </td>
+          <td>{{ pelicula.estado }}</td>
+          <td class="icon">
+            <i class="far fa-star"></i>
+            <span
+              ><img
+                src="{{
+                  'http://localhost:3000/api/mostrar-poster/' +
+                    pelicula.rutaPoster
+                }}"
+                alt=""
+                width="230px"
+            /></span>
+          </td>
+          <td class="btns">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="cambiarEstado(pelicula)"
+            >
+              <i class="fas fa-microphone-slash"></i>
+            </button>
+            <button type="button" class="btn btn-success">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="borrarPelicula(pelicula)"
+            >
+              <i class="fas fa-exclamation-triangle"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
+  </div>
+  <h1>Anadir Nueva Pelicula</h1>
+  <form class="formulario">
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Titulo" />
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Categoria" />
+      </div>
+      <div class="col">
+        <select class="form-control bg-dark text-light">
+          <option selected> Activo </option>
+          <option> Desactivado </option>
+        </select>
+      </div>
     </div>
-    <h1> Anadir Nueva Pelicula </h1>
-    <form class="formulario">
-        <div class="row">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Titulo">
-            </div>
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Categoria">
-            </div>
-            <div class="col">
-                <select class="form-control bg-dark text-light">
-                    <option selected> Activo </option>
-                    <option> Desactivado </option>
-                </select>
-            </div>            
-        </div>        
-        <div class="row pt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Año">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Director">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Pais">
-            </div>
-        </div>        
-        <div class="row pt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Link Trailer">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Actores">
-            </div>  
-            <div class="col">
-                <div class="row centrar">
-                      <label class="pl-3 mt-1"> Poster </label>
-                      <input type="file" class="form-control-file col" name="imagen"/>
-                 </div>
-            </div>  
+    <div class="row pt-2">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Año" />
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Director" />
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Pais" />
+      </div>
+    </div>
+    <div class="row pt-2">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Link Trailer" />
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Actores" />
+      </div>
+      <div class="col">
+        <div class="row centrar">
+          <label class="pl-3 mt-1"> Poster </label>
+          <input type="file" class="form-control-file col" name="imagen" />
         </div>
-        <div class="row pt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Sinopsis">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Link Pelicula">
-            </div>
-        </div>
-        <div class="row pt-2">
-            <div class="col-4">
-                <label class="text-danger pl-3 mt-1"> Por favor verifica que todos los datos esten completos </label>
-            </div>
-            <div class="col-8">
-                <button type="submit" class="btn btn-primary form-control"> Anadir Pelicula </button>
-            </div>
-        </div>
-    </form>        
-
+      </div>
+    </div>
+    <div class="row pt-2">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Sinopsis" />
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Link Pelicula" />
+      </div>
+    </div>
+    <div class="row pt-2">
+      <div class="col-4">
+        <label class="text-danger pl-3 mt-1">
+          Por favor verifica que todos los datos esten completos
+        </label>
+      </div>
+      <div class="col-8">
+        <button type="submit" class="btn btn-primary form-control">
+          Anadir Pelicula
+        </button>
+      </div>
+    </div>
+  </form>
 </div>

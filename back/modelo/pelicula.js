@@ -15,13 +15,13 @@ const PeliculaSchema = new Schema({
     type: Number,
     default: 0,
   },
-  generos: {
-    type: [String],
-    default: [],
+  genero: {
+    type: String,
+    default: "",
   },
-  directores: {
-    type: [String],
-    default: [],
+  director: {
+    type: String,
+    default: "",
   },
   enlacePelicula: {
     type: String,
@@ -31,19 +31,11 @@ const PeliculaSchema = new Schema({
     type: String,
     default: "activo",
   },
-  personajes: {
+  actores: {
     type: [String],
     default: [],
   },
   rutaPoster: {
-    type: String,
-    default: "",
-  },
-  rutaTrailer: {
-    type: String,
-    default: "",
-  },
-  pais: {
     type: String,
     default: "",
   },
