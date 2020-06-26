@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminUsuariosComponent implements OnInit {
 
+  filterUsuarios = '';
+  usuarios;
+
   constructor() { }
 
   ngOnInit(): void {
