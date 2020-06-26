@@ -4,7 +4,7 @@ export class Pelicula {
     public nombre: string,
     public sinopsis: string,
     public anio: number,
-    public generos: Array<string>,
+    public genero: string,
     public directores: Array<string>,
     public enlacePelicula: string,
     public estado: string,

@@ -15,9 +15,9 @@ const PeliculaSchema = new Schema({
     type: Number,
     default: 0,
   },
-  generos: {
-    type: [String],
-    default: [],
+  genero: {
+    type: String,
+    default: "",
   },
   directores: {
     type: [String],
