@@ -39,7 +39,7 @@ export class AdminPeliculasComponent implements OnInit {
   cambiarEstado(pelicula: Pelicula) {
     if (pelicula.estado === 'activo') pelicula.estado = 'inactivo';
     else pelicula.estado = 'activo';
-    
+
     // Hacer uso de la funcion generica de actualizacion
     this.actualizarPelicula(pelicula);
   }
@@ -58,5 +58,22 @@ export class AdminPeliculasComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  // Eliminar pelicula
+  borrarPelicula(peliculaABorrar: Pelicula) {
+    const { _id } = peliculaABorrar;
+    this.peliculasService.borrarPelicula(_id).subscribe(
+      (response: any) => {
+        if (!response.pelicula)
+          alert('No se ha podido eliminar la pelicula!');
+        // Repoblar con datos actualizados
+        alert('Pelicula eliminada correctamente!');
+        this.obtenerPeliculas();
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 }
