@@ -34,4 +34,29 @@ export class AdminPeliculasComponent implements OnInit {
       }
     );
   }
+
+  // Cambiar el estado de una pelicula
+  cambiarEstado(pelicula: Pelicula) {
+    if (pelicula.estado === 'activo') pelicula.estado = 'inactivo';
+    else pelicula.estado = 'activo';
+    
+    // Hacer uso de la funcion generica de actualizacion
+    this.actualizarPelicula(pelicula);
+  }
+
+  // Actualizar pelicula (genericamente)
+  actualizarPelicula(peliculaModificada: Pelicula) {
+    this.peliculasService.actualizarPelicula(peliculaModificada).subscribe(
+      (response: any) => {
+        if (!response.pelicula)
+          alert('No se ha podido actualizar la pelicula!');
+        // Repoblar con datos actualizados
+        alert('Pelicula actualizada correctamente!');
+        this.obtenerPeliculas();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
