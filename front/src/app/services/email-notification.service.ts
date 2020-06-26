@@ -27,7 +27,7 @@ export class EmailNotificationService {
       case 'compra':
             notificacionCorreo.titulo=titulo;
             notificacionCorreo.tipo=tipo;
-            notificacionCorreo.contenido = [];
+            notificacionCorreo.contenido = [{correoRcpt:`${parametros[0].correo}`},{subject:"Confirmación de Compra en West City"},{content: parametros[1]}];
 
         break;
     
