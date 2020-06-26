@@ -5,6 +5,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
+import { Pelicula } from '../modelo/pelicula';
+
 @Injectable()
 export class PeliculasService {
   // url de la api
@@ -17,6 +19,18 @@ export class PeliculasService {
   obtenerPeliculas() {
     return this._http
       .get(this.url + 'obtener-peliculas')
+      .pipe(map((res) => res));
+  }
+
+  // Servicio para actualizar una pelicula
+  actualizarPelicula(peliculaModificada: Pelicula) {
+    const { _id } = peliculaModificada;
+    const reqBody = JSON.stringify(peliculaModificada);
+    const options = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    return this._http
+      .put(this.url + `actualizar-pelicula/${_id}`, reqBody, options)
       .pipe(map((res) => res));
   }
 }
