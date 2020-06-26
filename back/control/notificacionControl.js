@@ -45,7 +45,7 @@ function generarNotificacion(req,res){
     notificacion.titulo = req.body.titulo;
     notificacion.tipo = req.body.tipo;
     notificacion.contenido = req.body.contenido;
-    console.log(notificacion)
+    //console.log(req.body)
     // logica para realizar el mensaje que se enviará por correo
     switch (notificacion.tipo) {
         case 'registro':
@@ -68,6 +68,7 @@ function generarNotificacion(req,res){
                     })
                     console.log('Error', err);
                 }else{
+                    notificacion=null;
                     res.status(200).send({
                         message: 'Envio de correo satisfactorio'
                     })
@@ -77,22 +78,45 @@ function generarNotificacion(req,res){
             
             break;
         case 'compra':
+            // mezclar arrays que vienen en  req.body.contenido en uno solo para la plantilla de vista  ||| Posible mejora para recibir el arreglo hecho desde el front
+            let pedido = [{ }]
+            //console.log('cantidades',notificacion.contenido[2].content)
+            notificacion.contenido[2].content[0].forEach((pedidoArray,index) => {
+                pedido[index] = {
+                    cantidad : pedidoArray,
+                    _id : notificacion.contenido[2].content[1][index]._id,
+                    nombre : notificacion.contenido[2].content[1][index].nombre,
+                    descripcion : notificacion.contenido[2].content[1][index].descripcion,
+                    precio : notificacion.contenido[2].content[1][index].precio,
+                    tipo : notificacion.contenido[2].content[1][index].tipo
+
+                }
+                //console.log(`pedido ${index} = ${pedido}`)
+            });
+            console.log('items pedidos', pedido)
+
             // Configuracion Mensaje
             mailOptions.from = 'westcitymovies@gmail.com';
             mailOptions.to = `${notificacion.contenido[0].correoRcpt}`;
             mailOptions.subject = `${notificacion.titulo}`;
-            mailOptions.template= 'tiquetes';
+            mailOptions.template= 'compraWestCity';
             mailOptions.context = {
-                //titulo :notificacion.contenido[1].subject
+                titulo :notificacion.contenido[1].subject,
+                items : pedido
 
             }
-            console.log(mailOptions)
             //Enviar mensaje
             transporter.sendMail(mailOptions, (err, info)=>{
                 if(err){
+                    res.status(200).send({
+                        message: 'Error al enviar correo'
+                    })
                     console.log('Error', err);
                 }else{
-                    console.log('Mensaje Enviado');
+                    notificacion=null;
+                    res.status(200).send({
+                        message: 'Envio de correo satisfactorio'
+                    })
                 }
             })
 

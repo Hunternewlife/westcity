@@ -15,6 +15,7 @@ import { Producto } from '../../modelo/producto'
 export class CarritoComponent implements OnInit {
   public identidad;
   public msgCompra : Array<any> = [];
+  public msgEmail;
   public showCarrito : Array<any> =[]
   public carrito: Array<Producto> = [];
   public subscription: Subscription;
@@ -60,9 +61,36 @@ export class CarritoComponent implements OnInit {
     this.carritoService.agregarCarrito(item)
   }
   PagarCarrito(){
-    this.msgCompra=[this.identidad,this.showCarrito,this.carrito.length];
-    console.log(this.msgCompra)
-    //this.emailNotificationService.elaborarMensaje('Compra exitosa West City','compra',this.msgCompra)
+    if(this.showCarrito[1].length>0){
+      this.msgCompra=[this.identidad,this.showCarrito,this.carrito.length];
+    console.log('mensaje',this.msgCompra)
+    this.msgEmail=this.emailNotificationService.elaborarMensaje('Compra exitosa West City','compra',this.msgCompra)
+
+    this.emailNotificationService.generarNotificacion(this.msgEmail).subscribe(
+      (response : any) => {
+        switch (response.message) {
+           case 'Envio de correo satisfactorio':
+             console.log('Correo enviado')
+
+             break;
+
+           case 'Error al enviar correo':
+             console.log('Correo No enviado')
+
+             break;
+
+          default:
+            break;
+        }
+      }
+
+
+     )
+
+    }else{
+      alert('Tu carrito se encuentra vacio')
+    }
+    
   }
 
   agregarCarrito(producto){
