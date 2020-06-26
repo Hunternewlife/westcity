@@ -33,4 +33,11 @@ export class PeliculasService {
       .put(this.url + `actualizar-pelicula/${_id}`, reqBody, options)
       .pipe(map((res) => res));
   }
+
+  // Servicio para borrar una pelicula
+  borrarPelicula(id: string) {
+    return this._http
+      .delete(this.url + `borrar-pelicula/${id}`)
+      .pipe(map((res) => res));
+  }
 }
