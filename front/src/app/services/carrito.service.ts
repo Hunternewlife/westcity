@@ -20,8 +20,14 @@ export class CarritoService {
     this.subject.next([...this.itemsCarrito, producto]);
   }
 
+  eliminarUnidad(producto: Producto){
+    let index =this.itemsCarrito.findIndex(product => product._id === producto._id);
+    this.itemsCarrito.splice(index,1);
+    this.subject.next(this.itemsCarrito);
+  }
+
   vaciarCarrito(){
-    this.subject.next(null);
+    this.subject.next([]);
   }
 
   obtenerCarrito(): Observable<Producto[]> {

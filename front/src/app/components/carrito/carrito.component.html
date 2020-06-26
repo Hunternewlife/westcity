@@ -20,9 +20,9 @@
           </td>
           <td>{{item.nombre}}</td>
           <td>{{item.precio}}€</td>
-          <td><button class="btn btn-danger" (click)="unidadesBtnCarrito(item,i)" >+</button></td>
-          <td><button class="btn btn-danger">-</button></td>
-          <td><button class="btn text-danger">X</button></td>
+          <td><button class="btn btn-danger" (click)="unidadesBtnCarrito(item,i,'sum')" >+</button></td>
+          <td><button class="btn btn-danger" (click)="unidadesBtnCarrito(item,i,'res')">-</button></td>
+          <td><button class="btn text-danger" (click)="unidadesBtnCarrito(item,i,'eli')">X</button></td>
         </tr>      
       </tbody>
       <tfoot>
@@ -42,4 +42,4 @@
     </div>
   </ng-template>
   <button class="btn btn-danger" (click)="PagarCarrito()">Pagar</button>
-  <button class="btn btn-danger" (click)="PagarCarrito()">Vaciar</button>
+  <button class="btn btn-danger" (click)="vaciarCarrito()">Vaciar</button>

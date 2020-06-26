@@ -13,6 +13,7 @@ import { Producto } from '../../modelo/producto'
   styleUrls: ['./carrito.component.scss']
 })
 export class CarritoComponent implements OnInit {
+  public resFlag = false;
   public identidad;
   public msgCompra : Array<any> = [];
   public msgEmail;
@@ -29,7 +30,7 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
 
     this.carritoService.obtenerCarrito().subscribe(data => {
-      //console.log(data);
+      console.log(this.showCarrito[0]);
       this.carrito = data;
       if(this.carrito.length>0){
         this.cantidadesCarrito(this.showCarrito[1],this.carrito[this.carrito.length-1])
@@ -40,7 +41,6 @@ export class CarritoComponent implements OnInit {
   }
 
   cantidadesCarrito(listaCarrito, productoCarrito){
-    console.log(listaCarrito.find(product => product._id === productoCarrito._id))
     if (listaCarrito.find(product => product._id === productoCarrito._id)===undefined) {
 
       listaCarrito.push(productoCarrito);
@@ -48,18 +48,47 @@ export class CarritoComponent implements OnInit {
       console.log('La nueva colección es: ' + listaCarrito);
       console.log(this.showCarrito[0])
 
-    } else {
+    } else if(!this.resFlag) {
       let index =listaCarrito.findIndex(product => product._id === productoCarrito._id);
       this.showCarrito[0][index]=this.showCarrito[0][index]+1;
-      console.log(this.showCarrito[0])
       
       
   }
   }
 
-  unidadesBtnCarrito(item, index){
-    this.carritoService.agregarCarrito(item)
+  unidadesBtnCarrito(item, i, accion){
+    console.log(`${item} ${i} ${accion}`)
+    switch (accion) {
+      case 'sum':
+        this.carritoService.agregarCarrito(item)
+        //console.log(`sum show | ${this.showCarrito} | ${this.carrito}`)
+        break;
+      case 'res':
+        this.resFlag=true;
+        if(this.showCarrito[0][i]<=1){
+          console.log('se puede eliminar')
+          this.resFlag=false;
+        }else{
+          console.log( this.showCarrito[0][i])
+          this.showCarrito[0][i]= this.showCarrito[0][i]-1;
+          this.carritoService.eliminarUnidad(item);
+          this.resFlag=false;
+         /*  console.log(`res show | ${this.showCarrito} | ${this.carrito}`)
+          console.log('menos una unidad') */
+        }
+
+        break;
+
+      case 'eli':
+
+        break;
+    
+      default:
+        break;
+    }
+    
   }
+
   PagarCarrito(){
     if(this.showCarrito[1].length>0){
       this.msgCompra=[this.identidad,this.showCarrito,this.carrito.length];
@@ -91,6 +120,11 @@ export class CarritoComponent implements OnInit {
       alert('Tu carrito se encuentra vacio')
     }
     
+  }
+
+  vaciarCarrito(){
+    this.carritoService.vaciarCarrito();
+    this.showCarrito=[[],[]]
   }
 
   agregarCarrito(producto){
