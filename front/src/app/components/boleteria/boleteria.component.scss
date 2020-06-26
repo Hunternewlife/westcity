@@ -1,7 +1,7 @@
 .container{
     width: 100vw;
     height: 100vh;
-    background-image: url(../../../assets/images/fondos/wallconfit.jpg);
+    background-image: url(../../../assets/images/fondos/wallpaper3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
@@ -109,17 +109,24 @@
     background-position: center center;
 }
 .slider1{
-    background-image: url(../../../assets/images/fondos/slider1.jpg);
+    background-image: url('../../../assets/images/fondos/sliders_boleteria1.png');
 }
 .slider2{
-    background-image: url(../../../assets/images/fondos/slider2.jpg);
+    background-image: url('../../../assets/images/fondos/sliders_boleteria2.png');
 }
 .slider3{
-    background-image: url(../../../assets/images/fondos/slider3.jpg);
+    background-image: url('../../../assets/images/fondos/sliders_boleteria3.png');
 }
 .slider4{
-    background-image: url(../../../assets/images/fondos/slider4.jpg);
+    background-image: url('../../../assets/images/fondos/sliders_boleteria4.png');
 }
+.slider5{
+    background-image: url('../../../assets/images/fondos/sliders_boleteria5.png');
+}
+.slider6{
+    background-image: url('../../../assets/images/fondos/sliders_boleteria6.png');
+}
+
 
 @keyframes cambio{
     0% { margin-left: 0;}
@@ -174,15 +181,21 @@
         height: 100%;
     }
     .slider1{
-        background-image: url(../../../assets/images/fondos/rslider1.jpg);
+        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE1.png);
     }
     .slider2{
-        background-image: url(../../../assets/images/fondos/rslider2.jpg);
+        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE2.png);
     }
     .slider3{
-        background-image: url(../../../assets/images/fondos/rslider2.jpg);
+        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE3.png);
     }
     .slider4{
-        background-image: url(../../../assets/images/fondos/rslider4.jpg);
+        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE4.png);
+    }
+    .slider5{
+        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE5.png);
+    }
+    .slider6{
+        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE6.png);
     }
 }
