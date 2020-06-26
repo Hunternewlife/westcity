@@ -31,6 +31,11 @@ import { MembresiaComponent } from './components/membresia/membresia.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { CarritoService} from './services/carrito.service';
 import { ConfiteriaComprasComponent } from './components/confiteria-compras/confiteria-compras.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminUsuariosComponent } from './components/admin-usuarios/admin-usuarios.component';
+import { AdminPeliculasComponent } from './components/admin-peliculas/admin-peliculas.component';
+import { FilterPipe } from './pipes/filter.pipe';
 import { BoleteriaCompraComponent } from './components/boleteria-compra/boleteria-compra.component';
 
 @NgModule({
@@ -50,6 +55,11 @@ import { BoleteriaCompraComponent } from './components/boleteria-compra/boleteri
     MembresiaComponent,
     CarritoComponent,
     ConfiteriaComprasComponent,
+    AdminComponent,
+    AdminDashboardComponent,
+    AdminUsuariosComponent,
+    AdminPeliculasComponent,
+    FilterPipe,
     BoleteriaCompraComponent
   ],
   imports: [
