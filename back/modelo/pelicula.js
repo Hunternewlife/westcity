@@ -19,9 +19,9 @@ const PeliculaSchema = new Schema({
     type: String,
     default: "",
   },
-  directores: {
-    type: [String],
-    default: [],
+  director: {
+    type: String,
+    default: "",
   },
   enlacePelicula: {
     type: String,
@@ -31,7 +31,7 @@ const PeliculaSchema = new Schema({
     type: String,
     default: "activo",
   },
-  personajes: {
+  actores: {
     type: [String],
     default: [],
   },
