@@ -39,14 +39,6 @@ const PeliculaSchema = new Schema({
     type: String,
     default: "",
   },
-  rutaTrailer: {
-    type: String,
-    default: "",
-  },
-  pais: {
-    type: String,
-    default: "",
-  },
 });
 
 module.exports = mongoose.model("Pelicula", PeliculaSchema);

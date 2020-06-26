@@ -9,8 +9,6 @@ export class Pelicula {
     public enlacePelicula: string,
     public estado: string,
     public personajes: Array<string>,
-    public rutaPoster: string,
-    public rutaTrailer: string,
-    public pais: string
+    public rutaPoster: string
   ) {}
 }
