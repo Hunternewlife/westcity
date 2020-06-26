@@ -1,18 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 
+// Servicio de peliculas
+import { PeliculasService } from '../../services/peliculas.service';
+
+// Modelo de peliculas
+import { Pelicula } from '../../modelo/pelicula';
+
 @Component({
   selector: 'app-admin-peliculas',
   templateUrl: './admin-peliculas.component.html',
-  styleUrls: ['./admin-peliculas.component.scss']
+  styleUrls: ['./admin-peliculas.component.scss'],
 })
 export class AdminPeliculasComponent implements OnInit {
-
   filterPeliculas = '';
-  peliculas;
-  
-  constructor() { }
+
+  // Se obtienen al consumir el servicio de peliculas
+  peliculas: Array<Pelicula>;
+
+  constructor(private peliculasService: PeliculasService) {}
 
   ngOnInit(): void {
+    // Consumir servicio de obtencion de peliculas
+    this.peliculasService.obtenerPeliculas().subscribe(
+      (response: any) => {
+        this.peliculas = response.peliculas;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
-
 }
