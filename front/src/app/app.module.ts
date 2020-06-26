@@ -36,6 +36,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { AdminUsuariosComponent } from './components/admin-usuarios/admin-usuarios.component';
 import { AdminPeliculasComponent } from './components/admin-peliculas/admin-peliculas.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { BoleteriaCompraComponent } from './components/boleteria-compra/boleteria-compra.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     AdminDashboardComponent,
     AdminUsuariosComponent,
     AdminPeliculasComponent,
-    FilterPipe
+    FilterPipe,
+    BoleteriaCompraComponent
   ],
   imports: [
     BrowserModule,
