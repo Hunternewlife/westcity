@@ -1,0 +1,135 @@
+.contenedor{
+    min-height: 100vh;
+    display: flex;
+    font-family: oswald;
+    text-shadow: 10px 10px 10px rgba(0,0,0,0.75);
+}
+.titulo{
+  font-size: 4.8vw; 
+  position: absolute;
+  top: -7%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.durango{
+    font-family: durango;
+    color: #fffd62;
+}
+
+.noche{
+    background-image: url('../../../assets/images/fondos/h9zCxvvxuZ.jpg');
+    background-size:cover;
+    min-width: 50%;
+}
+.dia{
+    background-image: url('../../../assets/images/fondos/wallpaper3.jpg');
+    background-size:cover;
+    min-width: 50%;
+}
+.box{
+    margin-top: 15%;
+    max-width: 60%;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 0 rgba(0,0,0,0.75);
+    margin-top: 20%;
+}
+.pistolero{
+    background: linear-gradient(180deg, rgba(255,255,255,0.5494572829131652) 0%, rgba(24,26,34,1) 100%);
+}
+.sheriff{
+    background: linear-gradient(180deg, rgba(255,255,255,0.5494572829131652) 0%, rgba(230,156,1,1) 100%);
+}
+.box-title{
+    display: flex;
+    align-items: center;
+}
+.box-title img{
+    max-width: 45%;
+}
+.box-title h2{
+    font-size: 3vw;
+}
+.box-content{
+    max-width: 60%;
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: 2vw;
+}
+.box-content p{
+    border-bottom: white 3px solid;
+    padding: 5%;
+}
+.boton{
+    margin: 8%;
+    background-color: #8d000c;
+    padding: 2% 5%;
+    border-radius: 5px;
+    min-width: 85%;
+}
+@media (max-width: 1100px){
+    .box{
+        margin-top: 30%;
+        max-width: 80%;
+    }
+    .titulo{
+        top: 0;
+    }
+}
+@media (max-width: 900px){
+    .box{
+        margin-top: 40%;
+        max-width: 90%;
+    }
+    .titulo{
+        min-width: 100%;
+        text-align: center;
+        font-size: 6vw;
+    }
+    .box-title h2{
+        font-size: 4.5vw;
+    }
+    .box-content{
+        font-size: 3vw;
+    }
+    .box-content p{
+        padding: 7%;
+    }
+}
+@media (max-width: 600px){
+    .contenedor{
+        flex-wrap: wrap;
+    }
+    .dia{
+        min-width: 100%;
+    }
+    .noche{
+        min-width: 100%;
+    }
+    .box{
+        margin-top: 25%;
+        max-width: 70%;
+    }
+    .box-content{
+        font-size: 4vw;
+    }
+    .box-content p{
+        padding: 10%;
+    }
+}
+@media (max-width: 450px){
+    .titulo{
+        font-size: 9vw;
+    }
+    .box-title h2{
+        font-size: 7vw;
+    }
+    .box{
+        margin-top: 30%;
+       max-width: 85%; 
+    }
+    .box-content{
+        font-size: 6vw;
+    }
+}
