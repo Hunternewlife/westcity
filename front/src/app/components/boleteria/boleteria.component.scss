@@ -1,7 +1,7 @@
 .container{
     width: 100vw;
     height: 100vh;
-    background-image: url(../../../assets/images/fondos/wallpaper3.jpg);
+    background-image: url(../../../assets/images/fondos/desert.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
@@ -20,6 +20,7 @@
     font-size: 30px;
     color: #e7e65a;
     font-weight: 500;
+    text-shadow: 3px 3px 9px black;
 }
 .red{
     color: #8c000c;
@@ -184,21 +185,21 @@
         height: 100%;
     }
     .slider1{
-        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE1.png);
+        background-image: url('../../../assets/images/fondos/PELIS-RESPONSIVE1.png');
     }
     .slider2{
-        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE2.png);
+        background-image: url('../../../assets/images/fondos/PELIS-RESPONSIVE2.png');
     }
     .slider3{
-        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE3.png);
+        background-image: url('../../../assets/images/fondos/PELIS-RESPONSIVE3.png');
     }
     .slider4{
-        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE4.png);
+        background-image: url('../../../assets/images/fondos/PELIS-RESPONSIVE4.png');
     }
     .slider5{
-        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE5.png);
+        background-image: url('../../../assets/images/fondos/PELIS-RESPONSIVE5.png');
     }
     .slider6{
-        background-image: url(../../../assets/images/fondos/PELIS-RESPONSIVE6.png);
+        background-image: url('../../../assets/images/fondos/PELIS-RESPONSIVE6.png');
     }
 }
