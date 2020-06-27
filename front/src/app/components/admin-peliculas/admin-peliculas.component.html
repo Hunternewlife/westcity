@@ -184,7 +184,12 @@
       <div class="col">
         <div class="row centrar">
           <label class="pl-3 mt-1"> Poster </label>
-          <input type="file" class="form-control-file col" name="imagen" />
+          <input
+            type="file"
+            class="form-control-file col"
+            name="imagen"
+            (change)="prepararArchivo($event)"
+          />
         </div>
       </div>
     </div>
