@@ -40,4 +40,15 @@ export class PeliculasService {
       .delete(this.url + `borrar-pelicula/${id}`)
       .pipe(map((res) => res));
   }
+
+  // Servicio para agregar una pelicula
+  agregarPelicula(nuevaPelicula: Pelicula) {
+    const reqBody = JSON.stringify(nuevaPelicula);
+    const options = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    return this._http
+      .post(this.url + 'agregar-pelicula', reqBody, options)
+      .pipe(map((res) => res));
+  }
 }
