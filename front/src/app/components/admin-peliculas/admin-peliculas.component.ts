@@ -20,6 +20,9 @@ export class AdminPeliculasComponent implements OnInit {
   // Almacenara una nueva pelicula (binding al formulario correspondiente)
   nuevaPelicula: Pelicula;
 
+  // Almacena nuevo archivo de imagen
+  nuevaImagen: File;
+
   // Auxiliar para actores
   nuevaPeliculaAux;
 
@@ -113,13 +116,38 @@ export class AdminPeliculasComponent implements OnInit {
     this.nuevaPeliculaAux.actorBorrar = this.nuevaPelicula.actores[0];
   }
 
+  // Prepara el archivo de imagen a subir (nueva pelicula)
+  prepararArchivoNuevo(event) {
+    this.nuevaImagen = <File>event.target.files[0];
+  }
+
+  // Sube un poster para una determinada pelicula
+  subirPoster(id: string, poster: File) {
+    this.peliculasService.subirPoster(id, poster).subscribe(
+      (response: any) => {
+        if (!response.pelicula) alert('No se ha podido subir la imagen!');
+        // Repoblar con datos actualizados
+        alert('Imagen subida correctamente!');
+        this.obtenerPeliculas();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
   agregarPelicula() {
     this.peliculasService.agregarPelicula(this.nuevaPelicula).subscribe(
       (response: any) => {
-        if (!response.pelicula) alert('No se ha podido agregar la pelicula!');
-        // Repoblar con datos actualizados
+        if (!response.pelicula)
+          return alert('No se ha podido agregar la pelicula!');
         alert('Pelicula agregada correctamente!');
-        this.obtenerPeliculas();
+
+        // Subir poster (de haberlo)
+        if (this.nuevaImagen)
+          this.subirPoster(response.pelicula._id, this.nuevaImagen);
+        // Repoblar con datos actualizados (es necesario aqui tambien)
+        else this.obtenerPeliculas();
 
         // Limpiar estado de nueva pelicula
         this.nuevaPelicula = new Pelicula(
