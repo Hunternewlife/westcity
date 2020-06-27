@@ -17,7 +17,30 @@ export class AdminPeliculasComponent implements OnInit {
   // Se obtienen al consumir el servicio de peliculas
   peliculas: Array<Pelicula>;
 
-  constructor(private peliculasService: PeliculasService) {}
+  // Almacenara una nueva pelicula (binding al formulario correspondiente)
+  nuevaPelicula: Pelicula;
+
+  // Auxiliar para actores
+  nuevaPeliculaAux;
+
+  constructor(private peliculasService: PeliculasService) {
+    this.nuevaPelicula = new Pelicula(
+      '',
+      '',
+      '',
+      0,
+      '',
+      '',
+      '',
+      'activo',
+      [],
+      ''
+    );
+    this.nuevaPeliculaAux = {
+      nuevoActor: '',
+      actorBorrar: this.nuevaPelicula.actores[0],
+    };
+  }
 
   ngOnInit(): void {
     this.obtenerPeliculas();
@@ -65,8 +88,7 @@ export class AdminPeliculasComponent implements OnInit {
     const { _id } = peliculaABorrar;
     this.peliculasService.borrarPelicula(_id).subscribe(
       (response: any) => {
-        if (!response.pelicula)
-          alert('No se ha podido eliminar la pelicula!');
+        if (!response.pelicula) alert('No se ha podido eliminar la pelicula!');
         // Repoblar con datos actualizados
         alert('Pelicula eliminada correctamente!');
         this.obtenerPeliculas();
@@ -74,6 +96,52 @@ export class AdminPeliculasComponent implements OnInit {
       (error) => {
         console.log(error);
       }
-    )
+    );
+  }
+
+  // Auxiliares para formulario de nueva pelicula
+  agregarActor() {
+    this.nuevaPelicula.actores.push(this.nuevaPeliculaAux.nuevoActor);
+    this.nuevaPeliculaAux.nuevoActor = '';
+  }
+
+  eliminarActor() {
+    const posBorrar = this.nuevaPelicula.actores.indexOf(
+      this.nuevaPeliculaAux.actorBorrar
+    );
+    this.nuevaPelicula.actores.splice(posBorrar, 1);
+    this.nuevaPeliculaAux.actorBorrar = this.nuevaPelicula.actores[0];
+  }
+
+  agregarPelicula() {
+    this.peliculasService.agregarPelicula(this.nuevaPelicula).subscribe(
+      (response: any) => {
+        if (!response.pelicula) alert('No se ha podido agregar la pelicula!');
+        // Repoblar con datos actualizados
+        alert('Pelicula agregada correctamente!');
+        this.obtenerPeliculas();
+
+        // Limpiar estado de nueva pelicula
+        this.nuevaPelicula = new Pelicula(
+          '',
+          '',
+          '',
+          0,
+          '',
+          '',
+          '',
+          'activo',
+          [],
+          ''
+        );
+        this.nuevaPeliculaAux = {
+          nuevoActor: '',
+          actorBorrar: this.nuevaPelicula.actores[0],
+        };
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
