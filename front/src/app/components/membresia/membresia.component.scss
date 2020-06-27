@@ -3,11 +3,14 @@
     display: flex;
     font-family: oswald;
     text-shadow: 10px 10px 10px rgba(0,0,0,0.75);
+    position: relative;
+    top: 9vh;
+    z-index: -1;
 }
 .titulo{
   font-size: 4.8vw; 
   position: absolute;
-  top: -7%;
+  top: -2;
   left: 50%;
   transform: translate(-50%);
 }
@@ -27,12 +30,12 @@
     min-width: 50%;
 }
 .box{
-    margin-top: 15%;
+    margin-top: 40%;
     max-width: 60%;
     margin: auto;
     border-radius: 10px;
     box-shadow: 10px 10px 10px 0 rgba(0,0,0,0.75);
-    margin-top: 20%;
+    margin-top: 27%;
 }
 .pistolero{
     background: linear-gradient(180deg, rgba(255,255,255,0.5494572829131652) 0%, rgba(24,26,34,1) 100%);
@@ -70,16 +73,16 @@
 }
 @media (max-width: 1100px){
     .box{
-        margin-top: 30%;
+        margin-top: 35%;
         max-width: 80%;
     }
     .titulo{
-        top: 0;
+        top: 3%;
     }
 }
 @media (max-width: 900px){
     .box{
-        margin-top: 40%;
+        margin-top: 45%;
         max-width: 90%;
     }
     .titulo{
@@ -100,6 +103,9 @@
 @media (max-width: 600px){
     .contenedor{
         flex-wrap: wrap;
+    }
+    .titulo{
+        top: 1.5%;
     }
     .dia{
         min-width: 100%;
@@ -126,7 +132,7 @@
         font-size: 7vw;
     }
     .box{
-        margin-top: 30%;
+        margin-top: 40%;
        max-width: 85%; 
     }
     .box-content{
