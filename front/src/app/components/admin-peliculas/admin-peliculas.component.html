@@ -69,20 +69,25 @@
       </tbody>
     </table>
   </div>
-  <h1>Anadir Nueva Pelicula</h1>
+  <h1>Añadir Nueva Pelicula</h1>
   <form class="formulario">
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" placeholder="Titulo" />
+        <input type="text" class="form-control" placeholder="Nombre" />
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="Categoria" />
+        <input type="text" class="form-control" placeholder="Genero" />
       </div>
       <div class="col">
         <select class="form-control bg-dark text-light">
-          <option selected> Activo </option>
-          <option> Desactivado </option>
+          <option selected> Tom cruise </option>
+          <option> Leonardo di Caprio </option>
         </select>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-danger form-control">
+          Eliminar
+        </button>
       </div>
     </div>
     <div class="row pt-2">
@@ -93,15 +98,27 @@
         <input type="text" class="form-control" placeholder="Director" />
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="Pais" />
+        <input type="text" class="form-control" placeholder="Nuevo actor" />
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-success form-control">
+          Agregar
+        </button>
       </div>
     </div>
     <div class="row pt-2">
       <div class="col">
-        <input type="text" class="form-control" placeholder="Link Trailer" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enlace de la pelicula"
+        />
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="Actores" />
+        <select class="form-control bg-dark text-light">
+          <option selected> Activo </option>
+          <option> Inactivo </option>
+        </select>
       </div>
       <div class="col">
         <div class="row centrar">
@@ -114,9 +131,6 @@
       <div class="col">
         <input type="text" class="form-control" placeholder="Sinopsis" />
       </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Link Pelicula" />
-      </div>
     </div>
     <div class="row pt-2">
       <div class="col-4">
@@ -126,7 +140,7 @@
       </div>
       <div class="col-8">
         <button type="submit" class="btn btn-primary form-control">
-          Anadir Pelicula
+          Añadir Pelicula
         </button>
       </div>
     </div>
