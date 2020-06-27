@@ -90,8 +90,8 @@
     padding: 0;
     display: flex;
     height: 100%;
-    width: 400%;
-    animation: cambio 20s infinite ease-in;
+    width: 600%;
+    animation: cambio 30s infinite ease-in;
 }
 .slider li{
     list-style: none;
@@ -130,20 +130,23 @@
 
 @keyframes cambio{
     0% { margin-left: 0;}
-    20% { margin-left: 0;}
+    13% { margin-left: 0;}
 
-    25% { margin-left: -100%;}
-    45% { margin-left: -100%;}
+    16% { margin-left: -100%;}
+    39% { margin-left: -100%;}
 
-    50% { margin-left: -200%;}
-    70% { margin-left: -200%;}
+    41% { margin-left: -200%;}
+    54% { margin-left: -200%;}
 
-    75% { margin-left: -300%;}
-    100% { margin-left: -300%;}
+    57% { margin-left: -300%;}
+    70% { margin-left: -300%;}
+
+    72% { margin-left: -400%;}
+    85% { margin-left: -400%;}
+
+    87% { margin-left: -500%;}
+    100% { margin-left: -500%;}
 }
-
-
-
 
 
 @media screen and (max-width:1281px){
