@@ -70,38 +70,91 @@
     </table>
   </div>
   <h1>Añadir Nueva Pelicula</h1>
-  <form class="formulario">
+  <form
+    class="formulario"
+    #formNuevaPelicula="ngForm"
+    (ngSubmit)="agregarPelicula()"
+  >
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" placeholder="Nombre" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nombre"
+          name="nombre"
+          #nombre="ngModel"
+          [(ngModel)]="nuevaPelicula.nombre"
+        />
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="Genero" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Genero"
+          name="genero"
+          #genero="ngModel"
+          [(ngModel)]="nuevaPelicula.genero"
+        />
       </div>
       <div class="col">
-        <select class="form-control bg-dark text-light">
-          <option selected> Tom cruise </option>
-          <option> Leonardo di Caprio </option>
+        <select
+          class="form-control bg-dark text-light"
+          name="actorBorrar"
+          #actorBorrar="ngModel"
+          [(ngModel)]="nuevaPeliculaAux.actorBorrar"
+        >
+          <option *ngFor="let actor of nuevaPelicula.actores">{{
+            actor
+          }}</option>
         </select>
       </div>
       <div class="col">
-        <button type="button" class="btn btn-danger form-control">
+        <button
+          type="button"
+          class="btn btn-danger form-control"
+          (click)="eliminarActor()"
+        >
           Eliminar
         </button>
       </div>
     </div>
     <div class="row pt-2">
       <div class="col">
-        <input type="text" class="form-control" placeholder="Año" />
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Año"
+          name="anio"
+          #anio="ngModel"
+          [(ngModel)]="nuevaPelicula.anio"
+        />
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="Director" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Director"
+          name="director"
+          #director="ngModel"
+          [(ngModel)]="nuevaPelicula.director"
+        />
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="Nuevo actor" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nuevo actor"
+          name="nuevoActor"
+          #nuevoActor="ngModel"
+          [(ngModel)]="nuevaPeliculaAux.nuevoActor"
+        />
       </div>
       <div class="col">
-        <button type="button" class="btn btn-success form-control">
+        <button
+          type="button"
+          class="btn btn-success form-control"
+          (click)="agregarActor()"
+        >
           Agregar
         </button>
       </div>
@@ -112,12 +165,20 @@
           type="text"
           class="form-control"
           placeholder="Enlace de la pelicula"
+          name="enlacePelicula"
+          #enlacePelicula="ngModel"
+          [(ngModel)]="nuevaPelicula.enlacePelicula"
         />
       </div>
       <div class="col">
-        <select class="form-control bg-dark text-light">
-          <option selected> Activo </option>
-          <option> Inactivo </option>
+        <select
+          class="form-control bg-dark text-light"
+          name="estado"
+          #estado="ngModel"
+          [(ngModel)]="nuevaPelicula.estado"
+        >
+          <option selected value="activo"> Activo </option>
+          <option value="inactivo"> Inactivo </option>
         </select>
       </div>
       <div class="col">
@@ -129,7 +190,14 @@
     </div>
     <div class="row pt-2">
       <div class="col">
-        <input type="text" class="form-control" placeholder="Sinopsis" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Sinopsis"
+          name="sinopsis"
+          #sinopsis="ngModel"
+          [(ngModel)]="nuevaPelicula.sinopsis"
+        />
       </div>
     </div>
     <div class="row pt-2">
