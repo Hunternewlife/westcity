@@ -142,7 +142,10 @@ function subirPoster(req, res) {
         });
 
       // Eliminar archivo actual (si existe)
-      if (fs.existsSync(`${rutaDest}/${peliculaRegistrada.rutaPoster}`)) {
+      if (
+        peliculaRegistrada.rutaPoster &&
+        fs.existsSync(`${rutaDest}/${peliculaRegistrada.rutaPoster}`)
+      ) {
         fs.unlinkSync(`${rutaDest}/${peliculaRegistrada.rutaPoster}`);
       }
 
