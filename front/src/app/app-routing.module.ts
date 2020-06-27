@@ -17,6 +17,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { AdminPeliculasComponent } from './components/admin-peliculas/admin-peliculas.component';
 import { AdminUsuariosComponent } from './components/admin-usuarios/admin-usuarios.component';
 import { BoleteriaCompraComponent } from './components/boleteria-compra/boleteria-compra.component';
+import { MembresiaComponent } from "./components/membresia/membresia.component";
 
 
 // Relacionar rutas con componentes
@@ -46,7 +47,8 @@ const routes: Routes = [
         component: AdminUsuariosComponent
       }
   ] },
-  { path: 'boleteria-compras', component: BoleteriaCompraComponent }
+  { path: 'boleteria-compras', component: BoleteriaCompraComponent },
+  { path: 'membresia', component: MembresiaComponent}
 ];
 
 @NgModule({
