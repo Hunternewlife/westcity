@@ -1,1 +1,92 @@
-<p>admin-usuarios works!</p>
+<div class="contenedor">
+    <div class="titulo"> Panel de usuarios </div>
+    <div class="form-group">
+        <!-- <input type="text" name="filterUsuarios" class="form-control" placeholder="Buscar por nombre..." [(ngModel)]="filterUsuarios"> -->
+    </div>
+    <div class="tableFixHead">
+    <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Avatar</th>
+                <th scope="col">Estado</th>
+                <th scope="col">rol</th>
+                <th scope="col">membresia</th>                
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let usuario of usuarios | filter:filterUsuarios">  esta linea es para cuando recibamos los Usuarios-->
+               <tr>
+                <th> David </th>
+                <th> Rueda </th>
+                <td class="icon"><i class="far fa-star"></i> <span><img src="../../../assets/images/fondos/octo.png" alt="" width="230px"></span> </td>
+                <td> Activo </td>
+                <td> Admin </td>               
+                <td> Sheriff </td>               
+                <td class="btns"> 
+                    <button type="button" class="btn btn-secondary"><i class="fas fa-microphone-slash"></i></button>
+                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i></button>
+                </td>
+              </tr>             
+            </tbody>
+    </table>
+    </div>
+    <h1> Anadir Nueva Usuario </h1>
+    <form class="formulario">
+        <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Nombre">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Apellido">
+            </div>
+            <div class="col">
+                <select class="form-control bg-dark text-light">
+                    <option selected> Activo </option>
+                    <option> Desactivado </option>
+                </select>
+            </div>            
+        </div>        
+        <div class="row pt-2">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Documento">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Rol">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Contrasena">
+            </div>
+        </div>        
+        <div class="row pt-2">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Correo">
+            </div>
+            <div class="col">
+                <select class="form-control bg-dark text-light">
+                    <option selected> Regular </option>
+                    <option> Pistolero </option>
+                    <option> Sheriff </option>
+                </select>
+            </div>  
+            <div class="col">
+                <div class="row centrar">
+                      <label class="pl-3 mt-1"> Avatar </label>
+                      <input type="file" class="form-control-file col" name="imagen"/>
+                 </div>
+            </div>  
+        </div>
+        <div class="row pt-2">
+            <div class="col-4">
+                <label class="text-danger pl-3 mt-1"> Por favor verifica que todos los datos esten completos </label>
+            </div>
+            <div class="col-8">
+                <button type="submit" class="btn btn-primary form-control"> Crear usuario </button>
+            </div>
+        </div>
+    </form>        
+
+</div>
