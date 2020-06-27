@@ -51,4 +51,13 @@ export class PeliculasService {
       .post(this.url + 'agregar-pelicula', reqBody, options)
       .pipe(map((res) => res));
   }
+
+  // Servicio para subir imagen de una pelicula
+  subirPoster(id: string, poster: File) {
+    const formData = new FormData();
+    formData.append('imagen', poster);
+    return this._http
+      .put(this.url + `subir-poster/${id}`, formData)
+      .pipe(map((res) => res));
+  }
 }
