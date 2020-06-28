@@ -20,8 +20,33 @@ export class CarritoService {
     this.subject.next([...this.itemsCarrito, producto]);
   }
 
+  eliminarUnidad(producto: Producto){
+    let index =this.itemsCarrito.findIndex(product => product._id === producto._id);
+    this.itemsCarrito.splice(index,1);
+    this.subject.next(this.itemsCarrito);
+  }
+
+  eliminarItem(producto : Producto){
+
+    for (let i = this.itemsCarrito.length; i--;) {
+      if (this.itemsCarrito[i] === producto) {
+          this.itemsCarrito.splice(i, 1);
+      }
+  }
+    
+    /* this.itemsCarrito.forEach((itemcarro,index) =>{
+        if(itemcarro._id === producto._id){
+         // this.itemsCarrito.splice(index,1)
+          console.log('pos',index)
+        }
+    }) */
+    console.log(this.itemsCarrito)
+    this.subject.next(this.itemsCarrito);
+
+  }
+
   vaciarCarrito(){
-    this.subject.next(null);
+    this.subject.next([]);
   }
 
   obtenerCarrito(): Observable<Producto[]> {
