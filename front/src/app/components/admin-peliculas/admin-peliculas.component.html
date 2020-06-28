@@ -69,153 +69,308 @@
       </tbody>
     </table>
   </div>
-  <h1>Añadir Nueva Pelicula</h1>
-  <form
-    class="formulario"
-    #formNuevaPelicula="ngForm"
-    (ngSubmit)="agregarPelicula()"
-  >
-    <div class="row">
-      <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Nombre"
-          name="nombre"
-          #nombre="ngModel"
-          [(ngModel)]="nuevaPelicula.nombre"
-        />
-      </div>
-      <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Genero"
-          name="genero"
-          #genero="ngModel"
-          [(ngModel)]="nuevaPelicula.genero"
-        />
-      </div>
-      <div class="col">
-        <select
-          class="form-control bg-dark text-light"
-          name="actorBorrar"
-          #actorBorrar="ngModel"
-          [(ngModel)]="nuevaPeliculaAux.actorBorrar"
-        >
-          <option *ngFor="let actor of nuevaPelicula.actores">{{
-            actor
-          }}</option>
-        </select>
-      </div>
-      <div class="col">
-        <button
-          type="button"
-          class="btn btn-danger form-control"
-          (click)="eliminarActor()"
-        >
-          Eliminar
-        </button>
-      </div>
-    </div>
-    <div class="row pt-2">
-      <div class="col">
-        <input
-          type="number"
-          class="form-control"
-          placeholder="Año"
-          name="anio"
-          #anio="ngModel"
-          [(ngModel)]="nuevaPelicula.anio"
-        />
-      </div>
-      <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Director"
-          name="director"
-          #director="ngModel"
-          [(ngModel)]="nuevaPelicula.director"
-        />
-      </div>
-      <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Nuevo actor"
-          name="nuevoActor"
-          #nuevoActor="ngModel"
-          [(ngModel)]="nuevaPeliculaAux.nuevoActor"
-        />
-      </div>
-      <div class="col">
-        <button
-          type="button"
-          class="btn btn-success form-control"
-          (click)="agregarActor()"
-        >
-          Agregar
-        </button>
-      </div>
-    </div>
-    <div class="row pt-2">
-      <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enlace de la pelicula"
-          name="enlacePelicula"
-          #enlacePelicula="ngModel"
-          [(ngModel)]="nuevaPelicula.enlacePelicula"
-        />
-      </div>
-      <div class="col">
-        <select
-          class="form-control bg-dark text-light"
-          name="estado"
-          #estado="ngModel"
-          [(ngModel)]="nuevaPelicula.estado"
-        >
-          <option selected value="activo"> Activo </option>
-          <option value="inactivo"> Inactivo </option>
-        </select>
-      </div>
-      <div class="col">
-        <div class="row centrar">
-          <label class="pl-3 mt-1"> Poster </label>
+  <div *ngIf="!peliculaEditar">
+    <h1>Añadir Nueva Pelicula</h1>
+    <form
+      class="formulario"
+      #formNuevaPelicula="ngForm"
+      (ngSubmit)="agregarPelicula()"
+    >
+      <div class="row">
+        <div class="col">
           <input
-            type="file"
-            class="form-control-file col"
-            name="imagen"
-            (change)="prepararArchivoNuevo($event)"
+            type="text"
+            class="form-control"
+            placeholder="Nombre"
+            name="nombre"
+            #nombre="ngModel"
+            [(ngModel)]="nuevaPelicula.nombre"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Genero"
+            name="genero"
+            #genero="ngModel"
+            [(ngModel)]="nuevaPelicula.genero"
+          />
+        </div>
+        <div class="col">
+          <select
+            class="form-control bg-dark text-light"
+            name="actorBorrar"
+            #actorBorrar="ngModel"
+            [(ngModel)]="nuevaPeliculaAux.actorBorrar"
+          >
+            <option *ngFor="let actor of nuevaPelicula.actores">{{
+              actor
+            }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <button
+            type="button"
+            class="btn btn-danger form-control"
+            (click)="eliminarActor()"
+          >
+            Eliminar
+          </button>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Año"
+            name="anio"
+            #anio="ngModel"
+            [(ngModel)]="nuevaPelicula.anio"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Director"
+            name="director"
+            #director="ngModel"
+            [(ngModel)]="nuevaPelicula.director"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nuevo actor"
+            name="nuevoActor"
+            #nuevoActor="ngModel"
+            [(ngModel)]="nuevaPeliculaAux.nuevoActor"
+          />
+        </div>
+        <div class="col">
+          <button
+            type="button"
+            class="btn btn-success form-control"
+            (click)="agregarActor()"
+          >
+            Agregar
+          </button>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enlace de la pelicula"
+            name="enlacePelicula"
+            #enlacePelicula="ngModel"
+            [(ngModel)]="nuevaPelicula.enlacePelicula"
+          />
+        </div>
+        <div class="col">
+          <select
+            class="form-control bg-dark text-light"
+            name="estado"
+            #estado="ngModel"
+            [(ngModel)]="nuevaPelicula.estado"
+          >
+            <option selected value="activo"> Activo </option>
+            <option value="inactivo"> Inactivo </option>
+          </select>
+        </div>
+        <div class="col">
+          <div class="row centrar">
+            <label class="pl-3 mt-1"> Poster </label>
+            <input
+              type="file"
+              class="form-control-file col"
+              name="nuevaImg"
+              #nuevaImg
+              (change)="prepararArchivoNuevo($event)"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Sinopsis"
+            name="sinopsis"
+            #sinopsis="ngModel"
+            [(ngModel)]="nuevaPelicula.sinopsis"
           />
         </div>
       </div>
-    </div>
-    <div class="row pt-2">
-      <div class="col">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Sinopsis"
-          name="sinopsis"
-          #sinopsis="ngModel"
-          [(ngModel)]="nuevaPelicula.sinopsis"
-        />
+      <div class="row pt-2">
+        <div class="col-4">
+          <label class="text-danger pl-3 mt-1">
+            Por favor verifica que todos los datos esten completos
+          </label>
+        </div>
+        <div class="col-8">
+          <button type="submit" class="btn btn-primary form-control">
+            Añadir Pelicula
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="row pt-2">
-      <div class="col-4">
-        <label class="text-danger pl-3 mt-1">
-          Por favor verifica que todos los datos esten completos
-        </label>
+    </form>
+  </div>
+  <div *ngIf="peliculaEditar">
+    <h1>Editar Pelicula</h1>
+    <form
+      class="formulario"
+      #formEditarPelicula="ngForm"
+      (ngSubmit)="editarPelicula()"
+    >
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre"
+            name="nombre"
+            #nombre="ngModel"
+            [(ngModel)]="peliculaEditar.nombre"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Genero"
+            name="genero"
+            #genero="ngModel"
+            [(ngModel)]="peliculaEditar.genero"
+          />
+        </div>
+        <div class="col">
+          <select
+            class="form-control bg-dark text-light"
+            name="actorBorrar"
+            #actorBorrar="ngModel"
+            [(ngModel)]="peliculaEditarAux.actorBorrar"
+          >
+            <option *ngFor="let actor of peliculaEditar.actores">{{
+              actor
+            }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <button
+            type="button"
+            class="btn btn-danger form-control"
+            (click)="eliminarActorEditar()"
+          >
+            Eliminar
+          </button>
+        </div>
       </div>
-      <div class="col-8">
-        <button type="submit" class="btn btn-primary form-control">
-          Añadir Pelicula
-        </button>
+      <div class="row pt-2">
+        <div class="col">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Año"
+            name="anio"
+            #anio="ngModel"
+            [(ngModel)]="peliculaEditar.anio"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Director"
+            name="director"
+            #director="ngModel"
+            [(ngModel)]="peliculaEditar.director"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nuevo actor"
+            name="nuevoActor"
+            #nuevoActor="ngModel"
+            [(ngModel)]="peliculaEditarAux.nuevoActor"
+          />
+        </div>
+        <div class="col">
+          <button
+            type="button"
+            class="btn btn-success form-control"
+            (click)="agregarActorEditar()"
+          >
+            Agregar
+          </button>
+        </div>
       </div>
-    </div>
-  </form>
+      <div class="row pt-2">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enlace de la pelicula"
+            name="enlacePelicula"
+            #enlacePelicula="ngModel"
+            [(ngModel)]="peliculaEditar.enlacePelicula"
+          />
+        </div>
+        <div class="col">
+          <select
+            class="form-control bg-dark text-light"
+            name="estado"
+            #estado="ngModel"
+            [(ngModel)]="peliculaEditar.estado"
+          >
+            <option selected value="activo"> Activo </option>
+            <option value="inactivo"> Inactivo </option>
+          </select>
+        </div>
+        <div class="col">
+          <div class="row centrar">
+            <label class="pl-3 mt-1"> Poster </label>
+            <input
+              type="file"
+              class="form-control-file col"
+              name="editarImg"
+              #editarImg
+              (change)="prepararArchivoEditar($event)"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Sinopsis"
+            name="sinopsis"
+            #sinopsis="ngModel"
+            [(ngModel)]="peliculaEditar.sinopsis"
+          />
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col-4">
+          <label class="text-danger pl-3 mt-1">
+            Por favor verifica que todos los datos esten completos
+          </label>
+        </div>
+        <div class="col-8">
+          <button type="submit" class="btn btn-primary form-control">
+            Editar Pelicula
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
