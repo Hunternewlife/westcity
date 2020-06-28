@@ -38,7 +38,7 @@ export class AdminUsuariosComponent implements OnInit {
   cambiarEstado(usuario: Usuario) {
     if (usuario.estado === 'activo') usuario.estado = 'inactivo';
     else if (usuario.estado === 'inactivo') usuario.estado = 'activo';
-    this.usuariosService.modificarUsuario().subscribe(
+    this.usuariosService.modificarUsuario(usuario).subscribe(
       (response: any) => {
         if (!response.usuario)
           return alert('No se ha podido cambiar el estado del usuario!');

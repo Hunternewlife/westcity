@@ -36,7 +36,11 @@
           <td>{{ usuario.rol }}</td>
           <td>{{ usuario.suscripcion }}</td>
           <td class="btns">
-            <button type="button" class="btn btn-secondary">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="cambiarEstado(usuario)"
+            >
               <i class="fas fa-microphone-slash"></i>
             </button>
           </td>
