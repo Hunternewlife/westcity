@@ -199,7 +199,10 @@ export class AdminPeliculasComponent implements OnInit {
     this.peliculaEditarAux.actorBorrar = this.nuevaPelicula.actores[0];
   }
 
-  agregarActorEditar() {}
+  agregarActorEditar() {
+    this.peliculaEditar.actores.push(this.peliculaEditarAux.nuevoActor);
+    this.peliculaEditarAux.nuevoActor = '';
+  }
 
   prepararArchivoEditar(event) {}
 
