@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 // Servicio de peliculas
 import { PeliculasService } from '../../services/peliculas.service';
@@ -23,8 +23,19 @@ export class AdminPeliculasComponent implements OnInit {
   // Almacena nuevo archivo de imagen
   nuevaImagen: File;
 
+  // Util para limpiar el input para la nueva imagen
+  @ViewChild('nuevaImg')
+  nuevaImgVar: ElementRef;
+
   // Auxiliar para actores
   nuevaPeliculaAux;
+
+  peliculaEditar: Pelicula;
+
+  @ViewChild('editarImg')
+  editarImgVar: ElementRef;
+
+  peliculaEditarAux;
 
   constructor(private peliculasService: PeliculasService) {
     this.nuevaPelicula = new Pelicula(
@@ -43,6 +54,8 @@ export class AdminPeliculasComponent implements OnInit {
       nuevoActor: '',
       actorBorrar: this.nuevaPelicula.actores[0],
     };
+    this.peliculaEditar = null;
+    this.peliculaEditarAux = null;
   }
 
   ngOnInit(): void {
@@ -144,8 +157,13 @@ export class AdminPeliculasComponent implements OnInit {
         alert('Pelicula agregada correctamente!');
 
         // Subir poster (de haberlo)
-        if (this.nuevaImagen)
+        if (this.nuevaImagen) {
           this.subirPoster(response.pelicula._id, this.nuevaImagen);
+
+          // Limpiar el input
+          this.nuevaImagen = null;
+          this.nuevaImgVar.nativeElement.value = '';
+        }
         // Repoblar con datos actualizados (es necesario aqui tambien)
         else this.obtenerPeliculas();
 
@@ -171,5 +189,21 @@ export class AdminPeliculasComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  eliminarActorEditar() {}
+
+  agregarActorEditar() {}
+
+  prepararArchivoEditar(event) {}
+
+  editarPelicula() {}
+
+  setPeliculaEditar(pelicula: Pelicula) {
+    this.peliculaEditar = pelicula;
+    this.peliculaEditarAux = {
+      nuevoActor: '',
+      actorBorrar: this.peliculaEditar.actores[0],
+    };
   }
 }
