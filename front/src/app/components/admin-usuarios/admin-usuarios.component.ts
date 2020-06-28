@@ -33,4 +33,18 @@ export class AdminUsuariosComponent implements OnInit {
       }
     );
   }
+
+  // Auxiliar para modificar usuario (desactivar o activar)
+  cambiarEstado(usuario: Usuario) {
+    if (usuario.estado === 'activo') usuario.estado = 'inactivo';
+    else if (usuario.estado === 'inactivo') usuario.estado = 'activo';
+    this.usuariosService.modificarUsuario().subscribe(
+      (response: any) => {
+        if (!response.usuario)
+          return alert('No se ha podido cambiar el estado del usuario!');
+        return alert('El estado se ha cambiado correctamente!');
+      },
+      (err) => console.log(err)
+    );
+  }
 }
