@@ -32,6 +32,8 @@ export class AdminPeliculasComponent implements OnInit {
 
   peliculaEditar: Pelicula;
 
+  imagenEditar: File;
+
   @ViewChild('editarImg')
   editarImgVar: ElementRef;
 
@@ -204,7 +206,9 @@ export class AdminPeliculasComponent implements OnInit {
     this.peliculaEditarAux.nuevoActor = '';
   }
 
-  prepararArchivoEditar(event) {}
+  prepararArchivoEditar(event) {
+    this.imagenEditar = <File>event.target.files[0];
+  }
 
   editarPelicula() {}
 
