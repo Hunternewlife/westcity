@@ -44,7 +44,7 @@ export class CarritoComponent implements OnInit {
     if (listaCarrito.find(product => product._id === productoCarrito._id)===undefined) {
 
       listaCarrito.push(productoCarrito);
-      this.showCarrito[0].push(1);      
+      this.showCarrito[0].push(1); 
       //console.log('La nueva colección es: ' + listaCarrito);
       //console.log(this.showCarrito[0])
 
@@ -61,7 +61,7 @@ export class CarritoComponent implements OnInit {
     switch (accion) {
       case 'sum':
         this.carritoService.agregarCarrito(item)
-        console.log('boton suma',this.carrito)
+        //console.log('boton suma',this.carrito)
         //console.log(`sum show | ${this.showCarrito} | ${this.carrito}`)
         break;
       case 'res':
@@ -74,7 +74,7 @@ export class CarritoComponent implements OnInit {
           this.showCarrito[0][i]= this.showCarrito[0][i]-1;
           this.carritoService.eliminarUnidad(item);
           this.resFlag=false;
-          console.log('boton resta',this.carrito)
+          //console.log('boton resta',this.carrito)
          /*  console.log(`res show | ${this.showCarrito} | ${this.carrito}`)
           console.log('menos una unidad') */
         }
