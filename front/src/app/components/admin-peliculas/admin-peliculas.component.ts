@@ -210,7 +210,23 @@ export class AdminPeliculasComponent implements OnInit {
     this.imagenEditar = <File>event.target.files[0];
   }
 
-  editarPelicula() {}
+  editarPelicula() {
+    this.actualizarPelicula(this.peliculaEditar);
+    // Subir poster (de haberlo)
+    if (this.imagenEditar) {
+      this.subirPoster(this.peliculaEditar._id, this.imagenEditar);
+
+      // Limpiar el input
+      this.imagenEditar = null;
+      this.editarImgVar.nativeElement.value = '';
+    }
+    // Repoblar con datos actualizados (es necesario aqui tambien)
+    else this.obtenerPeliculas();
+
+    // Limpiar estado de pelicula a editar
+    this.peliculaEditar = null;
+    this.peliculaEditarAux = null;
+  }
 
   setPeliculaEditar(pelicula: Pelicula) {
     this.peliculaEditar = pelicula;
