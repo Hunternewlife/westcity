@@ -12,7 +12,7 @@ import { Usuario } from '../../modelo/usuario';
   styleUrls: ['./admin-usuarios.component.scss'],
 })
 export class AdminUsuariosComponent implements OnInit {
-  filterUsuarios = '';
+  filtroUsuario = '';
   usuarios: Array<Usuario>;
 
   // Inyectar servicio de usuarios
