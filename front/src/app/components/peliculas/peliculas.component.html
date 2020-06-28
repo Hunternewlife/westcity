@@ -1,37 +1,20 @@
 <app-header></app-header>
 
-<div *ngIf="detallesPelicula; else listaPelis">
-    <div>
-        <iframe src="" frameborder="0"></iframe>
-        <button></button>
-        <h1>Peli individual</h1>
-    </div>
-    <div>
-        <p><span></span></p>
-        <ul>
-            <li></li>
-            <li></li>
-        </ul>
-        <p><span></span></p>
-    </div>
-    <div>
-        <h2>Clasicos</h2>
+<div class="contenedor">
+    <div *ngIf="detallesPelicula; else listaPelis">
         <div>
-            <h3>Never Grow Old</h3>
-            <img src="" alt="">
-            <button>Ver Ahora</button>
+            <iframe src="" frameborder="0"></iframe>
+            <button></button>
+            <h1>Peli individual</h1>
         </div>
-    </div>
-</div>
-
-<ng-template #listaPelis>
-    <div>
-        <iframe src="" frameborder="0"></iframe>
-        <h1>Django Unchained</h1>
-        <button>Ver Ahora</button>
-        <p>Un exesclavo une fuerzas con un cazador de recompensas alemán que lo liberó y lo ayuda a buscar a los criminales más buscados del sur de los Estados Unidos, con la esperanza de reencontrarse con su esposa.</p>
-    </div>
-    <div>
+        <div>
+            <p><span></span></p>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+            <p><span></span></p>
+        </div>
         <div>
             <h2>Clasicos</h2>
             <div>
@@ -39,65 +22,113 @@
                 <img src="" alt="">
                 <button>Ver Ahora</button>
             </div>
-            <div>
-                <h3></h3>
-                <img src="" alt="">
-                <button>Ver Ahora</button>
-            </div>
-            <div>
-                <h3></h3>
-                <img src="" alt="">
-                <button>Ver Ahora</button>
-            </div>
-            <div>
-                <h3></h3>
-                <img src="" alt="">
-                <button>Ver Ahora</button>
-            </div>
-            <div>
-                <h3></h3>
-                <img src="" alt="">
-                <button>Ver Ahora</button>
-            </div>
-        </div>
-        <div>
-            <h2></h2>
-            <div>
-                <h3></h3>
-                <img src="" alt="">
-                <button>Ver Ahora</button>
-            </div>
-            <div>
-                <h3></h3>
-                <img src="" alt="">
-                <button>Ver Ahora</button>
-            </div>
-            <div>
-                <h3></h3>
-                <img src="" alt="">
-                <button>Ver Ahora</button>
-            </div>
-            <div>
-                <h3></h3>
-                <img src="" alt="">
-                <button>Ver Ahora</button>
-            </div>
-            <div>
-                <h3></h3>
-                <img src="" alt="">
-                <button>Ver Ahora</button>
-            </div>
-            <div>
-                <h3></h3>
-                <img src="" alt="">
-                <button>Ver Ahora</button>
-            </div>
-            <div>
-                <h3></h3>
-                <img src="" alt="">
-                <button>Ver Ahora</button>
-            </div>
         </div>
     </div>
-    <app-footer></app-footer>
-</ng-template>
+    
+    <ng-template #listaPelis>
+        <div class="destacado">
+            <div class="frame">
+                <iframe src="https://drive.google.com/file/d/13k7_o-zbEU4tsWjZGzuuuBOdN_BXH5aT/preview"></iframe>            
+            </div>
+            <div class="descripcion">
+                <h1 class="titulo big">Django Unchained</h1>
+                <button class="boton">Ver Ahora</button>
+                <p class="textDestacado">Un exesclavo une fuerzas con un cazador de recompensas alemán que lo liberó y lo ayuda a buscar a los criminales más buscados del sur de los Estados Unidos, con la esperanza de reencontrarse con su esposa.</p>
+            </div>
+        </div>
+        <div class="cajonPelis">
+            <h2 class="titulo">Clasicos</h2>
+            <div class="categoria">
+                
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/11e247f2f6f6917ece2fada267f8a066.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/17aa4bed9436073842c7885cc2840fd9.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/406401.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/7a9206a6c57ce3bf758518cf83117283.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/91daBrM5JhL._RI_.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+            </div>
+            <h2 class="titulo">Americanas</h2>
+            <div class="categoria">
+                
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/9jfain3sfj531.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/black_47-264398412-large.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/fb7cc5f1c40d09610bb51670c9a0fbea.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/renacido.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/the-hateful-8-1.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/ztzbvu0ukci21.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="../../../assets/images/posters provisionales/11e247f2f6f6917ece2fada267f8a066.jpg" alt="">
+                    <div class="contenido">
+                        <h3>Never Grow Old</h3>
+                        <button class="boton">Ver Ahora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

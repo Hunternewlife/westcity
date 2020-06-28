@@ -1,0 +1,70 @@
+.contenedor{
+position: relative;
+top: 9vh;
+font-family: oswald;
+color: white;
+}
+.destacado{
+    position: relative;
+}
+.frame{
+    position: relative;
+    width: 100vw;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.frame iframe{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.descripcion{
+    position: absolute;
+    bottom: 25%;
+}
+.titulo{
+    font-family: durango;
+    color: #e7e65a;
+}
+.boton{
+background: none;
+border: 3px solid white;
+cursor: pointer;
+color: white;
+}
+.textoDestacado{
+
+}
+.pad{
+    padding: 5%;
+}
+
+
+
+
+
+
+.cajonPelis{
+    background: linear-gradient(180deg, /* rgba(141,0,12,0) 0%, */ rgba(141,0,12,1) 0%, rgba(0,0,0,1) 100%);
+    
+}
+.categoria{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80%;
+    margin: auto;
+}
+.tarjeta{
+    position: relative;
+    width: 20%;
+}
+.tarjeta img{
+    width: 100%;
+}
+.contenido{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
