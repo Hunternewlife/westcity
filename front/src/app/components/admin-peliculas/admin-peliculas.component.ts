@@ -68,7 +68,7 @@ export class AdminPeliculasComponent implements OnInit {
   obtenerPeliculas() {
     this.peliculasService.obtenerPeliculas().subscribe(
       (response: any) => {
-        this.peliculas = response.peliculas;
+        if (response.peliculas) this.peliculas = response.peliculas;
       },
       (error) => {
         console.log(error);
