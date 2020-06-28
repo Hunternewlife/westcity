@@ -191,7 +191,13 @@ export class AdminPeliculasComponent implements OnInit {
     );
   }
 
-  eliminarActorEditar() {}
+  eliminarActorEditar() {
+    const posBorrar = this.peliculaEditar.actores.indexOf(
+      this.peliculaEditarAux.actorBorrar
+    );
+    this.peliculaEditar.actores.splice(posBorrar, 1);
+    this.peliculaEditarAux.actorBorrar = this.nuevaPelicula.actores[0];
+  }
 
   agregarActorEditar() {}
 
