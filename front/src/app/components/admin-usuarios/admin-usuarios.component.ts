@@ -18,11 +18,13 @@ export class AdminUsuariosComponent implements OnInit {
   // Inyectar servicio de usuarios
   constructor(private usuariosService: UsuariosService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getUsuarios();
+  }
 
   // Auxiliar para poblar el array de usuarios
   getUsuarios() {
-    this.usuariosService.obtenerUsuarios.subscribe(
+    this.usuariosService.obtenerUsuarios().subscribe(
       (response: any) => {
         if (response.usuarios) this.usuarios = response.usuarios;
       },
