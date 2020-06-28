@@ -1,7 +1,7 @@
 <div class="contenedor">
   <div class="titulo">Panel de usuarios</div>
   <div class="form-group">
-    <!-- <input type="text" name="filterUsuarios" class="form-control" placeholder="Buscar por nombre..." [(ngModel)]="filterUsuarios"> -->
+    <input type="text" name="filtroUsuario" class="form-control" placeholder="Buscar por nombre..." [(ngModel)]="filtroUsuario">
   </div>
   <div class="tableFixHead">
     <table class="table">
@@ -18,7 +18,7 @@
       </thead>
       <tbody>
         <!-- <tr *ngFor="let usuario of usuarios | filter:filterUsuarios">  esta linea es para cuando recibamos los Usuarios-->
-        <tr *ngFor="let usuario of usuarios">
+        <tr *ngFor="let usuario of usuarios | filter: filtroUsuario">
           <th>{{ usuario.nombre }}</th>
           <th>{{ usuario.apellido }}</th>
           <td class="icon">
