@@ -87,6 +87,17 @@ function borrarPelicula(req, res) {
       return res.status(200).send({
         mensaje: "Error. No se ha encontrado una pelicula que coincida!",
       });
+
+    const dirPoster = path.resolve("./archivos/pelicula");
+
+    // Eliminar archivo de poster (si existe)
+    if (
+      peliculaBorrada.rutaPoster &&
+      fs.existsSync(`${dirPoster}/${peliculaBorrada.rutaPoster}`)
+    ) {
+      fs.unlinkSync(`${dirPoster}/${peliculaBorrada.rutaPoster}`);
+    }
+
     return res.status(200).send({
       mensaje: "Pelicula borrada correctamente!",
       pelicula: peliculaBorrada,
