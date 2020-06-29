@@ -1,3 +1,5 @@
+//pelicula destacada
+
 .contenedor{
 position: relative;
 top: 9vh;
@@ -6,10 +8,12 @@ color: white;
 }
 .destacado{
     position: relative;
+    max-height: 91vh;
+    overflow: hidden;
 }
 .frame{
     position: relative;
-    width: 100vw;
+    width: 100% ;
     height: 0;
     padding-bottom: 56.25%;
 }
@@ -18,15 +22,12 @@ color: white;
     width: 100%;
     height: 100%;
     left: 0;
-    top: 0;
+    top: -10%;
+    border: none;
 }
 .descripcion{
     position: absolute;
-    bottom: 25%;
-}
-.titulo{
-    font-family: durango;
-    color: #e7e65a;
+    bottom: 5%;
 }
 .boton{
 background: none;
@@ -34,17 +35,43 @@ border: 3px solid white;
 cursor: pointer;
 color: white;
 }
+.titulo{
+    font-family: durango;
+    color: #e7e65a;
+}
 .textoDestacado{
-
+    font-size: x-large;
+    margin: 2% 5%;
 }
-.pad{
-    padding: 5%;
+.pad-y{
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.tituloDestacado{
+    color: white;
+    font-size: 4vw;
+    padding: 0 5%;
+}
+.botonDestacado{
+color: white;
+font-size: large;
+border-radius: 50px;
+padding: 0 5%;
+margin: 1% 5%;
+}
+.boton:hover{
+    background-color: rgba(255, 255, 255, 0.288);
+}
+.gradient{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,rgba(141,0,12,0) 30%, rgba(0,0,0,1) 100%);
 }
 
-
-
-
-
+//vista de peliculas sugeridas
 
 .cajonPelis{
     background: linear-gradient(180deg, /* rgba(141,0,12,0) 0%, */ rgba(141,0,12,1) 0%, rgba(0,0,0,1) 100%);
@@ -53,18 +80,47 @@ color: white;
 .categoria{
     display: flex;
     flex-wrap: wrap;
-    max-width: 80%;
+    max-width: 91%;
     margin: auto;
 }
 .tarjeta{
     position: relative;
-    width: 20%;
+    width: 18vw;
+    height: calc(18vw*1.5);
+    overflow: hidden;
+    object-position: center;
+    object-fit: cover;
+    padding-bottom: 1%;
 }
 .tarjeta img{
-    width: 100%;
+    height: 100%;
 }
 .contenido{
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: calc(18vw*1.5);
+    background-color: rgba(0, 0, 0, 0.705);
+    opacity: 0;
+}
+.contenido:hover{
+    opacity: 1;
+}
+.contenido h3{
+    text-align: center;
+    padding: 5%;
+    font-size: x-large;
+}
+.contenido button{
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: rgba(141,0,12,1);
+}
+.cat-title{
+    font-size: 3vw;
+    padding: 5% 5% 2% 5%;
 }
