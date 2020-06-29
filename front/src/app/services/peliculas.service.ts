@@ -40,4 +40,24 @@ export class PeliculasService {
       .delete(this.url + `borrar-pelicula/${id}`)
       .pipe(map((res) => res));
   }
+
+  // Servicio para agregar una pelicula
+  agregarPelicula(nuevaPelicula: Pelicula) {
+    const reqBody = JSON.stringify(nuevaPelicula);
+    const options = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    return this._http
+      .post(this.url + 'agregar-pelicula', reqBody, options)
+      .pipe(map((res) => res));
+  }
+
+  // Servicio para subir imagen de una pelicula
+  subirPoster(id: string, poster: File) {
+    const formData = new FormData();
+    formData.append('imagen', poster);
+    return this._http
+      .put(this.url + `subir-poster/${id}`, formData)
+      .pipe(map((res) => res));
+  }
 }
