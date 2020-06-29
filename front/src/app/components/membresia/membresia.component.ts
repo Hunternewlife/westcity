@@ -48,4 +48,30 @@ export class MembresiaComponent implements OnInit {
       }
     );
   }
+
+  // Auxiliar para cambiar a pistolero
+  togglePistolero() {
+    // Validaciones previas
+    if (!this.usuarioSesion)
+      return alert('Error. Usted no ha iniciado sesión!');
+    if (this.usuarioSesion.suscripcion === 'pistolero')
+      return alert('Usted ya tiene membresia pistolero!');
+
+    // Hacer uso del servicio de modificacion de usuarios
+    this.usuarioSesion.suscripcion = 'pistolero';
+    this.usuariosService.modificarUsuario(this.usuarioSesion).subscribe(
+      (response: any) => {
+        if (!response.usuario)
+          return alert('Error. No se ha podido modificar la membresia!');
+        alert('Membresia modificada correctamente!');
+        // Cambiar el usuario en sesion
+        localStorage.setItem('sesion', JSON.stringify(response.usuario));
+        // Cargar de nuevo el usuario en sesion
+        this.usuarioSesion = this.usuariosService.obtenerUsuario();
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 }
