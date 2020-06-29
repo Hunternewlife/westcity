@@ -5,7 +5,9 @@
         <button type="button" class="btn btn-danger m-1">Acerca de</button>
         <div style="float: right;">
             <img src="" alt="">
-            <span class="card-text">$0.0</span>
+            <span *ngIf="usuario.suscripcion==='sheriff'" class="card-text">Descuento Sheriff [50%]</span>
+            <span *ngIf="usuario.suscripcion==='pistolero'" class="card-text">Descuento Sheriff [25%]</span>
+            <span *ngIf="usuario.suscripcion!='sheriff' && usuario.suscripcion!='pistolero'" class="card-text">Sin Descuento, Aquiere una suscripción</span>           
         </div>
     </div>
     <div class="row">
@@ -41,7 +43,7 @@
                             <br>
                             <br>
                             <a (click)="agregarTiquete(pelicula,i)" class="btn btn-danger">agregar al carrito</a>
-                            <p class="card-text float-right">Precio: $0.00</p>
+                            <p class="card-text float-right">Precio: ${{precioTiq}}</p>
                         </div>                    
                   </div>
                 </div>
