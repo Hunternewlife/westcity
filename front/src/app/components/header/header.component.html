@@ -6,7 +6,7 @@
         </div>
     </div>
     <ul class="navlinks">
-        <li> <a > Reproductor </a> </li> <!-- Solo activo si hay una sesion abierta -->
+        <li *ngIf="logged"> <a routerLink="/peliculas"> Reproductor </a> </li> <!-- Solo activo si hay una sesion abierta -->
         <li> <a routerLink="/peliculas"> Peliculas </a> </li>
         <li> <a routerLink="/confiteria"> Confiteria </a> </li>
         <li> <a routerLink="/boleteria"> Boleteria </a> </li>
@@ -21,8 +21,8 @@
     </div>
 </nav>
 <div class="session figura">
-    <ul class="sessionlinks"> 
-        <li> <a routerLink="/perfil" class="perfil nombre2" > </a> </li> 
-        <li> <a routerLink="/login" class="login2"> Login </a> </li> 
+    <ul class="sessionlinks">
+        <li> <a routerLink="/perfil" class="perfil nombre2" > </a> </li>
+        <li> <a routerLink="/login" class="login2"> Login </a> </li>
     </ul>
 </div>
