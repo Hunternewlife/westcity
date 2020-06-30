@@ -20,9 +20,11 @@
             <label for="">Contraseña</label>
             <input type="password" name="contrasena" #contrasena="ngModel" [(ngModel)]=usuarioRegistro.contrasena>
             <label for="">Suscripcion</label>
-            <input type="text" name="suscripcion" #suscripcion="ngModel" [(ngModel)]=usuarioRegistro.suscripcion>
+            <select name="suscripcion" id="" #suscripcion="ngModel" [(ngModel)]=usuarioRegistro.suscripcion>
+                <option value="pistolero"> Pistolero </option>
+                <option value="sheriff"> Sheriff </option>
+            </select>
             <input type="submit" value="Registrarse" id="submit">
         </form>
     </div>
-    <a href="" class="link">Iniciar sesión</a>
 </div>

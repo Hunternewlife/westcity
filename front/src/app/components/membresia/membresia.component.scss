@@ -4,11 +4,10 @@
     font-family: oswald;
     text-shadow: 10px 10px 10px rgba(0,0,0,0.75);
     position: relative;
-    top: 9vh;
-    z-index: -1;
 }
 .titulo{
-  font-size: 4.8vw; 
+  font-size: 2.5vw; 
+  padding-top: 50px;
   position: absolute;
   top: -2;
   left: 50%;
@@ -46,31 +45,44 @@
 .box-title{
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 .box-title img{
     max-width: 45%;
 }
 .box-title h2{
-    font-size: 3vw;
+    font-size: 2vw;
 }
 .box-content{
     max-width: 60%;
     margin: auto;
-    text-align: center;
     color: white;
-    font-size: 2vw;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .box-content p{
     border-bottom: white 3px solid;
     padding: 5%;
+    width: 100%;
+    text-align: center;
 }
 .boton{
-    margin: 8%;
-    background-color: #8d000c;
-    padding: 2% 5%;
-    border-radius: 5px;
-    min-width: 85%;
+    background-color: #dadada;
+    border-radius: 8px;
+    width: 150px;
+    height: 52px;
+    font-size: 26px;
+    font-family: durango;
+    letter-spacing: 3px;
+    color: #8c000c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0px;
 }
+
 @media (max-width: 1100px){
     .box{
         margin-top: 35%;
@@ -88,13 +100,11 @@
     .titulo{
         min-width: 100%;
         text-align: center;
-        font-size: 6vw;
+        font-size: 36px;
     }
     .box-title h2{
-        font-size: 4.5vw;
-    }
-    .box-content{
-        font-size: 3vw;
+        font-size: 26px;
+        letter-spacing: 5px;
     }
     .box-content p{
         padding: 7%;
@@ -130,10 +140,6 @@
     }
     .box-title h2{
         font-size: 7vw;
-    }
-    .box{
-        margin-top: 40%;
-       max-width: 85%; 
     }
     .box-content{
         font-size: 6vw;
