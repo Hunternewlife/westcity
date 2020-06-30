@@ -22,17 +22,17 @@ import { MembresiaComponent } from "./components/membresia/membresia.component";
 
 // Relacionar rutas con componentes
 const routes: Routes = [
-  { path: '', component: CinemaComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'registro', component: RegistroComponent},    
-  { path: 'perfil', component: PerfilComponent},
-  { path: 'cartelera', component: CarteleraComponent },
-  { path: 'peliculas', component: PeliculasComponent },
-  { path: 'confiteria', component: ConfiteriaComponent },
-  { path: 'boleteria', component: BoleteriaComponent },
-  { path: 'compras', component: ConfiteriaComprasComponent },
+  { path: '', component: CinemaComponent, data : { animation: 'home' } },
+  { path: 'login', component: LoginComponent, data : { animation: 'login' } },
+  { path: 'registro', component: RegistroComponent, data : { animation: 'registro' } },    
+  { path: 'perfil', component: PerfilComponent, data : { animation: 'perfil' } },
+  { path: 'cartelera', component: CarteleraComponent, data : { animation: 'cartelera' } },
+  { path: 'peliculas', component: PeliculasComponent, data : { animation: 'peliculas' } },
+  { path: 'confiteria', component: ConfiteriaComponent, data : { animation: 'confiteria' } },
+  { path: 'boleteria', component: BoleteriaComponent, data : { animation: 'boleteria' } },
+  { path: 'compras', component: ConfiteriaComprasComponent, data : { animation: 'compras' } },
   { path: 'admin', component: AdminComponent,
-    data: {rol: 'admin'},
+    data: {rol: 'admin', animation: 'admin'},
     children:  [
       {
         path: 'dashboard',
@@ -47,8 +47,8 @@ const routes: Routes = [
         component: AdminUsuariosComponent
       }
   ] },
-  { path: 'boleteria-compras', component: BoleteriaCompraComponent },
-  { path: 'membresia', component: MembresiaComponent}
+  { path: 'boleteria-compras', component: BoleteriaCompraComponent, data : { animation: 'boleteria-compras' } },
+  { path: 'membresia', component: MembresiaComponent, data : { animation: 'membresia' } }
 ];
 
 @NgModule({

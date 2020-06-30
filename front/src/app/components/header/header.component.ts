@@ -1,11 +1,15 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { UsuariosService } from '../../services/usuarios.service';
+import { gsap } from 'gsap/all';
+import { delay } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
+
 export class HeaderComponent implements OnInit {
   public logged = 'false';
   public logeo = false;
@@ -16,6 +20,7 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.gsapAnimationsNav();
     this.navSlide();
 
     console.log(this.logeo);
@@ -41,13 +46,13 @@ export class HeaderComponent implements OnInit {
       this.renderer.setStyle(
         link,
         'animation',
-        `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`
+        `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`,
       );
       //link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`;
       console.log(index / 7);
     });
     /* link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 1.5}s`;
-      console.log(index/7);  */
+      console.log(index/7);  */ 
 
     let usuarioLogeado = this.usuariosService.obtenerUsuario();
     perfil.forEach((element) => {
@@ -57,5 +62,25 @@ export class HeaderComponent implements OnInit {
       }
     });
   };
+
+
+  /*
+    --------------------------------------------------- GSAP Animations ---------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------------------------------  
+  */
+
+  gsapAnimationsNav() {
+
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      let tl = gsap.timeline();
+      tl.from("#nav", {opacity: 0, y:-200, duration: 1})
+        .from(".session", {opacity: 0, y:-200, duration: 1}, "-=0.6")
+        .from(".sessionlinks > li", {opacity: 0, duration: 1}, "<")
+        .from("#tituloNav", {opacity: 0, y:-100, duration: 1}, "-=0.6")
+        .from(".navlinks > li", {opacity: 0, y: -20, duration: 1, stagger: 0.15}, "<")
+        .from("#leyendaNav", {opacity: 0, duration: 0.5}, "-=1")
+    } 
+    
+  }
 }
 
