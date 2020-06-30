@@ -34,7 +34,7 @@ export class CarritoComponent implements OnInit {
       this.carrito = data;
       if(this.carrito.length>0){
         this.cantidadesCarrito(this.showCarrito[1],this.carrito[this.carrito.length-1])
-      }           
+      }
       this.total = this.carritoService.obtenerTotal();
     },
       error => alert(error));
@@ -44,15 +44,15 @@ export class CarritoComponent implements OnInit {
     if (listaCarrito.find(product => product._id === productoCarrito._id)===undefined) {
 
       listaCarrito.push(productoCarrito);
-      this.showCarrito[0].push(1); 
+      this.showCarrito[0].push(1);
       //console.log('La nueva colección es: ' + listaCarrito);
       //console.log(this.showCarrito[0])
 
     } else if(!this.resFlag) {
       let index =listaCarrito.findIndex(product => product._id === productoCarrito._id);
       this.showCarrito[0][index]=this.showCarrito[0][index]+1;
-      
-      
+
+
   }
   }
 
@@ -92,11 +92,11 @@ export class CarritoComponent implements OnInit {
         //console.log('boton x',this.carrito)
 
         break;
-    
+
       default:
         break;
     }
-    
+
   }
 
   PagarCarrito(){
@@ -104,6 +104,12 @@ export class CarritoComponent implements OnInit {
       this.msgCompra=[this.identidad,this.showCarrito,this.carrito.length];
     console.log('mensaje',this.msgCompra)
     this.msgEmail=this.emailNotificationService.elaborarMensaje('Compra exitosa West City','compra',this.msgCompra)
+
+    // Alerta de compra
+    alert("Compra realizada!");
+    // Vaciar carrito (una vez se ha generado el mensaje)
+    this.vaciarCarrito();
+
 
     this.emailNotificationService.generarNotificacion(this.msgEmail).subscribe(
       (response : any) => {
@@ -129,7 +135,7 @@ export class CarritoComponent implements OnInit {
     }else{
       alert('Tu carrito se encuentra vacio')
     }
-    
+
   }
 
   vaciarCarrito(){
@@ -141,6 +147,6 @@ export class CarritoComponent implements OnInit {
     this.carritoService.agregarCarrito(producto)
   }
 
-  
+
 
 }
