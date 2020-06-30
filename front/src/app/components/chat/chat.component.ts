@@ -16,6 +16,7 @@ export class ChatComponent implements OnInit,AfterViewInit {
   private scrollContainer: any;
 
   public chatMsgs : Chat;
+  public showChat : boolean = false;
 
   public chatResume : string[];
 
@@ -27,14 +28,13 @@ export class ChatComponent implements OnInit,AfterViewInit {
     this.scrollContainer = this.results.nativeElement;
     this.result.changes.subscribe(_ => this.onItemElementsChanged());    
 
-   
   }
   
   ngOnInit(): void {
+    
   }
 
   private onItemElementsChanged(): void {
-    console.log('scroll')
     this.scrollContainer.scroll({
       top: this.scrollContainer.scrollHeight,
       left: 0,
@@ -46,6 +46,22 @@ export class ChatComponent implements OnInit,AfterViewInit {
   getTxtUsuario(){
     console.log(this.chatMsgs.msgUs)
     this.chatResume.push(this.chatMsgs.msgUs);
+    this.chatService.generarChat(this.chatMsgs).subscribe(
+      (response : any) => {
+        this.chatResume.push(response.msgBot);       
+      },
+      error=>{
+        if (error != null) {
+          console.log(error)
+        }
+      }
+    )
     this.chatMsgs = new Chat('','');
+    
+    
+  }
+
+  toggleChat(showChat){    
+    this.showChat=showChat  
   }
 }
