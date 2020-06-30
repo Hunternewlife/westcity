@@ -3,7 +3,7 @@
       Carrito <span class="card-text">({{carrito.length}}) producto(s)</span>
     </span>
   </div>
-  
+
   <div *ngIf="showCarrito[1].length>0;else carritovaciotmpl">
     <table class="table">
       <thead>
@@ -19,23 +19,23 @@
             <span>{{showCarrito[0][i]}}</span>
           </td>
           <td>{{item.nombre}}</td>
-          <td>{{item.precio}}€</td>
+          <td>${{item.precio}}</td>
           <td><button class="btn btn-danger" (click)="unidadesBtnCarrito(item,i,'sum')" >+</button></td>
           <td><button class="btn btn-danger" (click)="unidadesBtnCarrito(item,i,'res')">-</button></td>
           <td><button class="btn text-danger" (click)="unidadesBtnCarrito(item,i,'eli')">X</button></td>
-        </tr>      
+        </tr>
       </tbody>
       <tfoot>
           <tr class="carrito-total">
             <td colspan="2"></td>
             <td>
-              Total: {{total}}€
+              Total: ${{total}}
             </td>
           </tr>
       </tfoot>
     </table>
   </div>
-  
+
   <ng-template #carritovaciotmpl>
     <div class="margin-top-20">
       <strong>El carrito esta vacío.</strong>
