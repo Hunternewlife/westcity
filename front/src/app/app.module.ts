@@ -22,6 +22,9 @@ import { ProductosService } from './services/productos.service';
 // Servicio de peliculas
 import { PeliculasService } from './services/peliculas.service';
 
+// Servicio de chat
+import { ChatService } from './services/chat.service'
+
 //importar servicios
 import { UsuariosService } from './services/usuarios.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -77,6 +80,7 @@ import { BoleteriaCompraComponent } from './components/boleteria-compra/boleteri
     CarritoService,
     ProductosService,
     PeliculasService,
+    ChatService
   ],
   bootstrap: [AppComponent],
 })
