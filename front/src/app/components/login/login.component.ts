@@ -6,6 +6,10 @@ import { UsuariosService } from "../../services/usuarios.service";
 
 import { Router, ActivatedRoute, Params } from "@angular/router";
 
+import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -28,7 +32,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.usuarioService.isLogged()) {
       this._router.navigate(['/'])
-    } 
+    }
+    this.gsapAnimationsLogin();
   }
 
   loginUsuario(){
@@ -72,6 +77,21 @@ export class LoginComponent implements OnInit {
         }
       }
     )
+  }
+
+  /*
+    --------------------------------------------------- GSAP Animations ---------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------------------------------  
+  */
+
+ gsapAnimationsLogin() {
+
+  (function slide1() {
+    let tl = gsap.timeline({defaults: {opacity: 0}});
+
+        tl.from(".form-container", {y: -100, duration: 2, ease:"expo.out"}, 0.8)
+  })();
+
   }
   
 }

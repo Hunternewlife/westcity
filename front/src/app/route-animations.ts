@@ -25,12 +25,36 @@ import {
     transition('registro => home', slideTo('left') ),
     transition('login => home', slideTo('left') ),
     transition('cartelera => peliculas', slideTo('right') ),
-    transition('peliculas => cartelera', slideTo('left') ),
     transition('peliculas => confiteria', slideTo('right') ),
     transition('peliculas => boleteria', slideTo('right') ),
     transition('peliculas => membresia', slideTo('right') ),
     transition('peliculas => login', slideTo('right') ),
-    transition('isLeft => peliculas', slideTo('left') )
+    transition('peliculas => perfil', slideTo('right') ),
+    transition('confiteria => boleteria', slideTo('right') ),
+    transition('confiteria => membresia', slideTo('right') ),
+    transition('confiteria => login', slideTo('right') ),
+    transition('confiteria => perfil', slideTo('right') ),
+    transition('confiteria => peliculas', slideTo('left') ),
+    transition('login => confiteria', slideTo('left') ),
+    transition('membresia => confiteria', slideTo('left') ),
+    transition('boleteria => confiteria', slideTo('left') ),
+    transition('boleteria => peliculas', slideTo('left') ),
+    transition('boleteria => membresia', slideTo('right') ),
+    transition('boleteria => login', slideTo('right') ),
+    transition('boleteria => perfil', slideTo('right') ),
+    transition('membresia => boleteria', slideTo('left') ),
+    transition('membresia => confiteria', slideTo('left') ),
+    transition('membresia => peliculas', slideTo('left') ),
+    transition('membresia => login', slideTo('right') ),
+    transition('membresia => perfil', slideTo('right') ),
+    transition('registro => boleteria', slideTo('left') ),
+    transition('registro => confiteria', slideTo('left') ),
+    transition('registro => peliculas', slideTo('left') ),
+    transition('registro => membresia', slideTo('left') ),
+    transition('registro => login', slideTo('right') ),
+    transition('registro => perfil', slideTo('right') ),
+    transition('login => *', slideTo('left') ),
+    transition('perfil => *', slideTo('left') ),
   ]);
 
 function slideTo(direction) {
@@ -45,20 +69,15 @@ function slideTo(direction) {
       })
     ], optional),
     query(':enter', [
-      style({ [direction]: '-100%', opacity: 0})
+      style({ [direction]: '-100%'})
     ]),
     group([
       query(':leave', [
-        animate('2000ms ease', style({ [direction]: '100%', opacity: 0}))
+        animate('1500ms ease', style({ [direction]: '100%', opacity: 0}))
       ], optional),
       query(':enter', [
-        animate('2000ms ease', style({ [direction]: '0%', opacity: 1}))
+        animate('1500ms ease', style({ [direction]: '0%'}))
       ])
     ]),
-    // Normalize the page style... Might not be necessary
-
-    // Required only if you have child animations on the page
-    // query(':leave', animateChild()),
-    // query(':enter', animateChild()),
   ];
 }

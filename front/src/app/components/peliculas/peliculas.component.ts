@@ -12,6 +12,22 @@ export class PeliculasComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.gsapAnimationsPeliculas();
+  }
+
+  /*
+    --------------------------------------------------- GSAP Animations ---------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------------------------------  
+  */
+
+  gsapAnimationsPeliculas() {
+
+    
+    // Función para volver al inicio de la página
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+
   }
 
 }

@@ -72,15 +72,15 @@ export class HeaderComponent implements OnInit {
   gsapAnimationsNav() {
 
     if (window.matchMedia("(min-width: 768px)").matches) {
-      let tl = gsap.timeline();
-      tl.from("#nav", {opacity: 0, y:-200, duration: 1})
-        .from(".session", {opacity: 0, y:-200, duration: 1}, "-=0.6")
-        .from(".sessionlinks > li", {opacity: 0, duration: 1}, "<")
-        .from("#tituloNav", {opacity: 0, y:-100, duration: 1}, "-=0.6")
-        .from(".navlinks > li", {opacity: 0, y: -20, duration: 1, stagger: 0.15}, "<")
-        .from("#leyendaNav", {opacity: 0, duration: 0.5}, "-=1")
-    } 
-    
+      let tl = gsap.timeline({defaults:{opacity:0, ease:"back"}});
+
+      tl.from("#nav", {y:-200, duration: 1, ease:"sine", autoAlpha:0})
+        .from(".session", {y:-200, duration: 1, ease:"sine"}, "-=0.6")
+        .from(".sessionlinks > li", {duration: 1}, "<")
+        .from("#tituloNav", {y:-100, duration: 1, ease:"sine"}, "-=0.6")
+        .from(".navlinks > li", {y: -20, duration: 1, stagger: 0.15}, "<")
+        .from("#leyendaNav", {duration: 0.5}, "-=1")  
   }
+}
 }
 
