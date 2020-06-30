@@ -11,6 +11,7 @@ const fileUpload = require("express-fileupload");
 const notificacionRutas = require("./rutas/notificacionRutas");
 const peliculaRutas = require("./rutas/peliculaRutas");
 const usuarioRutas = require("./rutas/usuarioRutas");
+const chatRutas = require("./rutas/chatRutas")
 
 // -- Inicio Middlewares --
 app.use(express.json());
@@ -22,6 +23,7 @@ app.use(fileUpload());
 app.use("/api", usuarioRutas);
 app.use("/api", peliculaRutas);
 app.use("/api", notificacionRutas);
+app.use("/api", chatRutas)
 
 // -- Fin Middlewares --
 

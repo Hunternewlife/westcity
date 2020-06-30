@@ -12,7 +12,7 @@ import { Pelicula } from '../../modelo/pelicula';
   styleUrls: ['./admin-peliculas.component.scss'],
 })
 export class AdminPeliculasComponent implements OnInit {
-  filterPeliculas = '';
+  filtroPelicula = '';
 
   // Se obtienen al consumir el servicio de peliculas
   peliculas: Array<Pelicula>;
@@ -68,7 +68,7 @@ export class AdminPeliculasComponent implements OnInit {
   obtenerPeliculas() {
     this.peliculasService.obtenerPeliculas().subscribe(
       (response: any) => {
-        this.peliculas = response.peliculas;
+        if (response.peliculas) this.peliculas = response.peliculas;
       },
       (error) => {
         console.log(error);

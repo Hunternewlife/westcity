@@ -1,38 +1,51 @@
 <div class="contenedor">
-    <div class="titulo"> Panel de usuarios </div>
-    <div class="form-group">
-        <!-- <input type="text" name="filterUsuarios" class="form-control" placeholder="Buscar por nombre..." [(ngModel)]="filterUsuarios"> -->
-    </div>
-    <div class="tableFixHead">
+  <div class="titulo">Panel de usuarios</div>
+  <div class="form-group">
+    <input type="text" name="filtroUsuario" class="form-control" placeholder="Buscar por nombre..." [(ngModel)]="filtroUsuario">
+  </div>
+  <div class="tableFixHead">
     <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
-                <th scope="col">Avatar</th>
-                <th scope="col">Estado</th>
-                <th scope="col">rol</th>
-                <th scope="col">membresia</th>                
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-                <!-- <tr *ngFor="let usuario of usuarios | filter:filterUsuarios">  esta linea es para cuando recibamos los Usuarios-->
-               <tr>
-                <th> David </th>
-                <th> Rueda </th>
-                <td class="icon"><i class="far fa-star"></i> <span><img src="../../../assets/images/fondos/octo.png" alt="" width="230px"></span> </td>
-                <td> Activo </td>
-                <td> Admin </td>               
-                <td> Sheriff </td>               
-                <td class="btns"> 
-                    <button type="button" class="btn btn-secondary"><i class="fas fa-microphone-slash"></i></button>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="fas fa-exclamation-triangle"></i></button>
-                </td>
-              </tr>             
-            </tbody>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Avatar</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Membresia</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor="let usuario of usuarios | filter:filterUsuarios">  esta linea es para cuando recibamos los Usuarios-->
+        <tr *ngFor="let usuario of usuarios | filter: filtroUsuario">
+          <th>{{ usuario.nombre }}</th>
+          <th>{{ usuario.apellido }}</th>
+          <td class="icon">
+            <i class="far fa-star"></i>
+            <span
+              ><img
+                src="{{
+                  'http://localhost:3000/api/obtener-img/' + usuario.imagen
+                }}"
+                alt=""
+                width="230px"
+            /></span>
+          </td>
+          <td>{{ usuario.estado }}</td>
+          <td>{{ usuario.rol }}</td>
+          <td>{{ usuario.suscripcion }}</td>
+          <td class="btns">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="cambiarEstado(usuario)"
+            >
+              <i class="fas fa-microphone-slash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
-    </div>       
-
+  </div>
 </div>

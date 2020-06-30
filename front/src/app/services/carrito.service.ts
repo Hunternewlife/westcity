@@ -17,7 +17,21 @@ export class CarritoService {
   }
 
   agregarCarrito( producto: Producto ){
+    console.log('prev lista tiq', this.itemsCarrito)
     this.subject.next([...this.itemsCarrito, producto]);
+    console.log('lista tiq',this.itemsCarrito)
+  }
+  ordenarArreglo(){
+    this.itemsCarrito.sort(function (a, b) {
+      if (a._id > b._id) {
+        return 1;
+      }
+      if (a._id < b._id) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    })
   }
 
   eliminarUnidad(producto: Producto){
@@ -27,19 +41,28 @@ export class CarritoService {
   }
 
   eliminarItem(producto : Producto){
-
-    for (let i = this.itemsCarrito.length; i--;) {
-      if (this.itemsCarrito[i] === producto) {
-          this.itemsCarrito.splice(i, 1);
-      }
-  }
     
-    /* this.itemsCarrito.forEach((itemcarro,index) =>{
-        if(itemcarro._id === producto._id){
-         // this.itemsCarrito.splice(index,1)
-          console.log('pos',index)
+    let eliminar = true;   
+        let arrayL = 0
+        while (this.itemsCarrito.find(product => product._id === producto._id)!=undefined) {
+          if(arrayL>= this.itemsCarrito.length){
+            //console.log('reset')
+            arrayL=0;
+          }
+
+          if(this.itemsCarrito[arrayL]._id!=undefined){
+            if(this.itemsCarrito[arrayL]._id===producto._id){
+              this.itemsCarrito.splice(arrayL, 1);
+            }
+          }
+          
+
+          arrayL++;
+
         }
-    }) */
+      
+     
+
     console.log(this.itemsCarrito)
     this.subject.next(this.itemsCarrito);
 

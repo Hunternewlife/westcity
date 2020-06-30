@@ -6,7 +6,7 @@
       name="filterPeliculas"
       class="form-control"
       placeholder="Buscar por nombre..."
-      [(ngModel)]="filterPeliculas"
+      [(ngModel)]="filtroPelicula"
     />
   </div>
   <div class="tableFixHead">
@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let pelicula of peliculas">
+        <tr *ngFor="let pelicula of peliculas | filter: filtroPelicula">
           <th>{{ pelicula.nombre }}</th>
           <td class="icon">
             <i class="far fa-star"></i> <span>{{ pelicula.sinopsis }}</span>
