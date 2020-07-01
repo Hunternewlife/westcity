@@ -11,13 +11,15 @@ import { delay } from 'rxjs/operators';
 })
 
 export class HeaderComponent implements OnInit {
-  public logged: boolean;
+  public logged: boolean = false;
   public logeo = false;
 
   constructor(
     private renderer: Renderer2,
     private usuariosService: UsuariosService
-  ) {}
+  ) {
+    //this.logged = this.usuariosService.isLogged();
+  }
 
   ngOnInit(): void {
     this.gsapAnimationsNav();
@@ -61,7 +63,6 @@ export class HeaderComponent implements OnInit {
     perfil.forEach((element) => {
       if (this.usuariosService.isLogged()) {
         element.innerHTML = usuarioLogeado.nombre;
-        login2.classList.toggle('noshow');
       }
     });
   };
