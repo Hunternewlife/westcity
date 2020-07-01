@@ -19,6 +19,12 @@ import { ChatComponent } from './components/chat/chat.component';
 // Servicio de productos
 import { ProductosService } from './services/productos.service';
 
+// Servicio de peliculas
+import { PeliculasService } from './services/peliculas.service';
+
+// Servicio de chat
+import { ChatService } from './services/chat.service'
+
 //importar servicios
 import { UsuariosService } from './services/usuarios.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -31,6 +37,12 @@ import { MembresiaComponent } from './components/membresia/membresia.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { CarritoService} from './services/carrito.service';
 import { ConfiteriaComprasComponent } from './components/confiteria-compras/confiteria-compras.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminUsuariosComponent } from './components/admin-usuarios/admin-usuarios.component';
+import { AdminPeliculasComponent } from './components/admin-peliculas/admin-peliculas.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { BoleteriaCompraComponent } from './components/boleteria-compra/boleteria-compra.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +60,13 @@ import { ConfiteriaComprasComponent } from './components/confiteria-compras/conf
     BoleteriaComponent,
     MembresiaComponent,
     CarritoComponent,
-    ConfiteriaComprasComponent
+    ConfiteriaComprasComponent,
+    AdminComponent,
+    AdminDashboardComponent,
+    AdminUsuariosComponent,
+    AdminPeliculasComponent,
+    FilterPipe,
+    BoleteriaCompraComponent
   ],
   imports: [
     BrowserModule,
@@ -59,10 +77,11 @@ import { ConfiteriaComprasComponent } from './components/confiteria-compras/conf
   providers: [
     EmailNotificationService,
     UsuariosService,
-    CarritoService
+    CarritoService,
+    ProductosService,
+    PeliculasService,
+    ChatService
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [EmailNotificationService, UsuariosService, ProductosService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

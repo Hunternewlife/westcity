@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeliculasComponent implements OnInit {
 
+  public detallesPelicula = false;
+
   constructor() { }
 
   ngOnInit(): void {

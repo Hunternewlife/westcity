@@ -1,16 +1,16 @@
 <div>
-    <span class="title margin-botton-10">
-      Carrito <span class="subtitle">({{carrito.length}}) producto(s)</span>
+    <span class="durango py-2">
+      Carrito <span class="card-text">({{carrito.length}}) producto(s)</span>
     </span>
   </div>
   
   <div *ngIf="showCarrito[1].length>0;else carritovaciotmpl">
-    <table class="margin-top-20">
+    <table class="table">
       <thead>
         <tr>
-          <td style="width:20%">Ctdad.</td>
-          <td>Producto</td>
-          <td>Precio</td>
+          <th scope="col" >Ctdad.</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Precio</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +20,9 @@
           </td>
           <td>{{item.nombre}}</td>
           <td>{{item.precio}}€</td>
+          <td><button class="btn btn-danger" (click)="unidadesBtnCarrito(item,i,'sum')" >+</button></td>
+          <td><button class="btn btn-danger" (click)="unidadesBtnCarrito(item,i,'res')">-</button></td>
+          <td><button class="btn text-danger" (click)="unidadesBtnCarrito(item,i,'eli')">X</button></td>
         </tr>      
       </tbody>
       <tfoot>
@@ -38,8 +41,5 @@
       <strong>El carrito esta vacío.</strong>
     </div>
   </ng-template>
-
-  <button (click)="agregarCarrito({'_id': '1','nombre': 'Hamburguesa','descripcion': 'Deliciosa hamburguesa de bisonte con salsa BBQ.','precio': 10000,'tipo': 'confiteria'})">Hamburguesa</button>
-  <button (click)="agregarCarrito({'_id': '2','nombre': 'Perros','descripcion': 'Deliciosa hamburguesa de bisonte con salsa BBQ.','precio': 15000,'tipo': 'confiteria'})">Perro</button>
-  <button (click)="agregarCarrito({'_id': '3','nombre': 'Pizza','descripcion': 'Deliciosa hamburguesa de bisonte con salsa BBQ.','precio': 20000,'tipo': 'confiteria'})">Pizza</button>
-  <button (click)="PagarCarrito()">Pagar</button>
+  <button class="btn btn-danger" (click)="PagarCarrito()">Pagar</button>
+  <button class="btn btn-danger" (click)="vaciarCarrito()">Vaciar</button>

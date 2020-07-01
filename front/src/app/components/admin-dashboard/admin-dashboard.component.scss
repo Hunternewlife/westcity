@@ -1,0 +1,110 @@
+.contenedor{
+    margin: 30px;
+}
+.titulo{
+    margin: 15px 0px;
+    color: black;
+    font-weight: 600;
+}
+.totales{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-family: sans-serif;
+    color: white;
+}
+.total{
+    height: 80px;
+    width: 250px;
+    margin: 0 10%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 1fr 3.5fr;
+}
+.red{
+    background-color: #E91E63;
+}
+.blue{
+    background-color: #00BCD4;
+}
+.green{
+    background-color: #8BC34A;
+}
+.orange{
+    background-color: #FF9800;
+}
+.icon{
+    background-color: rgba(0, 0, 0, 0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+.textos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+.numero{
+    font-size: 20px;
+    font-weight: 700;
+}
+.grafica1{
+    height: 300px;
+    width: 91%;
+    background-image: url(../../../assets/images/fondos/ventasActuales.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; 
+    margin: 20px 40px;
+}
+.textoGrafica{
+    position: relative;
+    top: 12px;
+    left: 20px;
+}
+.divisores{
+    width: 91%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 40px;
+}
+.divisor{
+    width: 400px;
+    height: 286px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 7fr;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.rouch{
+    background-color: #E91E63;
+}
+.bleu{
+    background-color: #00BCD4;
+}
+.vert{
+    background-color: #009688;
+}
+.tittle{
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+.tabla{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: none;
+    font-family: sans-serif;
+}
+.left{
+    margin-left: 15px;
+    line-height: 2.5em;
+}
+.right{
+    text-align: right;
+    margin-right: 15px;
+    line-height: 2.5em;
+    font-weight: 800;
+}

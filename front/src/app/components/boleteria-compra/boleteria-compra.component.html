@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<div class="container-fluid oswald">
+    <div class="py-4 container-fluid">
+        <button type="button" class="btn btn-danger m-1" routerLink="/">Inicio</button>
+        <!-- <button type="button" class="btn btn-danger m-1">Acerca de</button> -->
+        <div style="float: right;">
+            <img src="" alt="">
+            <span *ngIf="usuario.suscripcion==='sheriff'" class="card-text">Descuento Sheriff [50%]</span>
+            <span *ngIf="usuario.suscripcion==='pistolero'" class="card-text">Descuento Sheriff [25%]</span>
+            <span *ngIf="usuario.suscripcion!='sheriff' && usuario.suscripcion!='pistolero'" class="card-text">Sin Descuento, Aquiere una suscripción</span>           
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg border border-light">
+            <h2  class="durango py-2">Novedades</h2>
+            <!-- ngFor -->
+            <div *ngFor="let pelicula of peliculas; index as i"  class="card mb-5">
+                <div class="card-header bg-dark text-white">
+                    {{pelicula.nombre}}
+                </div>
+                <div class="row no-gutters">
+                          <div class="col-md-4">
+                            
+                            <img class="img-fluid img-thumbnail" style="width:100%;height: 100%; " src="{{ruta}}mostrar-poster/{{pelicula.rutaPoster}}" alt="">
+                        </div>
+                  <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Sinopsis</h5>
+                            <p class="card-text">{{pelicula.sinopsis}}</p>
+                            <h5 class="card-title">Horarios</h5>
+                            <select [(ngModel)]="horarioSeleccionado[i]" (change)="capturar(i)">
+                                <option *ngFor="let horario of horarios">
+                                  {{horario}}
+                                </option>
+                            </select>
+                            
+                            <p class="card-text">Cantidad</p>
+                            <select [(ngModel)]="tiquetesSeleccionado[i]" (change)="capturar(i)">
+                                <option *ngFor="let tiquete of tiquetes">
+                                  {{tiquete}}
+                                </option>
+                            </select>
+                            <br>
+                            <br>
+                            <a (click)="agregarTiquete(pelicula,i)" class="btn btn-danger">agregar al carrito</a>
+                            <p class="card-text float-right">Precio: ${{precioTiq}}</p>
+                        </div>                    
+                  </div>
+                </div>
+              </div>  <!-- End Card -->
+              
+        </div><!-- End Columna -->
+
+        <div class="col-lg-3 border border-light">     
+
+            <app-carrito></app-carrito>
+          </div>
+    </div>
+</div>

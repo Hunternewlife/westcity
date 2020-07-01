@@ -1,1 +1,43 @@
-<p>chat works!</p>
+<div [ngClass]="showChat ? 'hid' : 'chat-btn_container'" >
+    <button (click)="toggleChat(!showChat)">Chat</button>
+</div>
+
+    <div [ngClass]="showChat ? 'agente-chat_container' : 'hid'">
+        <div class="agente-chat">
+            <div class="agente-chat_header">
+                <div class="agente-chat_header-logo">
+                    Asistente West City
+                </div>
+                <div (click)="toggleChat(!showChat)" class="agente-chat_header-close">
+                    <div class="agente-chat_header-btnClose line1"></div>
+                    <div class="agente-chat_header-btnClose line2"></div>
+                </div>
+            </div>
+            <div class="agente-chat_result" #results>
+               <table class="agente-chat_result-table">
+                   <tbody>
+                       <tr>
+                           <td >
+                            <div  *ngFor="let chatRes of chatResume index as i; odd as msgUser; even as msgBot"
+                            [class.user-request]="msgUser" 
+                            [class.server-response]="msgBot"
+                            #result>
+                            {{chatRes}}
+                            </div>
+        
+                           </td>
+                       </tr>
+                   </tbody>
+        
+               </table>
+        
+            </div>
+            <div class="agente-chat_input">
+                <form #formularioChat="ngForm" (ngSubmit)=getTxtUsuario()>
+                    <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]=chatMsgs.msgUs placeholder="Escribe...." autocomplete="off">
+                </form>
+            </div>
+        </div>   
+    </div>
+    
+
