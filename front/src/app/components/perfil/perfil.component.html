@@ -31,7 +31,7 @@
                         <label> Tarjeta </label>
                         <blockquote><input type="text" name="tarjeta" #tarjeta="ngModel" [(ngModel)]="usuarioLogeado.tarjeta"></blockquote>
                         <label> Avatar </label>
-                        <blockquote><input type="file" name="imagen"></blockquote>
+                        <blockquote><input type="file" name="nuevaImg" #nuevaImg (change)="prepararImagen($event)"></blockquote>
                         <input type="submit" value="Aceptar" class="submit">
                     </div>
                 </form>
