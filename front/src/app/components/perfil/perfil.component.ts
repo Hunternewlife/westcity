@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent implements OnInit {
-
+  public ruta = this.usuariosService.url;
   mostrarEditar = true;
   usuario = [];
   usuarioLogeado = this.usuariosService.obtenerUsuario();
