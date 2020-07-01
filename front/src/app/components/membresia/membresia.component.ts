@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
 
 // Traer servicio de usuarios
 import { UsuariosService } from '../../services/usuarios.service';
@@ -21,6 +24,7 @@ export class MembresiaComponent implements OnInit {
   ngOnInit(): void {
     // Obtener usuario en sesion
     this.usuarioSesion = this.usuariosService.obtenerUsuario();
+    this.gsapAnimationsMembresia();
   }
 
   // Auxiliar para cambiar a sheriff
@@ -73,5 +77,22 @@ export class MembresiaComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  /*
+    --------------------------------------------------- GSAP Animations ---------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------------------------------  
+  */
+
+ gsapAnimationsMembresia() {
+
+  (function slide1() {
+    let tl = gsap.timeline({defaults: {opacity: 0}});
+
+        tl.from(".tituloMembresia", {y: -50, duration: 2, ease:"back"}, 0.8)
+          .from(".pistolero", {x: -200, duration: 2, ease:"back"}, "-=1.8")
+          .from(".sheriff", {x: 200, duration: 2, ease:"back"}, "<")
+  })();
+
   }
 }

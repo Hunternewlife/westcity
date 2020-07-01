@@ -10,6 +10,12 @@ import { EmailNotificationService } from '../../services/email-notification.serv
 //importar enrutador para hacer redireccionamiento al perfil
 import { Router, ActivatedRoute, Params } from "@angular/router";
 
+// Animaciones
+
+import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -31,6 +37,7 @@ export class RegistroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.gsapAnimationsRegistro();
   }
 
   //suscribirse al servicio de registro
@@ -93,6 +100,22 @@ export class RegistroComponent implements OnInit {
         }
       }
     )
+  }
+
+    /*
+    --------------------------------------------------- GSAP Animations ---------------------------------------------------------------
+    -----------------------------------------------------------------------------------------------------------------------------------  
+  */
+
+ gsapAnimationsRegistro() {
+
+  (function slide1() {
+    let tl = gsap.timeline({defaults: {opacity: 0}});
+
+        tl.from(".form-container", {y: -100, duration: 2, ease:"expo.out"}, 0.8)
+          .from(".link", {y: -50, duration: 2, ease:"expo.out"}, "-=1.5")
+  })();
+
   }
 
 }
