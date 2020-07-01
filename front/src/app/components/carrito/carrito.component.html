@@ -1,45 +1,64 @@
 <div>
-    <span class="durango py-2">
-      Carrito <span class="card-text">({{carrito.length}}) producto(s)</span>
-    </span>
+  <span class="durango py-2">
+    Carrito <span class="card-text">({{ carrito.length }}) producto(s)</span>
+  </span>
+</div>
+
+<div *ngIf="showCarrito[1].length > 0; else carritovaciotmpl">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Ctdad.</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of showCarrito[1]; index as i">
+        <td class="has-text-centered">
+          <span>{{ showCarrito[0][i] }}</span>
+        </td>
+        <td>{{ item.nombre }}</td>
+        <td>${{ item.precio }}</td>
+        <td>
+          <button
+            class="btn btn-danger"
+            (click)="unidadesBtnCarrito(item, i, 'sum')"
+          >
+            +
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-danger"
+            (click)="unidadesBtnCarrito(item, i, 'res')"
+          >
+            -
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn text-danger"
+            (click)="unidadesBtnCarrito(item, i, 'eli')"
+          >
+            X
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr class="carrito-total">
+        <td colspan="2"></td>
+        <td>Total: ${{ total }}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<ng-template #carritovaciotmpl>
+  <div class="margin-top-20">
+    <strong>El carrito esta vacío.</strong>
   </div>
-  
-  <div *ngIf="showCarrito[1].length>0;else carritovaciotmpl">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col" >Ctdad.</th>
-          <th scope="col">Producto</th>
-          <th scope="col">Precio</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of showCarrito[1]; index as i">
-          <td  class="has-text-centered">
-            <span>{{showCarrito[0][i]}}</span>
-          </td>
-          <td>{{item.nombre}}</td>
-          <td>{{item.precio}}€</td>
-          <td><button class="btn btn-danger" (click)="unidadesBtnCarrito(item,i,'sum')" >+</button></td>
-          <td><button class="btn btn-danger" (click)="unidadesBtnCarrito(item,i,'res')">-</button></td>
-          <td><button class="btn text-danger" (click)="unidadesBtnCarrito(item,i,'eli')">X</button></td>
-        </tr>      
-      </tbody>
-      <tfoot>
-          <tr class="carrito-total">
-            <td colspan="2"></td>
-            <td>
-              Total: {{total}}€
-            </td>
-          </tr>
-      </tfoot>
-    </table>
-  </div>
-  
-  <ng-template #carritovaciotmpl>
-    <div class="margin-top-20">
-      <strong>El carrito esta vacío.</strong>
-    </div>
-  </ng-template>
-  <button class="btn btn-danger" (click)="PagarCarrito()">Pagar</button>
-  <button class="btn btn-danger" (click)="vaciarCarrito()">Vaciar</button>
+</ng-template>
+<button class="btn btn-danger" (click)="PagarCarrito()">Pagar</button>
+<button class="btn btn-danger" (click)="vaciarCarrito()">Vaciar</button>
