@@ -3,10 +3,9 @@
 <div class="contenedor" id="peliculas">
     <div *ngIf="detallesPelicula; else listaPelis">
         <!-- <div *ngIf="estado; else fullscreen"> -->
-            <button class="atras" (click)="listaPeliculas()"><img src="../../../assets/images/fondos/flecha.svg" alt=""></button>
             <div class="destacado visible">
                 <div class="frame">
-                    <iframe class="normal" src='{{peliculaInfo.enlacePelicula}}'></iframe>
+                    <iframe class="normal" [src]="movieURL()" allowfullscreen></iframe>
                 </div>
             </div>
             <div class="cajonPelis">
@@ -34,7 +33,8 @@
                     </div>
                 </div>
             </div>
-            </div>
+            <button class="atras" (click)="listaPeliculas()"><img src="../../../assets/images/fondos/flecha.svg" alt=""></button>
+        </div>
         <!-- </div> -->
     </div>
 <!-- 
@@ -58,13 +58,13 @@
 
         <div class="cajonPelis">
             <div class="buscador">
-                <input type="text" name="filterPost" class="form-control" placeholder="Buscar.." [(ngModel)]="filterPost"> 
+                <input type="text" name="filterPost" class="form-control" placeholder="Buscar Peliculas" [(ngModel)]="filterPost"> 
             </div>
-            <h2 class="titulo pad-y cat-title">Clasicos</h2>
+
+            <h2 class="titulo pad-y cat-title">Culto</h2>
             <div class="categoria">
 
-
-                <div class="tarjeta" *ngFor="let pelicula of peliculas | filter:filterPost">
+                <div class="tarjeta" *ngFor="let pelicula of culto | filter:filterPost">
                     <img src="{{ruta}}mostrar-poster/{{pelicula.rutaPoster}}" alt="">
                     <div class="contenido">
                         <h3>{{pelicula.nombre}}</h3>
@@ -73,9 +73,42 @@
                 </div>
             </div>
 
-            <h2 class="titulo pad-y cat-title">Americanas</h2>
+            <h2 class="titulo pad-y cat-title">Contemporaneas</h2>
             <div class="categoria">
+
+                <div class="tarjeta" *ngFor="let pelicula of contemporaneas | filter:filterPost">
+                    <img src="{{ruta}}mostrar-poster/{{pelicula.rutaPoster}}" alt="">
+                    <div class="contenido">
+                        <h3>{{pelicula.nombre}}</h3>
+                        <button class="boton titulo botonCaja" (click)="peliIndividual(pelicula)">Ver Ahora</button>
+                    </div>
+                </div>
             </div>
+
+            <h2 class="titulo pad-y cat-title">Clásicas</h2>
+            <div class="categoria">
+
+                <div class="tarjeta" *ngFor="let pelicula of clasicas | filter:filterPost">
+                    <img src="{{ruta}}mostrar-poster/{{pelicula.rutaPoster}}" alt="">
+                    <div class="contenido">
+                        <h3>{{pelicula.nombre}}</h3>
+                        <button class="boton titulo botonCaja" (click)="peliIndividual(pelicula)">Ver Ahora</button>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="titulo pad-y cat-title">Spaghetti Western</h2>
+            <div class="categoria">
+
+                <div class="tarjeta" *ngFor="let pelicula of spaghetti | filter:filterPost">
+                    <img src="{{ruta}}mostrar-poster/{{pelicula.rutaPoster}}" alt="">
+                    <div class="contenido">
+                        <h3>{{pelicula.nombre}}</h3>
+                        <button class="boton titulo botonCaja" (click)="peliIndividual(pelicula)">Ver Ahora</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </ng-template>
 </div>
