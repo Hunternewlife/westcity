@@ -5,6 +5,21 @@ position: relative;
 top: 9vh;
 font-family: oswald;
 color: white;
+text-shadow: 5px 5px 5px black;
+background-color: rgba(141,0,12,1);
+}
+.atras{
+    background: none;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    width: 50px;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+}
+.atras img{
+    width: 100%;
 }
 .destacado{
     position: relative;
@@ -17,7 +32,10 @@ color: white;
     height: 0;
     padding-bottom: 56.25%;
 }
-.frame iframe{
+.visible{
+    max-height: 110vh;
+}
+.normal{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -70,17 +88,35 @@ margin: 1% 5%;
     height: 100%;
     background: linear-gradient(180deg,rgba(141,0,12,0) 30%, rgba(0,0,0,1) 100%);
 }
+.big{
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 29%;
+    text-shadow: 5px 5px 5px black;
+}
+.centrado{
+    text-align: center;
+}
 
 //vista de peliculas sugeridas
 
 .cajonPelis{
     background: linear-gradient(180deg, /* rgba(141,0,12,0) 0%, */ rgba(141,0,12,1) 0%, rgba(0,0,0,1) 100%);
-    
+}
+.buscador input{
+    float: right;
+    border-radius: 50px;
+    padding: 10px;
+    border: 3px solid #e7e65a;
+    margin: 10px;
+    background: none;
+    color: white;
+    font-weight: bold;
 }
 .categoria{
     display: flex;
     flex-wrap: wrap;
-    max-width: 91%;
+    max-width: 91.2%;
     margin: auto;
 }
 .tarjeta{
@@ -100,7 +136,7 @@ margin: 1% 5%;
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(18vw*1.5);
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.705);
     opacity: 0;
 }
@@ -112,7 +148,7 @@ margin: 1% 5%;
     padding: 5%;
     font-size: x-large;
 }
-.contenido button{
+.botonCaja{
     position: absolute;
     bottom: 2%;
     left: 50%;
@@ -123,4 +159,56 @@ margin: 1% 5%;
 .cat-title{
     font-size: 3vw;
     padding: 5% 5% 2% 5%;
+}
+
+/* .fullscreen{
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+} */
+@media(max-width: 1262px){
+    .normal{
+        top: 0;
+    }
+    .contenido h3{
+        font-size: large;
+    }
+}
+@media(max-width: 800px){
+    .cat-title{
+        font-size: 5vw;
+    }
+    .tarjeta{
+        width: 30vw;
+        height: calc(30vw*1.5);
+    }
+    .textoDestacado{
+        font-size: large
+    }
+    .botonDestacado{
+        font-size: small;
+        }
+}
+@media(max-width: 600px){
+    .descripcion{
+        position: relative;
+    }
+    .tituloDestacado{
+        font-size: 5vw;
+    }
+    .botonDestacado{
+        font-size: small;
+    }
+    .botonDestacado{
+        font-size: x-small;
+    }
+    .textoDestacado{
+        font-size: 4vw;
+    }
+    .contenido button{
+        font-size: x-small;
+    }
 }

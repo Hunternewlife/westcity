@@ -9,7 +9,8 @@
         </div>
         <div class="block one"> <a class="btnedit" (click)="showEditar()"> Editar Perfil </a> </div>
         <div class="block"> <a class="btnpass" (click)="showContrasena()"> Cambiar Contrasena </a> </div>
-        <div class="block"> <a> Membresia </a> </div> <!-- link to membership -->
+        <div class="block"> <a routerLink="/membresia"> Membresia </a> </div>
+        <div class="block"> <a (click)="cerrarSesion()"> Cerrar sesion </a> </div>
     </div>
     <div class="formularios">
         <div class="minicontainer">

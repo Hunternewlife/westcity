@@ -1,0 +1,132 @@
+.agente-chat_container{
+    position: fixed;
+    width: 455px;
+    height: 570px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 30px;
+    bottom: 30px;
+}
+
+ .agente-chat{
+    font-weight: 300;
+    width: 90%;
+    height: 90%;
+    color: #2b313f;
+    font-size: 12px;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(158,158,158,1);
+-moz-box-shadow: 0px 0px 9px 0px rgba(158,158,158,1);
+box-shadow: 0px 0px 9px 0px rgba(158,158,158,1);
+
+}
+
+.agente-chat_header{
+    min-height: 80px;
+    height: 80px;
+    overflow: hidden;
+    width: 100%;
+    background-color: #2b303e;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.agente-chat_header-logo{
+    font-size: 20px;
+    margin-left: 20px;
+}
+.agente-chat_header-close{
+    margin-right: 21px;
+    cursor: pointer;
+
+}
+
+
+
+.agente-chat_header-btnClose{
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 6px;
+}
+
+.agente-chat_header-btnClose.line1{
+    transform: rotate(-45deg) translate(2px, 9px);
+}
+
+.agente-chat_header-btnClose.line2{
+    transform: rotate(45deg) translate(3px, -8px);
+}
+.agente-chat_result{
+    overflow-y: auto;
+    top: 110px;
+    bottom: 55px;
+    width: 100%;
+    height: 378px;
+}
+.server-response{
+    max-width: 60%;   
+    display: block;
+    background-color: #cfcfcf;
+    float: left;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding: 15px 25px;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    font-size: 16px;
+    clear: both;
+}
+.user-request{
+    max-width: 60%;
+    display: block;
+    color: #ffffff;
+    background-color: #d17575;
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    padding: 15px 25px;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    font-size: 16px;
+    clear: both;
+}
+.agente-chat_input{
+    position: relative;
+    bottom: 0;
+    height: 55px;
+    border-top: 1px solid lightgray;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    
+
+} 
+.agente-chat_input form{
+    display: flex;
+    width: 100%;
+    height: 90%;
+    justify-content: center;
+    
+}
+.agente-chat_input form input{
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 300;
+}

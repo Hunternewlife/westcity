@@ -11,7 +11,7 @@ import { delay } from 'rxjs/operators';
 })
 
 export class HeaderComponent implements OnInit {
-  public logged = 'false';
+  public logged: boolean;
   public logeo = false;
 
   constructor(
@@ -24,6 +24,9 @@ export class HeaderComponent implements OnInit {
     this.navSlide();
 
     console.log(this.logeo);
+
+    // El servicio me informa de la existencia de una sesion
+    this.logged = this.usuariosService.isLogged();
   }
 
   navSlide = () => {
@@ -83,4 +86,3 @@ export class HeaderComponent implements OnInit {
   }
 }
 }
-

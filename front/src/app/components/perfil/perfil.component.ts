@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../services/usuarios.service';
 import { Usuario } from '../../modelo/usuario';
 
+// Servicio para redireccionar despues de cerrada la sesion
+import { Router } from "@angular/router";
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -17,7 +20,9 @@ export class PerfilComponent implements OnInit {
   pwds;
 
   constructor(
-    private usuariosService:UsuariosService
+    private usuariosService:UsuariosService,
+    // Inyectar servicio de redireccionamiento
+    private _router : Router
   ) {
     this.pwds = { oldPwd: "", newPwd: ""};
   }
@@ -62,6 +67,13 @@ export class PerfilComponent implements OnInit {
     // Limpiar estado relacionado con cambio de contraseña
     this.pwds.oldPwd = "";
     this.pwds.newPwd = "";
+  }
+
+  // Auxiliar para cerrar la sesion
+  cerrarSesion() {
+    // Cerrar sesion con el servicio de usuarios
+    this.usuariosService.cerrarSesion();
+    this._router.navigate(['/']);
   }
 
 
