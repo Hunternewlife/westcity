@@ -79,7 +79,16 @@ export class UsuariosService {
   }
 
   getRol() {
-    return JSON.parse(localStorage.getItem('sesion')).rol;
+    if(localStorage.getItem('logged')){
+      return JSON.parse(localStorage.getItem('sesion')).rol;
+    }
+    
+  }
+  getSuscripcion(){
+    if(localStorage.getItem('logged')){
+      return JSON.parse(localStorage.getItem('sesion')).suscripcion;
+    }
+
   }
 
   // Servicio para obtener todos los usuarios

@@ -21,14 +21,14 @@
     <div class="session figura">
         <ul class="sessionlinks"> 
             <li> <a routerLink="/perfil" class="perfil nombre2" > </a> </li> 
-            <li> <a routerLink="/login" class="login2"> Login </a> </li> 
+            <li> <a routerLink="/login" [ngClass]="logged ? 'noshow' : 'login2'"> Login </a> </li> 
         </ul>
     </div>
 </nav>
 <div class="session figura">
     <ul class="sessionlinks">
-        <li> <a routerLink="/perfil" class="perfil nombre2" > </a> </li>
-        <li> <a routerLink="/login" class="login2"> Login </a> </li>
+        <li> <a routerLink="/perfil" class="perfil nombre2" > </a> </li> 
+        <li> <a routerLink="/login" [ngClass]="logged ? 'noshow' : 'login2'"> Login </a> </li> 
     </ul>
 </div>
 

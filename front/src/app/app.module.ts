@@ -45,6 +45,10 @@ import { AdminPeliculasComponent } from './components/admin-peliculas/admin-peli
 import { FilterPipe } from './pipes/filter.pipe';
 import { BoleteriaCompraComponent } from './components/boleteria-compra/boleteria-compra.component';
 
+// Importar guards
+import { AuthGuard } from './guards/auth.guard';
+import { RoleGuard } from './guards/role.guard'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,7 +86,9 @@ import { BoleteriaCompraComponent } from './components/boleteria-compra/boleteri
     CarritoService,
     ProductosService,
     PeliculasService,
-    ChatService
+    ChatService,
+    AuthGuard,
+    RoleGuard
   ],
   bootstrap: [AppComponent],
 })

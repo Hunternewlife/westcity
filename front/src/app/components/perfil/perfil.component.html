@@ -3,7 +3,9 @@
     <div class="opciones">
         <div class="foto">
             <div class="img">
-                <div class="fotoperfil"></div>
+                <div *ngIf="usuarioLogeado.imagen===null" class="fotoperfil"></div>
+                <div *ngIf="usuarioLogeado.imagen!=null"  class="fotoperfil" [style.background-image]="'url('+ruta+'obtener-img/'+usuarioLogeado.imagen+')'"></div>
+                
             </div>
             <div class="name" id="usuario"> {{usuarioLogeado.nombre}} </div>
         </div>
