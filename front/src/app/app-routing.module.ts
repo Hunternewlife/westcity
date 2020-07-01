@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
+//Importar Guards
+import { AuthGuard } from './guards/auth.guard';
+import { RoleGuard } from './guards/role.guard'
+
 // Importar los componentes 
 import { CinemaComponent } from './components/cinema/cinema.component';
 import { LoginComponent } from "./components/login/login.component";
@@ -25,13 +29,20 @@ const routes: Routes = [
   { path: '', component: CinemaComponent, data : { animation: 'home' } },
   { path: 'login', component: LoginComponent, data : { animation: 'login' } },
   { path: 'registro', component: RegistroComponent, data : { animation: 'registro' } },    
-  { path: 'perfil', component: PerfilComponent, data : { animation: 'perfil' } },
+  { path: 'perfil', component: PerfilComponent,
+            canActivate : [AuthGuard],
+           data : { animation: 'perfil' } },
   { path: 'cartelera', component: CarteleraComponent, data : { animation: 'cartelera' } },
-  { path: 'peliculas', component: PeliculasComponent, data : { animation: 'peliculas' } },
+  { path: 'peliculas', component: PeliculasComponent, 
+          canActivate: [AuthGuard,RoleGuard],
+          data : { rol: 'admin',suscripcion: 'sheriff',animation: 'peliculas' } },
   { path: 'confiteria', component: ConfiteriaComponent, data : { animation: 'confiteria' } },
   { path: 'boleteria', component: BoleteriaComponent, data : { animation: 'boleteria' } },
-  { path: 'compras', component: ConfiteriaComprasComponent, data : { animation: 'compras' } },
+  { path: 'compras', component: ConfiteriaComprasComponent, 
+            canActivate : [AuthGuard],
+            data : { animation: 'compras' } },
   { path: 'admin', component: AdminComponent,
+  canActivate: [AuthGuard,RoleGuard],
     data: {rol: 'admin', animation: 'admin'},
     children:  [
       {
@@ -47,7 +58,9 @@ const routes: Routes = [
         component: AdminUsuariosComponent
       }
   ] },
-  { path: 'boleteria-compras', component: BoleteriaCompraComponent, data : { animation: 'boleteria-compras' } },
+  { path: 'boleteria-compras', component: BoleteriaCompraComponent,
+       canActivate : [AuthGuard],
+       data : { animation: 'boleteria-compras' } },
   { path: 'membresia', component: MembresiaComponent, data : { animation: 'membresia' } }
 ];
 

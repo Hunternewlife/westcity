@@ -37,6 +37,9 @@ export class RegistroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.usuariosService.isLogged()) {
+      this._router.navigate(['/'])
+    }
     this.gsapAnimationsRegistro();
   }
 
