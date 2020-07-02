@@ -47,17 +47,22 @@ export class ConfiteriaComprasComponent implements OnInit {
     // (Notese que el metodo no es asincrono)
     let productosPre = this.productosService.getProductos();
 
-    // Preprocesar aplicando descuento
-    if (this.usuario.suscripcion === 'sheriff')
+    if (this.usuariosService.isLogged()) {
+      // Preprocesar aplicando descuento
+      if (this.usuario.suscripcion === 'sheriff')
       this.productos = productosPre.map((producto) => {
         producto.precio = producto.precio * 0.5;
         return producto;
       });
-    else if (this.usuario.suscripcion === 'pistolero')
+      else if (this.usuario.suscripcion === 'pistolero')
       this.productos = productosPre.map((producto) => {
         producto.precio = producto.precio * 0.75;
         return producto;
       });
+    } else {
+      this.productos = productosPre;
+    }
+
     // Segregar entre combos y comidas
     this.combos = this.productos.filter(
       (producto) => producto.tipo === 'combo'
@@ -70,10 +75,14 @@ export class ConfiteriaComprasComponent implements OnInit {
 
   // Metodo para agregar productos al carrito
   agregarACarrito(producto: Producto) {
-    // Agregar producto al carrito de compra
-    this.carritoService.agregarCarrito(producto);
+    if (this.usuariosService.isLogged()) {
+      // Agregar producto al carrito de compra
+      this.carritoService.agregarCarrito(producto);
 
-    // Alerta de compra
-    alert(`Producto "${producto.nombre}" agregado al carrito!`);
+      // Alerta de compra
+      alert(`Producto "${producto.nombre}" agregado al carrito!`);
+    } else {
+      alert('Usted debe iniciar sesion para hacer compras');
+    }
   }
 }
