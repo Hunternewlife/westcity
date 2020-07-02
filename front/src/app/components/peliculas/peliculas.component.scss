@@ -1,12 +1,12 @@
 //pelicula destacada
 
 .contenedor{
-position: relative;
-top: 9vh;
-font-family: oswald;
-color: white;
-text-shadow: 5px 5px 5px black;
-background-color: rgba(141,0,12,1);
+    position: relative;
+    top: 9vh;
+    font-family: oswald;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+    background-color: rgba(141,0,12,1);
 }
 .atras{
     background: none;
@@ -16,7 +16,6 @@ background-color: rgba(141,0,12,1);
     width: 50px;
     border: none;
     cursor: pointer;
-    z-index: 2;
 }
 .atras img{
     width: 100%;
@@ -48,10 +47,10 @@ background-color: rgba(141,0,12,1);
     bottom: 5%;
 }
 .boton{
-background: none;
-border: 3px solid white;
-cursor: pointer;
-color: white;
+    background: none;
+    border: 3px solid white;
+    cursor: pointer;
+    color: white;
 }
 .titulo{
     font-family: durango;
@@ -210,5 +209,10 @@ margin: 1% 5%;
     }
     .contenido button{
         font-size: x-small;
+    }
+    .buscador input{
+        float: none;
+        margin-top: 30px;
+        width: 86%;
     }
 }
