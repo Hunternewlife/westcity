@@ -11,3 +11,10 @@
 .oswald{
     font-family: oswald !important;
 }
+.scroll{
+    overflow: hidden;
+    scroll-behavior: auto;
+}
+.fixed{
+   position: sticky;
+}
